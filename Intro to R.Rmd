@@ -122,28 +122,28 @@ paste('Мой возраст: ', as.character(29))
 # /+hmddmmmmmmmmmmmds:-::++oys+//sys+//oyooshyyho+oydmdddddddyo+:+hho/::
 # +smdmmmmmmmmmmmmh+---::++//+oydmmddsoohsoyhyyhyyyhdmdhhydddddyo/sso/::
 # +ohmmmmmmmmmmmds:---::///shdmmdmmmddhhhssyyhhhhyyyyhdy+hdhddddy+/:::--
-# ++odmmmmmmmmmd+----::ohddddddhhdmddhhhdddddddddhsssssydhddddh+/:----
-# +++odmmmmmmmd+----:/ohhddddddhyyddhhdmdhdhhhdhdddhyssyhdddddho+:---.
+# ++odmmmmmmmmmd+------::ohddddddhhdmddhhhdddddddddhsssssydhddddh+/:----
+# +++odmmmmmmmd+------:/ohhddddddhyyddhhdmdhdhhhdhdddhyssyhdddddho+:---.
 # ++++ymmmmmmmh:-.--::+shhddmydhddhhysyhmdhhdmhhhddddddhhyyyddddyoo:....
-# ++++odmmmmmdy---:/shhhhddddddhhssshdmddhhdhdyhhhdddddddhhddhs++/....
+# ++++odmmmmmdy-----:/shhhhddddddhhssshdmddhhdhdyhhhdddddddhhddhs++/....
 # ++++++ydddddy----::+yddhhhhhhyyhsoshmddddhhhdhhhddddddddddddhhyo+/:...
-# /++++++oshhhs---:/shhyyhdddddyosdmddddhhhhhddhyyhhhddddddddhyys/:-..
-# ++++++++++/o+--.---/+sssyyyhyoydmmddddhhhhhhdmdddddddddddddddhyo::-.
+# /++++++oshhhs-----:/shhyyhdddddyosdmddddhhhhhddhyyhhhddddddddhyys/:-..
+# ++++++++++/o+--.-----/+sssyyyhyoydmmddddhhhhhhdmdddddddddddddddhyo::-.
 # +++++++++/--:-..-+/..-:+osssyyssdmmdddddhhyhdddhyyhdddddddddddddhs//--
 # /++++++++/---...-/:.-:+o++/+ssshmdddddddhhhddhhdddddddmdddddddddho//:-
 # +++++++++/:::-..-:---/ooo+/+ysydmddddddddddmddddddddddmmmddddddds+/:::
 # ++++++++:-...-....--:+yysoshhhdmmmmmddddddmdddddddddddmmmmmmmdddoo/:::
 # +++++++/-..`..-...-:/+syyhdddmmddddddddddmmdddmmmmmdddmmmmmmmmdyo/::::
 # ++++++/:-.....--.---:/oyhddddddhhdddddmmmmmddmmmmmmdddmmmmmdddyo//:::/
-# /+++++/--.--...----:/ohddmmmdddddmmmmmmdmmmmmmmmmmddmmmmmddys+///:/:
+# /+++++/--.--...------:/ohddmmmdddddmmmmmmdmmmmmmmmmmddmmmmmddys+///:/:
 # //////:....--...-:::::/+shhdddmmmmmmmmdmmmmmmmmmmmdmmmmmmmdhyo//:/::/:
 # /////:.......--..-:::::/+shddmddmmmmdmmmmmmmmmmmmmmmmmmddhhso////:///:
 # :///:.``.....---..-::::/+osyhdmmmmmmmmmmmmmmmmddmmmmmdyyyyo+////::/:::
-# ::::-.```...--::-.----::/+syhdddddddmdddhyyyyhddmmhso+++/:://:::::::
+# ::::-.```...--::-.------::/+syhdddddddmdddhyyyyhddmmhso+++/:://:::::::
 # ::::.``````..-:::--..----::/+oossssyhddyo+:://oyhhys+:::/::::/::::::--
-# :::-.```````....-:--...----:::::/oso/---::/++//:--::::://::::---..
-# :::-`````````....----....--....-----......--::::::/::::://::::--....
-# -::-.````.......--:---......-......----:::/+++++//////:::::---......
+# :::-.```````....-:--...------:::::/oso/-----::/++//:--::::://::::---..
+# :::-`````````....----....--....-------......--::::::/::::://::::--....
+# -::-.````.......--:---......-......------:::/+++++//////:::::---......
 ```
 
 
