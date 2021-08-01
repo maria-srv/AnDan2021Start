@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Однофакторный дисперсионный анализ | ANOVA a.k.a. Дисперсионный анализ</title>
+  <meta name="description" content="7 Однофакторный дисперсионный анализ | ANOVA a.k.a. Дисперсионный анализ" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Однофакторный дисперсионный анализ | ANOVA a.k.a. Дисперсионный анализ" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Однофакторный дисперсионный анализ | ANOVA a.k.a. Дисперсионный анализ" />
+  
+  
+  
+
+<meta name="author" content="А. Ангельгардт" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="зачем-нужен-дисперсионный-анализ.html"/>
+<link rel="next" href="многофакторный-дисперсионный-анализ.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">2021 Андан стартовая</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> О курсе</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#общее"><i class="fa fa-check"></i><b>1.1</b> Общее</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#типы-данных"><i class="fa fa-check"></i><b>1.2</b> Типы данных</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#целое-число-integer"><i class="fa fa-check"></i><b>1.2.1</b> Целое число — integer</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#число-с-плавающей-запятой-double"><i class="fa fa-check"></i><b>1.2.2</b> Число с плавающей запятой — double</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#комплексные-числа-complex"><i class="fa fa-check"></i><b>1.2.3</b> Комплексные числа — complex</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#символьный-тип-данныхстроки-character"><i class="fa fa-check"></i><b>1.2.4</b> Символьный тип данных(строки) — character</a></li>
+<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#факторы"><i class="fa fa-check"></i><b>1.2.5</b> Факторы</a></li>
+<li class="chapter" data-level="1.2.6" data-path="index.html"><a href="index.html#ordered-factor-упорядоченный"><i class="fa fa-check"></i><b>1.2.6</b> Ordered factor (упорядоченный)</a></li>
+<li class="chapter" data-level="1.2.7" data-path="index.html"><a href="index.html#логические---boolean"><i class="fa fa-check"></i><b>1.2.7</b> Логические - boolean</a></li>
+<li class="chapter" data-level="1.2.8" data-path="index.html"><a href="index.html#есть-еще-такой-тип-данных-как-даты."><i class="fa fa-check"></i><b>1.2.8</b> Есть еще такой тип данных, как даты.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#структуры-данных"><i class="fa fa-check"></i><b>1.3</b> Структуры данных</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#вектор"><i class="fa fa-check"></i><b>1.3.1</b> Вектор</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#матрицы"><i class="fa fa-check"></i><b>1.3.2</b> Матрицы</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#списки"><i class="fa fa-check"></i><b>1.3.3</b> Списки</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#дата-фреймы"><i class="fa fa-check"></i><b>1.3.4</b> Дата фреймы</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#функции-и-простые-действия-с-данными"><i class="fa fa-check"></i><b>1.4</b> Функции и простые действия с данными</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#задания-для-тренировки"><i class="fa fa-check"></i><b>1.5</b> Задания для тренировки</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#фильтрация-строк-и-столбцов-в-base-r"><i class="fa fa-check"></i><b>1.6</b> Фильтрация строк и столбцов в base R</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="index.html"><a href="index.html#фильтрация-вектора-по-условию"><i class="fa fa-check"></i><b>1.6.1</b> Фильтрация вектора по условию</a></li>
+<li class="chapter" data-level="1.6.2" data-path="index.html"><a href="index.html#фильтрация-дата.фрейма-по-условию"><i class="fa fa-check"></i><b>1.6.2</b> Фильтрация дата.фрейма по условию</a></li>
+<li class="chapter" data-level="1.6.3" data-path="index.html"><a href="index.html#фильтрация-по-результату-функции"><i class="fa fa-check"></i><b>1.6.3</b> Фильтрация по результату функции</a></li>
+<li class="chapter" data-level="1.6.4" data-path="index.html"><a href="index.html#фильтрация-для-группировки"><i class="fa fa-check"></i><b>1.6.4</b> Фильтрация для группировки</a></li>
+<li class="chapter" data-level="1.6.5" data-path="index.html"><a href="index.html#введение-в-data.table"><i class="fa fa-check"></i><b>1.6.5</b> Введение в data.table</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#продолжаем-с-data.table"><i class="fa fa-check"></i><b>1.7</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="index.html"><a href="index.html#счёт-элементов-с-помощью-.n"><i class="fa fa-check"></i><b>1.7.1</b> Счёт элементов с помощью .N</a></li>
+<li class="chapter" data-level="1.7.2" data-path="index.html"><a href="index.html#несколько-группировок"><i class="fa fa-check"></i><b>1.7.2</b> Несколько группировок</a></li>
+<li class="chapter" data-level="1.7.3" data-path="index.html"><a href="index.html#несколько-выражений"><i class="fa fa-check"></i><b>1.7.3</b> Несколько выражений</a></li>
+<li class="chapter" data-level="1.7.4" data-path="index.html"><a href="index.html#имена-колонок"><i class="fa fa-check"></i><b>1.7.4</b> Имена колонок</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#указание-имён-при-создании-колонок"><i class="fa fa-check"></i><b>1.8</b> Указание имён при создании колонок</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#вечер-в-хату-вектор-в-colnames"><i class="fa fa-check"></i><b>1.9</b> Вечер в хату, вектор в <code>colnames()</code></a></li>
+<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#setnames-из-библиотеки-data.table"><i class="fa fa-check"></i><b>1.10</b> <code>setnames()</code> из библиотеки <code>data.table</code></a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="index.html"><a href="index.html#новый-дата.тейбл-или-колонка-в-существующем"><i class="fa fa-check"></i><b>1.10.1</b> Новый дата.тейбл или колонка в существующем?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="интродакшон.html"><a href="интродакшон.html"><i class="fa fa-check"></i><b>2</b> Интродакшон</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="интродакшон.html"><a href="интродакшон.html#визуализация-это-зачем"><i class="fa fa-check"></i><b>2.1</b> Визуализация это зачем?</a></li>
+<li class="chapter" data-level="2.2" data-path="интродакшон.html"><a href="интродакшон.html#философия-a-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>2.2</b> Философия A Layered Grammar of Graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="экшон.html"><a href="экшон.html"><i class="fa fa-check"></i><b>3</b> Экшон</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="экшон.html"><a href="экшон.html#пакеты"><i class="fa fa-check"></i><b>3.1</b> Пакеты</a></li>
+<li class="chapter" data-level="3.2" data-path="экшон.html"><a href="экшон.html#данные"><i class="fa fa-check"></i><b>3.2</b> Данные</a></li>
+<li class="chapter" data-level="3.3" data-path="экшон.html"><a href="экшон.html#строим-базовый-график"><i class="fa fa-check"></i><b>3.3</b> Строим базовый график</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="экшон.html"><a href="экшон.html#базовый-слой"><i class="fa fa-check"></i><b>3.3.1</b> Базовый слой</a></li>
+<li class="chapter" data-level="3.3.2" data-path="экшон.html"><a href="экшон.html#разметка-осей-и-переменные.-эстетики"><i class="fa fa-check"></i><b>3.3.2</b> Разметка осей и переменные. Эстетики</a></li>
+<li class="chapter" data-level="3.3.3" data-path="экшон.html"><a href="экшон.html#геомы"><i class="fa fa-check"></i><b>3.3.3</b> Геомы</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="экшон.html"><a href="экшон.html#ищем-более-сложные-закономерности"><i class="fa fa-check"></i><b>3.4</b> Ищем более сложные закономерности</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="экшон.html"><a href="экшон.html#группировка-по-переменной"><i class="fa fa-check"></i><b>3.4.1</b> Группировка по переменной</a></li>
+<li class="chapter" data-level="3.4.2" data-path="экшон.html"><a href="экшон.html#больше-переменных"><i class="fa fa-check"></i><b>3.4.2</b> Больше переменных</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="экшон.html"><a href="экшон.html#важное-замечание-о-визуализации"><i class="fa fa-check"></i><b>3.5</b> Важное замечание о визуализации</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="экшон.html"><a href="экшон.html#фасетирование"><i class="fa fa-check"></i><b>3.5.1</b> Фасетирование</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="экшон.html"><a href="экшон.html#инструменты-встроенной-статистической-обработки"><i class="fa fa-check"></i><b>3.6</b> Инструменты встроенной статистической обработки</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="экшон.html"><a href="экшон.html#статы"><i class="fa fa-check"></i><b>3.6.1</b> Статы</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="экшон.html"><a href="экшон.html#настраиваем-график"><i class="fa fa-check"></i><b>3.7</b> Настраиваем график</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="экшон.html"><a href="экшон.html#темы"><i class="fa fa-check"></i><b>3.7.1</b> Темы</a></li>
+<li class="chapter" data-level="3.7.2" data-path="экшон.html"><a href="экшон.html#кастомизация-шкал"><i class="fa fa-check"></i><b>3.7.2</b> Кастомизация шкал</a></li>
+<li class="chapter" data-level="3.7.3" data-path="экшон.html"><a href="экшон.html#последние-штрихи"><i class="fa fa-check"></i><b>3.7.3</b> Последние штрихи</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="экшон.html"><a href="экшон.html#сохранение-графиков"><i class="fa fa-check"></i><b>3.8</b> Сохранение графиков</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="файнал-босс.html"><a href="файнал-босс.html"><i class="fa fa-check"></i><b>4</b> Файнал босс</a></li>
+<li class="chapter" data-level="5" data-path="конклюжон.html"><a href="конклюжон.html"><i class="fa fa-check"></i><b>5</b> Конклюжон</a></li>
+<li class="chapter" data-level="6" data-path="зачем-нужен-дисперсионный-анализ.html"><a href="зачем-нужен-дисперсионный-анализ.html"><i class="fa fa-check"></i><b>6</b> Зачем нужен дисперсионный анализ?</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="зачем-нужен-дисперсионный-анализ.html"><a href="зачем-нужен-дисперсионный-анализ.html#проблема-множественных-сравнений"><i class="fa fa-check"></i><b>6.1</b> Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="6.2" data-path="зачем-нужен-дисперсионный-анализ.html"><a href="зачем-нужен-дисперсионный-анализ.html#идея-дисперсионного-анализа"><i class="fa fa-check"></i><b>6.2</b> Идея дисперсионного анализа</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="однофакторный-дисперсионный-анализ.html"><a href="однофакторный-дисперсионный-анализ.html"><i class="fa fa-check"></i><b>7</b> Однофакторный дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="однофакторный-дисперсионный-анализ.html"><a href="однофакторный-дисперсионный-анализ.html#структура-изменчивости"><i class="fa fa-check"></i><b>7.1</b> Структура изменчивости</a></li>
+<li class="chapter" data-level="7.2" data-path="однофакторный-дисперсионный-анализ.html"><a href="однофакторный-дисперсионный-анализ.html#тестирование-значимости-фактора"><i class="fa fa-check"></i><b>7.2</b> Тестирование значимости фактора</a></li>
+<li class="chapter" data-level="7.3" data-path="однофакторный-дисперсионный-анализ.html"><a href="однофакторный-дисперсионный-анализ.html#данные-1"><i class="fa fa-check"></i><b>7.3</b> Данные</a></li>
+<li class="chapter" data-level="7.4" data-path="однофакторный-дисперсионный-анализ.html"><a href="однофакторный-дисперсионный-анализ.html#дисперсионный-анализ-в-r"><i class="fa fa-check"></i><b>7.4</b> Дисперсионный анализ в R</a></li>
+<li class="chapter" data-level="7.5" data-path="однофакторный-дисперсионный-анализ.html"><a href="однофакторный-дисперсионный-анализ.html#post-hoc-тесты"><i class="fa fa-check"></i><b>7.5</b> Post hoc тесты</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="многофакторный-дисперсионный-анализ.html"><a href="многофакторный-дисперсионный-анализ.html"><i class="fa fa-check"></i><b>8</b> Многофакторный дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="многофакторный-дисперсионный-анализ.html"><a href="многофакторный-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-без-взаимодействия-в-r"><i class="fa fa-check"></i><b>8.1</b> Многофакторный дисперсионный анализ без взаимодействия в R</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="многофакторный-дисперсионный-анализ.html"><a href="многофакторный-дисперсионный-анализ.html#post-hoc-тесты-1"><i class="fa fa-check"></i><b>8.1.1</b> Post hoc тесты</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="многофакторный-дисперсионный-анализ.html"><a href="многофакторный-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-со-взаимодействием-в-r"><i class="fa fa-check"></i><b>8.2</b> Многофакторный дисперсионный анализ со взаимодействием в R</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="многофакторный-дисперсионный-анализ.html"><a href="многофакторный-дисперсионный-анализ.html#post-hoc-тесты-2"><i class="fa fa-check"></i><b>8.2.1</b> Post hoc тесты</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="важность-аггрегации-данных.html"><a href="важность-аггрегации-данных.html"><i class="fa fa-check"></i><b>9</b> Важность аггрегации данных</a></li>
+<li class="chapter" data-level="10" data-path="итоги.html"><a href="итоги.html"><i class="fa fa-check"></i><b>10</b> Итоги</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ANOVA a.k.a. Дисперсионный анализ</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="однофакторный-дисперсионный-анализ" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Однофакторный дисперсионный анализ</h1>
+<p>Здесь всё просто. У нас один фактор — категориальная переменная с несколькими уровнями — и мы хотим узнать, оказывает ли влияние данный фактор на нашу зависимую переменную. Вернее, конечно, правильнее было бы сказать, связан ли данный фактор в нашей зависимой переменной, как мы уже говорили выше.</p>
+<div id="структура-изменчивости" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Структура изменчивости</h2>
+<p>Основные характеристики статистических данных — неопределённость и вариативность. И эта вариативность, он же изменчивость, имеет определенную структуру.</p>
+<p>Прежде всего, есть <strong>общая изменчивость</strong>, которая складывается из сумм квадратов отклонений от общего среднего:</p>
+<p><span class="math display">\[
+SS_\mathrm{t} = \sum_{i=1}^n (\bar y - y_i)^2, \, \mathrm{df_t} = n - 1,
+\]</span></p>
+<p><span class="math inline">\(SS_\mathrm{t}\)</span> — общая сумма квадратов (Total Sum of Squares), <span class="math inline">\(y_i\)</span> — наблюдение, <span class="math inline">\(\bar y\)</span> — среднее по всей выборке, <span class="math inline">\(\mathrm{df_t}\)</span> — число степеней свободы для общей суммы квадратов.</p>
+<center>
+<img src="SSt.jpg">
+</center>
+<p>Часть от неё составляет <strong>факторная (межгрупповая) изменчивость</strong> — это отклонения внутригрупповых средних от общего среднего:</p>
+<p><span class="math display">\[
+SS_\mathrm{x} = \sum_{j=1}^p (\bar y - \bar y_j)^2, \, \mathrm{df_x} = p - 1,
+\]</span></p>
+<p><span class="math inline">\(SS_\mathrm{x}\)</span> — факторная сумма квадратов (Factor Sum of Squares), <span class="math inline">\(\bar y_j\)</span> — среднее в конкретной группе наблюдений, <span class="math inline">\(\bar y\)</span> — среднее по всей выборке, <span class="math inline">\(\mathrm{df_x}\)</span> — число степеней свободы для факторной суммы квадратов.</p>
+<center>
+<img src="SSx.jpg">
+</center>
+<p>Оставшуюся часть составляет <strong>случайная (внутригрупповая) изменчивость</strong>:</p>
+<p><span class="math display">\[
+SS_\mathrm{e} = \sum_{i=1}^n \sum_{j=1}^p (\bar y_j - y_{ij})^2, \, \mathrm{df_e} = n - p
+\]</span></p>
+<center>
+<img src="SSe.jpg">
+</center>
+<p>Таким образом, получаем, что</p>
+<p><span class="math display">\[
+SS_\mathrm{t} = SS_\mathrm{x} + SS_\mathrm{e}
+\]</span></p>
+</div>
+<div id="тестирование-значимости-фактора" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Тестирование значимости фактора</h2>
+<p>Почему диперсионный анализ называется именно так? Потому что используя суммы квадратов и степени свободы, мы можем перейти к дисперсиям — вернее, к <strong>средним квадратам</strong>:</p>
+<p><span class="math display">\[
+MS_{\mathrm t} = \frac{SS_\mathrm{t}}{\mathrm{df_t}}, \quad
+MS_{\mathrm x} = \frac{SS_\mathrm{x}}{\mathrm{df_x}}, \quad
+MS_{\mathrm e} = \frac{SS_\mathrm{e}}{\mathrm{df_e}}
+\]</span></p>
+<p><span class="math inline">\(MS_\mathrm{x}\)</span> и <span class="math inline">\(MS_\mathrm{e}\)</span> используются для тестирования значимости фактора. Если зависимости между фактором и целевой переменной нет, то <span class="math inline">\(MS_\mathrm{x} \approx MS_\mathrm{e}\)</span>. Ешё раз вспомним, как формулируется статистическая гипотеза:</p>
+<p><span class="math display">\[
+H_0: \mu_1 = \mu_2 = \dots = \mu_p \\
+H_1: \exists \, i, \, j: \mu_i \neq \mu_j,
+\]</span></p>
+<p>Для тестирования гипотезы используется следующая статисика:</p>
+<p><span class="math display">\[
+F_{\mathrm{df_x},\,\mathrm{df_e}} = \frac{MS_\mathrm{x}}{MS_\mathrm{e}} \overset{H_0}{\thicksim} F(\mathrm{df_x}, \, \mathrm{df_e})
+\]</span></p>
+<p>Результаты дисперсионного анализа обычно представляются в виде таблицы:</p>
+<table border="1">
+<tr>
+<th>
+Источник изменчивости
+</th>
+<th>
+<span class="math inline">\(SS\)</span>
+</th>
+<th>
+<span class="math inline">\(\mathrm{df}\)</span>
+</th>
+<th>
+<span class="math inline">\(MS\)</span>
+</th>
+<th>
+<span class="math inline">\(F\)</span>
+</th>
+<th>
+<span class="math inline">\(p\)</span>
+</th>
+</tr>
+<tr>
+<th>
+Фактор
+</th>
+<td>
+<span class="math inline">\(SS_\mathrm{x}\)</span>
+</td>
+<td>
+<span class="math inline">\(\mathrm{df_x}\)</span>
+</td>
+<td>
+<span class="math inline">\(MS_\mathrm{x}\)</span>
+</td>
+<td>
+<span class="math inline">\(F_{\mathrm{df_x},\mathrm{df_e}}\)</span>
+</td>
+<td>
+<span class="math inline">\(p\)</span>
+</td>
+</tr>
+<tr>
+<th>
+Случайная
+</th>
+<td>
+<span class="math inline">\(SS_\mathrm{e}\)</span>
+</td>
+<td>
+<span class="math inline">\(\mathrm{df_e}\)</span>
+</td>
+<td>
+<span class="math inline">\(MS_\mathrm{e}\)</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+Общая
+</th>
+<td>
+<span class="math inline">\(SS_\mathrm{t}\)</span>
+</td>
+<td>
+<span class="math inline">\(\mathrm{df_t}\)</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+<div id="данные-1" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Данные</h2>
+<p>Лежат <a href="https://raw.githubusercontent.com/angelgardt/mk_ggplot2/master/sharexp_data.csv">тут</a>. Скачиваются так:</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="однофакторный-дисперсионный-анализ.html#cb423-1" aria-hidden="true" tabindex="-1"></a>share <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/angelgardt/mk_ggplot2/master/sharexp_data.csv&quot;</span>)</span></code></pre></div>
+<p>Это данные поведенческого эксперимента, в котором пользователи Android и iOS искали иконки «share» обеих платформ среди универсальных иконок. Короче, зрительный поиск.</p>
+<p>Нас будут интересовать следующие переменные:</p>
+<ul>
+<li><code>trialtype</code> — тип пробы (<code>tray</code>/<code>dots</code>/<code>both</code>)</li>
+<li><code>setsize</code> — количество стимулов в пробе (<code>8</code>/<code>12</code>/<code>16</code>)</li>
+<li><code>time1</code> — время первого клика</li>
+<li><code>platform</code> — платформа смартфона (<code>Android</code>/<code>iOS</code>)</li>
+</ul>
+<p>Будем пытаться ответить на вопрос, какие факторы влияют на время первого клика.</p>
+<p>Только первоначально надо предобработать данные, убрав из них пробы типа <code>both</code>, так как это экспериментальное условие было задумано для другого анализа:</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="однофакторный-дисперсионный-анализ.html#cb424-1" aria-hidden="true" tabindex="-1"></a>share <span class="ot">&lt;-</span> share[share<span class="sc">$</span>trialtype <span class="sc">!=</span> <span class="st">&quot;both&quot;</span>, ]</span></code></pre></div>
+</div>
+<div id="дисперсионный-анализ-в-r" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Дисперсионный анализ в R</h2>
+<p>Для дисперсионного анализа в <code>R</code> есть функция <code>aov()</code>. Она ожидает на вход <em>формулу</em> и датафрейм. Формула задаёт зависимую перменную (<code>y</code>) и фактор (<code>x</code>). Общий синтаксис будет такой:</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="однофакторный-дисперсионный-анализ.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, data)</span></code></pre></div>
+<p>Пусть мы хотим понять, влияет ли тип пробы (<code>trialtype</code>) на время реакции (<code>time1</code>):</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="однофакторный-дисперсионный-анализ.html#cb426-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(time1 <span class="sc">~</span> trialtype, share)</span></code></pre></div>
+<p>Обратите внимание на несколько моментов:</p>
+<ul>
+<li>переменная, которая задаёт фактор, должна быть <em>факторной</em> (внезапно), то есть данные должны быть приведены к <em>длинному формату</em>; в нашем случае переменная текстовая, поэтому автоматически была приведена к факторному типу</li>
+<li>результаты работы функции <code>aov()</code> мы записываем в объект, потому что так удобнее, сейчас мы поймём зачем</li>
+</ul>
+<p>Если мы посмотрим на сам объект <code>fit1</code>, то мы обнаружим не много полезной информации:</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="однофакторный-дисперсионный-анализ.html#cb427-1" aria-hidden="true" tabindex="-1"></a>fit1</span></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = time1 ~ trialtype, data = share)
+## 
+## Terms:
+##                 trialtype Residuals
+## Sum of Squares      9.570  9718.307
+## Deg. of Freedom         1     10798
+## 
+## Residual standard error: 0.9486885
+## Estimated effects may be unbalanced</code></pre>
+<p>Чтобы получить табличку дисперсионного анализа, надо вызвать функцию <code>summary()</code> от сохраненного объекта:</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="однофакторный-дисперсионный-анализ.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code></pre></div>
+<pre><code>##                Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## trialtype       1     10    9.57   10.63 0.00111 **
+## Residuals   10798   9718    0.90                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>На что мы смотрим, чтобы определить значимость фактора? Как и в случае любых статистических методов: на значение статистики, в данном случае <span class="math inline">\(F\)</span>, и на p-value. Наблюдаем, что p-value меньше конфенционального 0.05, значит данный фактор статистически значимо связан с зависимой переменной.</p>
+<p>Однако в факторе <code>trialtype</code> есть только два уровня, и по факту мы сделали что-то сравнимое с t-тестом. Давайте попробуем запилить анову с тремя уровнями фактора. Возьмем переменную <code>setsize</code>. Так как это числовая переменная, чтобы анализ корректно отработал, необходимо перевести её в фактор, так как числа в отличии от строк по умолчанию в фактор не трансформируются:</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="однофакторный-дисперсионный-анализ.html#cb431-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(time1 <span class="sc">~</span> <span class="fu">factor</span>(setsize), share)</span>
+<span id="cb431-2"><a href="однофакторный-дисперсионный-анализ.html#cb431-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit2)</span></code></pre></div>
+<pre><code>##                    Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## factor(setsize)     2    547  273.70   321.9 &lt;2e-16 ***
+## Residuals       10797   9180    0.85                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Логика кода остаётся абсолютно такая же.</p>
+<p>Теперь обратим внимание на результат. Да, фактор количества стимулов (<code>setsize</code>) значим, но что это значит технически? Что есть хотя бы две группы, которые значимо различаются между собой. Какие — нам не известно. Чтобы это узнать, необходимо провести…</p>
+</div>
+<div id="post-hoc-тесты" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Post hoc тесты</h2>
+<p>Post hoc тесты позволяют выяснить, между какими именно группами есть статисически значимые различия. Это не единственный метод, но самый распространенный, поэтому мы рассмотрим его.</p>
+<p>Чтобы выяснить, между какими конкретно группами есть различия, нам неизбежно придется выполнить несколько попарных сравнений — поэтому всё-таки придётся принять меры по предотвращению проблемы множественных сравнений, то есть скорректировать уровень значимости.</p>
+<p>Возникает закономерный вопрос: раз уж мы всё равно сравниваем попарно все группы, зачем вообще нам нужен был дисперсионный анализ? Можно же сразу было попарно сравнить и кайфовать! Так-то оно, конечно, так — но ведь это не так. Post hoc тесты, или попарные сравнения, мы выполняем только в том случае, если обнаружили значимое влияние фактора (предиктора). Напомним себе, что дисперсионный анализ тестирует гипотезу о том, что средние во всех группах равны. Соответственно, если в ходе дисперсионного анализа не обнаруживается значимое влияние фактора на зависимую переменную, у нас нет оснований отклонить эту нулевую гипотезу — следовательно, мы делаем вывод, что между группами нет различий. А раз их нет, то что же тогда тестировать попарными сравнениями?</p>
+<p>А вот если фактор получился значимым, то тогда хотя бы две из групп различаются — естественно, нам хотелось бы знать, какие конкретно. Тогда мы проводим попарные сравнения.</p>
+<p>Вообще говоря, попарные сравнения можно проводить любым статистическим тестом, который сравнивает две группы. Просто для именования перечислим следующие возможные варианты:</p>
+<ul>
+<li>наименьшая значимая разница Фишера (Fisher’s Least Significant Difference)</li>
+<li>поправка Бонферрони (Bonferroni correction) или Сидака (Sidak’s correction)</li>
+<li>тест Тьюки (Tuckey’s Honest Significant Difference, HSD)</li>
+<li>тест Стьюдента-Ньюмена-Кьюлса (Student-Newman-Kewls test, SNK)</li>
+<li>тест Даннета для сравнения с контрольной группой (Dunnet’s test)</li>
+<li>критерий Дункана (Dunkan’s test)</li>
+<li>тест Шеффе (Scheffe’s test)</li>
+</ul>
+<p>Из всего этого зоопарка мы рассмотрим тест Тьюки, так как он считается разумным компромиссом относительно жёсткости корректировки уровня значимости.</p>
+<p>Тест Тьюки выполняется с помощью функции <code>TukeyHSD()</code>, которая на вход ожидает объект с результатами дисперсионного анализа:</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="однофакторный-дисперсионный-анализ.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(fit2)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = time1 ~ factor(setsize), data = share)
+## 
+## $`factor(setsize)`
+##            diff       lwr       upr p adj
+## 12-8  0.2700864 0.2191407 0.3210320     0
+## 16-8  0.5514225 0.5004769 0.6023681     0
+## 16-12 0.2813361 0.2303905 0.3322818     0</code></pre>
+<p>Что мы видим? Табличку попарных сравнений:</p>
+<ul>
+<li>в первой колонке указано, какие группы сравнивались</li>
+<li>во второй — разница между средними в группах</li>
+<li>третья и четверная — нижняя и верхняя границы доверительного интервала для разницы средних</li>
+<li>пятая — p-value, по которому мы делаем статистический вывод</li>
+</ul>
+<p>В данном случае все три группы значимо различаются между собой.</p>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Загрузите <a href="https://raw.githubusercontent.com/angelgardt/hseuxlab-wlm2021/master/data/data_rsf.csv">данные</a> эксперимента на зрительный поиск (да, опять<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>).</p>
+<p>В эксперименте испытуемые должны были запоминать слова, обозначающие объекты, а затем искать эти объекты среди похожих других. В данных у нас есть следующие переменные:</p>
+<ul>
+<li><code>resp</code> — идентификатор респондента</li>
+<li><code>group</code> — уровень категории слов для запоминания (<code>base</code> — базовая и <code>super</code> — суперординатная)</li>
+<li><code>memory_setsize</code> — количество слов-категорий для запоминания</li>
+<li><code>visual_setsize</code> — количество стимулов на экране поиска объектов</li>
+<li><code>rt</code> — время реакции / обнаружения стимула</li>
+</ul>
+<p>Исследуйте, как уровень категории слов для запоминания (<code>group</code>) влияет на скорость обнаружения стимула (<code>rt</code>).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>Справедливости ради стоит отметить, что дисперсионный анализ очень часто используется для анализа экспериментальных данных, поэтому поработаем с ними.<a href="однофакторный-дисперсионный-анализ.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="зачем-нужен-дисперсионный-анализ.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="многофакторный-дисперсионный-анализ.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/maria-srv/AnDan2021Start/edit/master/08_anova.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"self_contained": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

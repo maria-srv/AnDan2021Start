@@ -1,11 +1,6 @@
----
-title: "Intro to R"
-author: "Yulia Martysenko"
-date: "20 07 2021"
-output: html_document
----
+# Введение в R
 
-```{r setup, include=FALSE}
+```{r setup1, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -217,9 +212,18 @@ o_f_dogs[1] < o_f_dogs[2]
 
 В нашей таблице у нас есть возможность представить строковые значения как факторы с помощью флажка `stringsAsFactors = TRUE` (по умолчанию он равен `FALSE`)
 
+```{r, include=FALSE}
+data <- read.table(file = "data/about_us_eng.csv", sep=",",header=TRUE, stringsAsFactors = TRUE)
+```
+
+
+```{r, eval=FALSE}
+data <- read.table(file = "about_us_eng.csv", sep=",",header=TRUE, stringsAsFactors = TRUE)
+```
+
+
 ```{r}
-data2 <- read.table(file = "about_us_eng.csv", sep=",",header=TRUE, stringsAsFactors = TRUE)
-data2$beard
+data$beard
 ```
 
 ### Логические - boolean
@@ -362,40 +366,40 @@ sum(tf == 0)
 Наш датасет, хранящийся в data, имеет 15 столбиков. Каждый столбик --- это вектор. Мы можем извлекать их оттуда через знак $:
 
 ```{r}
-data2$height
+data$height
 ```
 
 `NA` --- это пропущенное значение:
 
 ```{r}
-data2$height[1:10]==164
+data$height[1:10]==164
 ```
 
-`data2$height[1:10]` --- это выбор первых десяти значений из вектора, которые мы протом проверяем на равенство 164
+`data$height[1:10]` --- это выбор первых десяти значений из вектора, которые мы протом проверяем на равенство 164
 
 Мы можем посчитать частоту каждого значения с помощью функции `table()`
 
 ```{r}
-table(data2$height)
+table(data$height)
 ```
 
 Вспомним, что мы можем совершать арифметические действия с логическими переменными и посчитаем, сколько человек выше 175см:
 
 ```{r}
 sum(c(TRUE,TRUE,FALSE,TRUE))
-sum(data2$height>175)
+sum(data$height>175)
 ```
 
 Опа, посчитать не получилось. Это потому что каждый элемент вектора нужно сравнить с 175, а для пропущенного значения это невозможно. давайте просто не будем его учитывать:
 
 ```{r}
-sum(data2$height>175, na.rm=TRUE)
+sum(data$height>175, na.rm=TRUE)
 ```
 
 Посчитаем среднее количество глаз на каждого из нас:
 
 ```{r}
-mean(data2$eye_number)
+mean(data$eye_number)
 ```
 
 Все понятно, мы --- ангелы
@@ -405,7 +409,7 @@ mean(data2$eye_number)
 Гистограмма распределения размеров обуви и самый большой размер:
 
 ```{r}
-shoes<-data2$shoe_size
+shoes<-data$shoe_size
 hist(shoes)
 max(shoes)
 ```
@@ -444,7 +448,7 @@ b[c(TRUE,FALSE,TRUE)]
 Мы можем выбрать не одну, а несколько колонок из таблицы с помощью вектора:
 
 ```{r}
-data2[c("eye_color","gorgeous")]
+data[c("eye_color","gorgeous")]
 ```
 
 ### Матрицы
@@ -497,7 +501,7 @@ matrix()
 Тебе, наверняка, известна корреляционная матрица
 
 ```{r}
-ddd <- data2[c("height","eye_number","gorgeous")]
+ddd <- data[c("height","eye_number","gorgeous")]
 
 cor1<-round(cor(ddd, use="pairwise.complete.obs"),3)
 cor1
@@ -594,19 +598,19 @@ u$meow
 1. с помощью вектора с адресами (номерами строк)
 
 ```{r}
-data10_1<-data2[1:10,]
+data10_1<-data[1:10,]
 ```
 
 2. с помощью вектора с именами
 
 ```{r}
-data10_1<-data2[c(1:5,7:10),c("soft_drink","hot_drink")]
+data10_1<-data[c(1:5,7:10),c("soft_drink","hot_drink")]
 ```
 
 3. С помощью логического вектора (`rep()` - функция, генерирующая повторяющиеся значения)
 
 ```{r}
-data10_1<-data2[c(rep(TRUE,10),rep(FALSE,25)),]
+data10_1<-data[c(rep(TRUE,10),rep(FALSE,25)),]
 ```
 
 Подробнее о логической фильтрации будет в следующем уроке.
@@ -796,23 +800,23 @@ subjects[[1]][[3]][[2]]
 ```
 
 ```{block, type = "rmdtask"}
-4. Определи среднее, сумму, максимальное и минимальное значение в векторе `data2$hair_length`. Нарисуй гистограмму.
+4. Определи среднее, сумму, максимальное и минимальное значение в векторе `data$hair_length`. Нарисуй гистограмму.
 ```
 
 ```{r, eval=FALSE, echo=FALSE}
-mean(data2$hair_length)
-sum(data2$hair_length)
-min(data2$hair_length)
-max(data2$hair_length)
-hist(data2$hair_length)
+mean(data$hair_length)
+sum(data$hair_length)
+min(data$hair_length)
+max(data$hair_length)
+hist(data$hair_length)
 ```
 
 ```{block, type = "rmdtask"}
-5. Выведи вектор, получившийся в результате проверки каждого элемента из `data2$hair_length` на четность/нечетность (используй остаток от целочисленного деления)
+5. Выведи вектор, получившийся в результате проверки каждого элемента из `data$hair_length` на четность/нечетность (используй остаток от целочисленного деления)
 ```
 
 ```{r, eval=FALSE, echo=FALSE}
-(data2$hair_length%%2)>0
+(data$hair_length%%2)>0
 ```
 
 ```{block, type = "rmdtask"}
@@ -820,5 +824,5 @@ hist(data2$hair_length)
 ```
 
 ```{r, eval=FALSE, echo=FALSE}
-paste(data2[18,6])
+paste(data[18,6])
 ```

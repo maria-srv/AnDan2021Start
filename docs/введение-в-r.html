@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Введение в R | АнДан 2021: стартовая программа</title>
+  <meta name="description" content="2 Введение в R | АнДан 2021: стартовая программа" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Введение в R | АнДан 2021: стартовая программа" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Введение в R | АнДан 2021: стартовая программа" />
+  
+  
+  
+
+<meta name="author" content="А. Ангельгардт, М. Серветник, Ю. Мартысенко, А. Котликова" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">2021 Андан стартовая</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> О курсе</a></li>
+<li class="chapter" data-level="2" data-path="введение-в-r.html"><a href="введение-в-r.html"><i class="fa fa-check"></i><b>2</b> Введение в R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="введение-в-r.html"><a href="введение-в-r.html#общее"><i class="fa fa-check"></i><b>2.1</b> Общее</a></li>
+<li class="chapter" data-level="2.2" data-path="введение-в-r.html"><a href="введение-в-r.html#типы-данных"><i class="fa fa-check"></i><b>2.2</b> Типы данных</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="введение-в-r.html"><a href="введение-в-r.html#целое-число-integer"><i class="fa fa-check"></i><b>2.2.1</b> Целое число — integer</a></li>
+<li class="chapter" data-level="2.2.2" data-path="введение-в-r.html"><a href="введение-в-r.html#число-с-плавающей-запятой-double"><i class="fa fa-check"></i><b>2.2.2</b> Число с плавающей запятой — double</a></li>
+<li class="chapter" data-level="2.2.3" data-path="введение-в-r.html"><a href="введение-в-r.html#комплексные-числа-complex"><i class="fa fa-check"></i><b>2.2.3</b> Комплексные числа — complex</a></li>
+<li class="chapter" data-level="2.2.4" data-path="введение-в-r.html"><a href="введение-в-r.html#символьный-тип-данныхстроки-character"><i class="fa fa-check"></i><b>2.2.4</b> Символьный тип данных(строки) — character</a></li>
+<li class="chapter" data-level="2.2.5" data-path="введение-в-r.html"><a href="введение-в-r.html#факторы"><i class="fa fa-check"></i><b>2.2.5</b> Факторы</a></li>
+<li class="chapter" data-level="2.2.6" data-path="введение-в-r.html"><a href="введение-в-r.html#ordered-factor-упорядоченный"><i class="fa fa-check"></i><b>2.2.6</b> Ordered factor (упорядоченный)</a></li>
+<li class="chapter" data-level="2.2.7" data-path="введение-в-r.html"><a href="введение-в-r.html#логические---boolean"><i class="fa fa-check"></i><b>2.2.7</b> Логические - boolean</a></li>
+<li class="chapter" data-level="2.2.8" data-path="введение-в-r.html"><a href="введение-в-r.html#есть-еще-такой-тип-данных-как-даты."><i class="fa fa-check"></i><b>2.2.8</b> Есть еще такой тип данных, как даты.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="введение-в-r.html"><a href="введение-в-r.html#структуры-данных"><i class="fa fa-check"></i><b>2.3</b> Структуры данных</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="введение-в-r.html"><a href="введение-в-r.html#вектор"><i class="fa fa-check"></i><b>2.3.1</b> Вектор</a></li>
+<li class="chapter" data-level="2.3.2" data-path="введение-в-r.html"><a href="введение-в-r.html#матрицы"><i class="fa fa-check"></i><b>2.3.2</b> Матрицы</a></li>
+<li class="chapter" data-level="2.3.3" data-path="введение-в-r.html"><a href="введение-в-r.html#списки"><i class="fa fa-check"></i><b>2.3.3</b> Списки</a></li>
+<li class="chapter" data-level="2.3.4" data-path="введение-в-r.html"><a href="введение-в-r.html#дата-фреймы"><i class="fa fa-check"></i><b>2.3.4</b> Дата фреймы</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="введение-в-r.html"><a href="введение-в-r.html#функции-и-простые-действия-с-данными"><i class="fa fa-check"></i><b>2.4</b> Функции и простые действия с данными</a></li>
+<li class="chapter" data-level="2.5" data-path="введение-в-r.html"><a href="введение-в-r.html#задания-для-тренировки"><i class="fa fa-check"></i><b>2.5</b> Задания для тренировки</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><i class="fa fa-check"></i><b>3</b> Фильтрация строк и столбцов в base R. Введение в data.table</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-строк-и-столбцов-в-base-r"><i class="fa fa-check"></i><b>3.1</b> Фильтрация строк и столбцов в base R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-вектора-по-условию"><i class="fa fa-check"></i><b>3.1.1</b> Фильтрация вектора по условию</a></li>
+<li class="chapter" data-level="3.1.2" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-дата.фрейма-по-условию"><i class="fa fa-check"></i><b>3.1.2</b> Фильтрация дата.фрейма по условию</a></li>
+<li class="chapter" data-level="3.1.3" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-по-результату-функции"><i class="fa fa-check"></i><b>3.1.3</b> Фильтрация по результату функции</a></li>
+<li class="chapter" data-level="3.1.4" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-для-группировки"><i class="fa fa-check"></i><b>3.1.4</b> Фильтрация для группировки</a></li>
+<li class="chapter" data-level="3.1.5" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#введение-в-data.table"><i class="fa fa-check"></i><b>3.1.5</b> Введение в data.table</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html"><i class="fa fa-check"></i><b>4</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#продолжаем-с-data.table-1"><i class="fa fa-check"></i><b>4.1</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#счёт-элементов-с-помощью-.n"><i class="fa fa-check"></i><b>4.1.1</b> Счёт элементов с помощью .N</a></li>
+<li class="chapter" data-level="4.1.2" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#несколько-группировок"><i class="fa fa-check"></i><b>4.1.2</b> Несколько группировок</a></li>
+<li class="chapter" data-level="4.1.3" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#несколько-выражений"><i class="fa fa-check"></i><b>4.1.3</b> Несколько выражений</a></li>
+<li class="chapter" data-level="4.1.4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#имена-колонок"><i class="fa fa-check"></i><b>4.1.4</b> Имена колонок</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#указание-имён-при-создании-колонок"><i class="fa fa-check"></i><b>4.2</b> Указание имён при создании колонок</a></li>
+<li class="chapter" data-level="4.3" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#вечер-в-хату-вектор-в-colnames"><i class="fa fa-check"></i><b>4.3</b> Вечер в хату, вектор в <code>colnames()</code></a></li>
+<li class="chapter" data-level="4.4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#setnames-из-библиотеки-data.table"><i class="fa fa-check"></i><b>4.4</b> <code>setnames()</code> из библиотеки <code>data.table</code></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#новый-дата.тейбл-или-колонка-в-существующем"><i class="fa fa-check"></i><b>4.4.1</b> Новый дата.тейбл или колонка в существующем?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html"><i class="fa fa-check"></i><b>5</b> Визуализация данных с <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#визуализация-это-зачем"><i class="fa fa-check"></i><b>5.1</b> Визуализация это зачем?</a></li>
+<li class="chapter" data-level="5.2" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#философия-a-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>5.2</b> Философия A Layered Grammar of Graphics</a></li>
+<li class="chapter" data-level="5.3" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#экшон"><i class="fa fa-check"></i><b>5.3</b> Экшон</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#пакеты"><i class="fa fa-check"></i><b>5.3.1</b> Пакеты</a></li>
+<li class="chapter" data-level="5.3.2" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#данные"><i class="fa fa-check"></i><b>5.3.2</b> Данные</a></li>
+<li class="chapter" data-level="5.3.3" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#строим-базовый-график"><i class="fa fa-check"></i><b>5.3.3</b> Строим базовый график</a></li>
+<li class="chapter" data-level="5.3.4" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#ищем-более-сложные-закономерности"><i class="fa fa-check"></i><b>5.3.4</b> Ищем более сложные закономерности</a></li>
+<li class="chapter" data-level="5.3.5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#важное-замечание-о-визуализации"><i class="fa fa-check"></i><b>5.3.5</b> Важное замечание о визуализации</a></li>
+<li class="chapter" data-level="5.3.6" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#инструменты-встроенной-статистической-обработки"><i class="fa fa-check"></i><b>5.3.6</b> Инструменты встроенной статистической обработки</a></li>
+<li class="chapter" data-level="5.3.7" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#настраиваем-график"><i class="fa fa-check"></i><b>5.3.7</b> Настраиваем график</a></li>
+<li class="chapter" data-level="5.3.8" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#сохранение-графиков"><i class="fa fa-check"></i><b>5.3.8</b> Сохранение графиков</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#файнал-босс"><i class="fa fa-check"></i><b>5.4</b> Файнал босс</a></li>
+<li class="chapter" data-level="5.5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#конклюжон"><i class="fa fa-check"></i><b>5.5</b> Конклюжон</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html"><i class="fa fa-check"></i><b>6</b> ANOVA a.k.a. Дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#зачем-нужен-дисперсионный-анализ"><i class="fa fa-check"></i><b>6.1</b> Зачем нужен дисперсионный анализ?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#проблема-множественных-сравнений"><i class="fa fa-check"></i><b>6.1.1</b> Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="6.1.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#идея-дисперсионного-анализа"><i class="fa fa-check"></i><b>6.1.2</b> Идея дисперсионного анализа</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#однофакторный-дисперсионный-анализ"><i class="fa fa-check"></i><b>6.2</b> Однофакторный дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#структура-изменчивости"><i class="fa fa-check"></i><b>6.2.1</b> Структура изменчивости</a></li>
+<li class="chapter" data-level="6.2.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#тестирование-значимости-фактора"><i class="fa fa-check"></i><b>6.2.2</b> Тестирование значимости фактора</a></li>
+<li class="chapter" data-level="6.2.3" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#данные-1"><i class="fa fa-check"></i><b>6.2.3</b> Данные</a></li>
+<li class="chapter" data-level="6.2.4" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#дисперсионный-анализ-в-r"><i class="fa fa-check"></i><b>6.2.4</b> Дисперсионный анализ в R</a></li>
+<li class="chapter" data-level="6.2.5" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#post-hoc-тесты"><i class="fa fa-check"></i><b>6.2.5</b> Post hoc тесты</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ"><i class="fa fa-check"></i><b>6.3</b> Многофакторный дисперсионный анализ</a></li>
+<li class="chapter" data-level="6.4" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-без-взаимодействия-в-r"><i class="fa fa-check"></i><b>6.4</b> Многофакторный дисперсионный анализ без взаимодействия в R</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-со-взаимодействием-в-r"><i class="fa fa-check"></i><b>6.4.1</b> Многофакторный дисперсионный анализ со взаимодействием в R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#важность-аггрегации-данных"><i class="fa fa-check"></i><b>6.5</b> Важность аггрегации данных</a></li>
+<li class="chapter" data-level="6.6" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#итоги"><i class="fa fa-check"></i><b>6.6</b> Итоги</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">АнДан 2021: стартовая программа</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="введение-в-r" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Введение в R</h1>
+<div id="общее" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Общее</h2>
+<p>R — скриптовый язык. Важно помнить, что код в нем выполняется построчно. Многие функции в нем векторизованы, то есть выполняются ко всему списку объектов, что даются ему на вход. Это вы потом увидите на примерах. В R есть множество пакетов (помните, вы вводили <code>install.packages()</code> при подготовке к школе?), в которых реализованы наиболее эффективные алгоритмы работы с данными, именно поэтому он так удобен для анализа.</p>
+</div>
+<div id="типы-данных" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Типы данных</h2>
+<p>С некоторыми типами данных мы уже познакомились выше. Все они, кроме фактора, более-менее стандартны для всех языков программирования.</p>
+<div id="целое-число-integer" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Целое число — integer</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="введение-в-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span><span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Например, можно что-нибудь посчитать как на калькуляторе.</p>
+<p>Чтобы определить тип данных есть команда <code>class</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="введение-в-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">6</span> <span class="sc">**</span> <span class="dv">2</span></span>
+<span id="cb4-2"><a href="введение-в-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Ой, у нас вышло, что эта переменная не целочисленная, а <code>numeric</code> — число с плавающей запятой. Хранение в памяти такого числа требует больше ресурсов. Можно перевести переменную в <code>integer</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="введение-в-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">6</span> <span class="sc">**</span> <span class="dv">2</span></span>
+<span id="cb6-2"><a href="введение-в-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(b)</span>
+<span id="cb6-3"><a href="введение-в-r.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+</div>
+<div id="число-с-плавающей-запятой-double" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Число с плавающей запятой — double</h3>
+<p>Этот формат — для всех целочисленных и дробных значений.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="введение-в-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.5</span> <span class="sc">+</span> <span class="fl">3.3</span></span></code></pre></div>
+<pre><code>## [1] 5.8</code></pre>
+<p>Результат деления всегда будет числом с плавающей точкой, даже если результат целочисленный:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="введение-в-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> b <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb10-2"><a href="введение-в-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(c)</span></code></pre></div>
+<pre><code>## [1] &quot;18&quot;</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="введение-в-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(c)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Основные операторы для арифметических действий:
+<code>+</code> — сложить
+<code>-</code> — вычесть
+<code>*</code> — умножить
+<code>**</code> или <code>^</code> — возвести в степень
+<code>%%</code> — получить остаток от деления
+<code>%/%</code> — получить целочисленную часть от деления
+<code>sqrt()</code> — извлечь квадратный корень
+<code>round()</code> — округлить</p>
+</div>
+<div id="комплексные-числа-complex" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Комплексные числа — complex</h3>
+<p>Кто знает, тот поймет.</p>
+</div>
+<div id="символьный-тип-данныхстроки-character" class="section level3" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Символьный тип данных(строки) — character</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="введение-в-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="st">&quot;Я строка&quot;</span></span>
+<span id="cb14-2"><a href="введение-в-r.html#cb14-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="st">&#39;И я строка&#39;</span></span>
+<span id="cb14-3"><a href="введение-в-r.html#cb14-3" aria-hidden="true" tabindex="-1"></a>s1</span></code></pre></div>
+<pre><code>## [1] &quot;Я строка&quot;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="введение-в-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a>s2</span></code></pre></div>
+<pre><code>## [1] &quot;И я строка&quot;</code></pre>
+<p>В кавычках <code>''</code> или <code>""</code> заключены символьные данные. Следите за тем, чтобы не пропустить открывающие/закрывающие кавычки.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="введение-в-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a>s3 <span class="ot">&lt;-</span> <span class="st">&quot;Экранирование </span><span class="sc">\&quot;</span><span class="st">лишних</span><span class="sc">\&quot;</span><span class="st"> кавычек&quot;</span></span>
+<span id="cb18-2"><a href="введение-в-r.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(s3)</span></code></pre></div>
+<pre><code>## [1] &quot;Экранирование \&quot;лишних\&quot; кавычек&quot;</code></pre>
+<p>R (как и другие языки) может читать текст вместе со специальными управляющими символами (такими, например, являются кавычки <code>'</code> и <code>"</code> или бэкслэш <code>\</code>), а может читать просто как текст. Специальные символы можно экранировать, добавив перед ними бэкслэш.</p>
+<p>Выполнять мат. операции с символьными значениями нельзя.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="введение-в-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;a&#39;</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## Error in &quot;a&quot; * 3: non-numeric argument to binary operator</code></pre>
+<p>Для соединения символьных и числовых данных часто необходимо превратить числовое значение в символьное.</p>
+<div class="rmdtask">
+<p>
+У тебя есть переменная: <code>age</code> - с твоим возрастом. Попробуй вывести на экран с помощью функции <code>paste()</code> фразу “Мой возраст:” и свой возраст. Не забудь превратить число возраста в строку с помощью функции <code>as.character()</code>. В <code>paste</code> просто перечисляй строки через запятую.
+</p>
+</div>
+</div>
+<div id="факторы" class="section level3" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Факторы</h3>
+<p>Ну а что же такое факторы</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="введение-в-r.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ://////////++++++++++++++++++++++++++++++++++//////:::::::::::::/:::::</span></span>
+<span id="cb22-2"><a href="введение-в-r.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># //////////+++++++++++++++++++++++++++++++ossoo++/////++syyo+//:////:::</span></span>
+<span id="cb22-3"><a href="введение-в-r.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ///////////++++++++++++++++++++++++++++//:/+shhhhhhddddddddhyo//////::</span></span>
+<span id="cb22-4"><a href="введение-в-r.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ////////////++++/++++++++////+++ooo+++syyyysssyyyhdmmmdddddhhy+//////:</span></span>
+<span id="cb22-5"><a href="введение-в-r.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ////////////////+osyhddho:::osshddddhhysyhhyyyyyhysosydmmmmddhy//////:</span></span>
+<span id="cb22-6"><a href="введение-в-r.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># //////////////+syhdmmmdh+/oyyhdddhhhhhdddhso+++syhhyo+/+shdmdddo/////:</span></span>
+<span id="cb22-7"><a href="введение-в-r.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ///////+oyhhhhdmmmmmmhs//shhdhssssysooooo++/+ss//+oooso/::/+yddh/////:</span></span>
+<span id="cb22-8"><a href="введение-в-r.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ///osyhmmmmmmmmmmmmho::/osyhyyssoossyyssssyhhy/:/shhhyysso+/:/shs///::</span></span>
+<span id="cb22-9"><a href="введение-в-r.html#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># /+hmddmmmmmmmmmmmds:-::++oys+//sys+//oyooshyyho+oydmdddddddyo+:+hho/::</span></span>
+<span id="cb22-10"><a href="введение-в-r.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># +smdmmmmmmmmmmmmh+---::++//+oydmmddsoohsoyhyyhyyyhdmdhhydddddyo/sso/::</span></span>
+<span id="cb22-11"><a href="введение-в-r.html#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># +ohmmmmmmmmmmmds:---::///shdmmdmmmddhhhssyyhhhhyyyyhdy+hdhddddy+/:::--</span></span>
+<span id="cb22-12"><a href="введение-в-r.html#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ++odmmmmmmmmmd+------::ohddddddhhdmddhhhdddddddddhsssssydhddddh+/:----</span></span>
+<span id="cb22-13"><a href="введение-в-r.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># +++odmmmmmmmd+------:/ohhddddddhyyddhhdmdhdhhhdhdddhyssyhdddddho+:---.</span></span>
+<span id="cb22-14"><a href="введение-в-r.html#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ++++ymmmmmmmh:-.--::+shhddmydhddhhysyhmdhhdmhhhddddddhhyyyddddyoo:....</span></span>
+<span id="cb22-15"><a href="введение-в-r.html#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ++++odmmmmmdy-----:/shhhhddddddhhssshdmddhhdhdyhhhdddddddhhddhs++/....</span></span>
+<span id="cb22-16"><a href="введение-в-r.html#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ++++++ydddddy----::+yddhhhhhhyyhsoshmddddhhhdhhhddddddddddddhhyo+/:...</span></span>
+<span id="cb22-17"><a href="введение-в-r.html#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co"># /++++++oshhhs-----:/shhyyhdddddyosdmddddhhhhhddhyyhhhddddddddhyys/:-..</span></span>
+<span id="cb22-18"><a href="введение-в-r.html#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ++++++++++/o+--.-----/+sssyyyhyoydmmddddhhhhhhdmdddddddddddddddhyo::-.</span></span>
+<span id="cb22-19"><a href="введение-в-r.html#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co"># +++++++++/--:-..-+/..-:+osssyyssdmmdddddhhyhdddhyyhdddddddddddddhs//--</span></span>
+<span id="cb22-20"><a href="введение-в-r.html#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co"># /++++++++/---...-/:.-:+o++/+ssshmdddddddhhhddhhdddddddmdddddddddho//:-</span></span>
+<span id="cb22-21"><a href="введение-в-r.html#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="co"># +++++++++/:::-..-:---/ooo+/+ysydmddddddddddmddddddddddmmmddddddds+/:::</span></span>
+<span id="cb22-22"><a href="введение-в-r.html#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="co"># ++++++++:-...-....--:+yysoshhhdmmmmmddddddmdddddddddddmmmmmmmdddoo/:::</span></span>
+<span id="cb22-23"><a href="введение-в-r.html#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="co"># +++++++/-..`..-...-:/+syyhdddmmddddddddddmmdddmmmmmdddmmmmmmmmdyo/::::</span></span>
+<span id="cb22-24"><a href="введение-в-r.html#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ++++++/:-.....--.---:/oyhddddddhhdddddmmmmmddmmmmmmdddmmmmmdddyo//:::/</span></span>
+<span id="cb22-25"><a href="введение-в-r.html#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="co"># /+++++/--.--...------:/ohddmmmdddddmmmmmmdmmmmmmmmmmddmmmmmddys+///:/:</span></span>
+<span id="cb22-26"><a href="введение-в-r.html#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="co"># //////:....--...-:::::/+shhdddmmmmmmmmdmmmmmmmmmmmdmmmmmmmdhyo//:/::/:</span></span>
+<span id="cb22-27"><a href="введение-в-r.html#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="co"># /////:.......--..-:::::/+shddmddmmmmdmmmmmmmmmmmmmmmmmmddhhso////:///:</span></span>
+<span id="cb22-28"><a href="введение-в-r.html#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="co"># :///:.``.....---..-::::/+osyhdmmmmmmmmmmmmmmmmddmmmmmdyyyyo+////::/:::</span></span>
+<span id="cb22-29"><a href="введение-в-r.html#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="co"># ::::-.```...--::-.------::/+syhdddddddmdddhyyyyhddmmhso+++/:://:::::::</span></span>
+<span id="cb22-30"><a href="введение-в-r.html#cb22-30" aria-hidden="true" tabindex="-1"></a><span class="co"># ::::.``````..-:::--..----::/+oossssyhddyo+:://oyhhys+:::/::::/::::::--</span></span>
+<span id="cb22-31"><a href="введение-в-r.html#cb22-31" aria-hidden="true" tabindex="-1"></a><span class="co"># :::-.```````....-:--...------:::::/oso/-----::/++//:--::::://::::---..</span></span>
+<span id="cb22-32"><a href="введение-в-r.html#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="co"># :::-`````````....----....--....-------......--::::::/::::://::::--....</span></span>
+<span id="cb22-33"><a href="введение-в-r.html#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="co"># -::-.````.......--:---......-......------:::/+++++//////:::::---......</span></span></code></pre></div>
+<p>Фактор был придуман для облегчения работы с качественными переменными, он может быть представлен как строка, и как число. Например, возьмем последовательность букв алфавита</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="введение-в-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(LETTERS)</span></code></pre></div>
+<p>На них можно посмотреть как на строковые данные:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="введение-в-r.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(f)</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
+## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<p>И как на числовые:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="введение-в-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(f)</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+## [26] 26</code></pre>
+<p>Если нам нужно каждому варианту ответа присвоить код (номер), то это удобно сделать с помощью фактора:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="введение-в-r.html#cb28-1" aria-hidden="true" tabindex="-1"></a>dogs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;мопс&quot;</span>, <span class="st">&quot;пудель&quot;</span>, <span class="st">&quot;овчарка&quot;</span>, <span class="st">&quot;йорк&quot;</span>, <span class="st">&quot;мопс&quot;</span>, <span class="st">&quot;мопс&quot;</span>)</span>
+<span id="cb28-2"><a href="введение-в-r.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="введение-в-r.html#cb28-3" aria-hidden="true" tabindex="-1"></a>f_dogs <span class="ot">&lt;-</span> <span class="fu">factor</span>(dogs)</span>
+<span id="cb28-4"><a href="введение-в-r.html#cb28-4" aria-hidden="true" tabindex="-1"></a>f_dogs</span></code></pre></div>
+<pre><code>## [1] мопс    пудель  овчарка йорк    мопс    мопс   
+## Levels: йорк мопс овчарка пудель</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="введение-в-r.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(f_dogs)</span></code></pre></div>
+<pre><code>## [1] 2 4 3 1 2 2</code></pre>
+<p>У факторов есть уровни и они сортируются по алфавиту</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="введение-в-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(f_dogs)</span></code></pre></div>
+<pre><code>## [1] &quot;йорк&quot;    &quot;мопс&quot;    &quot;овчарка&quot; &quot;пудель&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="введение-в-r.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(f_dogs)</span></code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;йорк&quot;,&quot;мопс&quot;,..: 2 4 3 1 2 2</code></pre>
+<p>Допустим, мы хотим отсортировать уровни по-своему</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="введение-в-r.html#cb36-1" aria-hidden="true" tabindex="-1"></a>f_dogs2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(dogs,</span>
+<span id="cb36-2"><a href="введение-в-r.html#cb36-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;овчарка&quot;</span>, <span class="st">&quot;мопс&quot;</span>, <span class="st">&quot;йорк&quot;</span>, <span class="st">&quot;пудель&quot;</span>))</span>
+<span id="cb36-3"><a href="введение-в-r.html#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="введение-в-r.html#cb36-4" aria-hidden="true" tabindex="-1"></a>f_dogs2</span></code></pre></div>
+<pre><code>## [1] мопс    пудель  овчарка йорк    мопс    мопс   
+## Levels: овчарка мопс йорк пудель</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="введение-в-r.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(f_dogs2)</span></code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;овчарка&quot;,&quot;мопс&quot;,..: 2 4 1 3 2 2</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="введение-в-r.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(f_dogs)</span></code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;йорк&quot;,&quot;мопс&quot;,..: 2 4 3 1 2 2</code></pre>
+<p>Изменение уровней фактора</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="введение-в-r.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(f_dogs) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;йорк&quot;</span>, <span class="st">&quot;шарпей&quot;</span>, <span class="st">&quot;овчарка&quot;</span>, <span class="st">&quot;пудель&quot;</span>) <span class="co">#меняем мопсов на шарпеев</span></span>
+<span id="cb42-2"><a href="введение-в-r.html#cb42-2" aria-hidden="true" tabindex="-1"></a>f_dogs</span></code></pre></div>
+<pre><code>## [1] шарпей  пудель  овчарка йорк    шарпей  шарпей 
+## Levels: йорк шарпей овчарка пудель</code></pre>
+</div>
+<div id="ordered-factor-упорядоченный" class="section level3" number="2.2.6">
+<h3><span class="header-section-number">2.2.6</span> Ordered factor (упорядоченный)</h3>
+<p>Допустим мы хотим знать, какая собака больше (чуть более реальный пример: размер одежды S-M-L и т.д. как фактор)</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="введение-в-r.html#cb44-1" aria-hidden="true" tabindex="-1"></a>f_dogs[<span class="dv">1</span>] <span class="sc">&lt;</span> f_dogs[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## Warning in Ops.factor(f_dogs[1], f_dogs[2]): &#39;&lt;&#39; not meaningful for factors</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="введение-в-r.html#cb47-1" aria-hidden="true" tabindex="-1"></a>o_f_dogs <span class="ot">&lt;-</span> <span class="fu">factor</span>(f_dogs, <span class="at">ordered =</span> <span class="cn">TRUE</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;йорк&quot;</span>, <span class="st">&quot;пудель&quot;</span>, <span class="st">&quot;шарпей&quot;</span>, <span class="st">&quot;овчарка&quot;</span>))</span>
+<span id="cb47-2"><a href="введение-в-r.html#cb47-2" aria-hidden="true" tabindex="-1"></a>o_f_dogs</span></code></pre></div>
+<pre><code>## [1] шарпей  пудель  овчарка йорк    шарпей  шарпей 
+## Levels: йорк &lt; пудель &lt; шарпей &lt; овчарка</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="введение-в-r.html#cb49-1" aria-hidden="true" tabindex="-1"></a>o_f_dogs[<span class="dv">1</span>] <span class="sc">&lt;</span> o_f_dogs[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>При неупорядоченных факторах мы получили NA, при упорядочивании мы получили возможность сравнивать разные уровни.</p>
+<p>В нашей таблице у нас есть возможность представить строковые значения как факторы с помощью флажка <code>stringsAsFactors = TRUE</code> (по умолчанию он равен <code>FALSE</code>)</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="введение-в-r.html#cb51-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;about_us_eng.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="введение-в-r.html#cb52-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>beard</span></code></pre></div>
+<pre><code>##  [1] no  no  no  no  no  no  yes no  no  no  no  no  no  no  no  no  no  no  no 
+## [20] yes no  no  no  no  no  no  no  no  no  no  no  no  no  yes no 
+## Levels: no yes</code></pre>
+</div>
+<div id="логические---boolean" class="section level3" number="2.2.7">
+<h3><span class="header-section-number">2.2.7</span> Логические - boolean</h3>
+<p>Логические данные имеют всего два вида: <code>TRUE</code> либо <code>FALSE</code>. Они часто возникают, когда мы хотим проверить какое-то условие:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="введение-в-r.html#cb54-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">==</span> b</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;a&#39; not found</code></pre>
+<p>Операторы сравнения будут те же, что ф вормальной логике:</p>
+<p><code>==</code> - равно
+<code>!=</code> - не равно
+<code>&gt;</code> , <code>&lt;</code> - больше, меньше
+<code>&gt;=</code> - больше или равно
+<code>&lt;=</code> - меньше или равно</p>
+<p>Для объединения условий также есть специальные символы:</p>
+<p><code>&amp;&amp;</code> или <code>&amp;</code> - и, ответ правда если оба условия правда
+<code>||' или</code>|<code>- или, ответ правда если хотя бы одно условие правда</code>!` - не, отрицание выражения, смена правды на ложь и наоборот</p>
+<div class="rmdtask">
+<p>
+У тебя есть две переменных: <code>d &lt;- 24</code>, <code>e &lt;- 41</code>. Проверьте условие: остаток от деление нацело этих двух переменных больше 0.
+</p>
+</div>
+<p>Кстати, остаток от деления на 2 помогает проверить число на четное или нечетное.</p>
+<p>С логическими данными можно выполнять мат. операции, тогда <code>TRUE</code> — это 1, <code>FALSE</code> — это 0:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="введение-в-r.html#cb56-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="cn">TRUE</span></span></code></pre></div>
+<pre><code>## [1] 19</code></pre>
+</div>
+<div id="есть-еще-такой-тип-данных-как-даты." class="section level3" number="2.2.8">
+<h3><span class="header-section-number">2.2.8</span> Есть еще такой тип данных, как даты.</h3>
+<p>В R есть отдельные функции для облегчения работы с датами. Например, можно посчитать сколько дней прошло между двумя заданными датами.</p>
+<p>Как же их задавать?</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="введение-в-r.html#cb58-1" aria-hidden="true" tabindex="-1"></a>date1 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2019-07-24&quot;</span>)</span>
+<span id="cb58-2"><a href="введение-в-r.html#cb58-2" aria-hidden="true" tabindex="-1"></a>date1</span></code></pre></div>
+<pre><code>## [1] &quot;2019-07-24&quot;</code></pre>
+<p>Можно писать другие форматы, но к ним нужны пояснения</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="введение-в-r.html#cb60-1" aria-hidden="true" tabindex="-1"></a>date2 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;07/24/2019&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m/%d/%Y&quot;</span>)</span>
+<span id="cb60-2"><a href="введение-в-r.html#cb60-2" aria-hidden="true" tabindex="-1"></a>date2</span></code></pre></div>
+<pre><code>## [1] &quot;2019-07-24&quot;</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="введение-в-r.html#cb62-1" aria-hidden="true" tabindex="-1"></a>date1</span></code></pre></div>
+<pre><code>## [1] &quot;2019-07-24&quot;</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="введение-в-r.html#cb64-1" aria-hidden="true" tabindex="-1"></a>date3 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;24.07.2019&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d.%m.%Y&quot;</span>)</span>
+<span id="cb64-2"><a href="введение-в-r.html#cb64-2" aria-hidden="true" tabindex="-1"></a>date3</span></code></pre></div>
+<pre><code>## [1] &quot;2019-07-24&quot;</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="введение-в-r.html#cb66-1" aria-hidden="true" tabindex="-1"></a>date1</span></code></pre></div>
+<pre><code>## [1] &quot;2019-07-24&quot;</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="введение-в-r.html#cb68-1" aria-hidden="true" tabindex="-1"></a>date4 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;07/24/19&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>)</span>
+<span id="cb68-2"><a href="введение-в-r.html#cb68-2" aria-hidden="true" tabindex="-1"></a>date4</span></code></pre></div>
+<pre><code>## [1] &quot;2019-07-24&quot;</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="введение-в-r.html#cb70-1" aria-hidden="true" tabindex="-1"></a>date1</span></code></pre></div>
+<pre><code>## [1] &quot;2019-07-24&quot;</code></pre>
+<p>Вот так можно посмотреть список всех этих сокращений от даты и от времени (например, большая M — это минуты)</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="введение-в-r.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(strptime)</span></code></pre></div>
+<p>Мы можем узнать системное время (определяется по твоему компу) и сравнить его с переменной</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="введение-в-r.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2021-08-01&quot;</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="введение-в-r.html#cb75-1" aria-hidden="true" tabindex="-1"></a>date1<span class="sc">&lt;</span><span class="fu">Sys.Date</span>()</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+</div>
+<div id="структуры-данных" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Структуры данных</h2>
+<div id="вектор" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Вектор</h3>
+<p>Это самая базовая, простая структура. Вектор — это последовательность элементов одного и того же типа. Вектор можно создать командой конкатенации <code>с()</code>:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="введение-в-r.html#cb77-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb77-2"><a href="введение-в-r.html#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-3"><a href="введение-в-r.html#cb77-3" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 1 2 3 3 2 1</code></pre>
+<p>С числовыми векторами можно осуществлять самые разные преобразования. Благодаря векторизованности языка R, нам нет необходимости писать цикл, который будет применять операции к каждому елементу вектора. R это сделает сам.</p>
+<ul>
+<li>арифметические операции</li>
+</ul>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="введение-в-r.html#cb79-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 2 4 6 6 4 2</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="введение-в-r.html#cb81-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## Warning in a * c(1, 2, 3, 4): longer object length is not a multiple of shorter
+## object length</code></pre>
+<pre><code>## [1]  1  4  9 12  2  2</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="введение-в-r.html#cb84-1" aria-hidden="true" tabindex="-1"></a>a<span class="dv">-5</span></span></code></pre></div>
+<pre><code>## [1] -4 -3 -2 -2 -3 -4</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="введение-в-r.html#cb86-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 1 4 9 9 4 1</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="введение-в-r.html#cb88-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 0.5 1.0 1.5 1.5 1.0 0.5</code></pre>
+<p>Как видите, чтобы перемножить вектора, они должны быть одинаковой длины:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="введение-в-r.html#cb90-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1]  1  4  9 12 10  6</code></pre>
+<ul>
+<li>операции сравнения (важно! <code>=</code> — оператор присваивания! для сравнения используйте <code>==</code>)</li>
+</ul>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="введение-в-r.html#cb92-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&lt;=</span><span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="введение-в-r.html#cb94-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">!=</span><span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="введение-в-r.html#cb96-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">==</span><span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+<p>В результате мы получаем вектор логических значений. Запомним, это пригодится нам далее.</p>
+<p>Вспомним, что в логических переменных <code>TRUE</code> — это 1, <code>FALSE</code> — это 0</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="введение-в-r.html#cb98-1" aria-hidden="true" tabindex="-1"></a>tf <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>)</span>
+<span id="cb98-2"><a href="введение-в-r.html#cb98-2" aria-hidden="true" tabindex="-1"></a>tf <span class="sc">==</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="введение-в-r.html#cb100-1" aria-hidden="true" tabindex="-1"></a>tf <span class="sc">==</span> <span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="введение-в-r.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tf)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="введение-в-r.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tf <span class="sc">==</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Наш датасет, хранящийся в data, имеет 15 столбиков. Каждый столбик — это вектор. Мы можем извлекать их оттуда через знак $:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="введение-в-r.html#cb106-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>height</span></code></pre></div>
+<pre><code>##  [1] 165 180 161 164 180 170 170 173 163 168 165 164 166  NA 173 173 183 170 185
+## [20] 169 185 172 158 185 168 175 162 182 164 167 175 167 168 179 172</code></pre>
+<p><code>NA</code> — это пропущенное значение:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="введение-в-r.html#cb108-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>height[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]<span class="sc">==</span><span class="dv">164</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p><code>data$height[1:10]</code> — это выбор первых десяти значений из вектора, которые мы протом проверяем на равенство 164</p>
+<p>Мы можем посчитать частоту каждого значения с помощью функции <code>table()</code></p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="введение-в-r.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>height)</span></code></pre></div>
+<pre><code>## 
+## 158 161 162 163 164 165 166 167 168 169 170 172 173 175 179 180 182 183 185 
+##   1   1   1   1   3   2   1   2   3   1   3   2   3   2   1   2   1   1   3</code></pre>
+<p>Вспомним, что мы можем совершать арифметические действия с логическими переменными и посчитаем, сколько человек выше 175см:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="введение-в-r.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="введение-в-r.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(data<span class="sc">$</span>height<span class="sc">&gt;</span><span class="dv">175</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Опа, посчитать не получилось. Это потому что каждый элемент вектора нужно сравнить с 175, а для пропущенного значения это невозможно. давайте просто не будем его учитывать:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="введение-в-r.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(data<span class="sc">$</span>height<span class="sc">&gt;</span><span class="dv">175</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Посчитаем среднее количество глаз на каждого из нас:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="введение-в-r.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>eye_number)</span></code></pre></div>
+<pre><code>## [1] 5.057143</code></pre>
+<p>Все понятно, мы — ангелы</p>
+<p><img src="https://localcrew.ru/wp-content/uploads/2021/02/IMAGE-2021-02-08-120922.jpg" /></p>
+<p>Гистограмма распределения размеров обуви и самый большой размер:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="введение-в-r.html#cb120-1" aria-hidden="true" tabindex="-1"></a>shoes<span class="ot">&lt;-</span>data<span class="sc">$</span>shoe_size</span>
+<span id="cb120-2"><a href="введение-в-r.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(shoes)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="введение-в-r.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(shoes)</span></code></pre></div>
+<pre><code>## [1] 45</code></pre>
+<p>Вектор может быть именованным и к каждому элементу тогда можно обратиться по имени:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="введение-в-r.html#cb123-1" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;e&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;f&quot;</span><span class="ot">=</span><span class="dv">2</span>,<span class="st">&quot;g&quot;</span><span class="ot">=</span><span class="dv">3</span>)</span>
+<span id="cb123-2"><a href="введение-в-r.html#cb123-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>## e f g 
+## 1 2 3</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="введение-в-r.html#cb125-1" aria-hidden="true" tabindex="-1"></a>b[<span class="st">&#39;f&#39;</span>]</span></code></pre></div>
+<pre><code>## f 
+## 2</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="введение-в-r.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(b)</span></code></pre></div>
+<pre><code>## [1] &quot;e&quot; &quot;f&quot; &quot;g&quot;</code></pre>
+<p>А если имени нет?</p>
+<p><img src="http://memesmix.net/media/created/4v3fge.jpg" /></p>
+<p>Тогда можно по номеру в последовательности:</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="введение-в-r.html#cb129-1" aria-hidden="true" tabindex="-1"></a>b[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## f 
+## 2</code></pre>
+<p>Или сразу по вектору номеров! NB! В R нумерация элементов начинается с 1, но не в каждом языке программирования так.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="введение-в-r.html#cb131-1" aria-hidden="true" tabindex="-1"></a>b[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<pre><code>## e g 
+## 1 3</code></pre>
+<p>Или по логическому вектору отфильтровать другой вектор:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="введение-в-r.html#cb133-1" aria-hidden="true" tabindex="-1"></a>b[<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>)]</span></code></pre></div>
+<pre><code>## e g 
+## 1 3</code></pre>
+<p>Мы можем выбрать не одну, а несколько колонок из таблицы с помощью вектора:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="введение-в-r.html#cb135-1" aria-hidden="true" tabindex="-1"></a>data[<span class="fu">c</span>(<span class="st">&quot;eye_color&quot;</span>,<span class="st">&quot;gorgeous&quot;</span>)]</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["eye_color"],"name":[1],"type":["fct"],"align":["left"]},{"label":["gorgeous"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"green","2":"10"},{"1":"brown","2":"10"},{"1":"blue","2":"7"},{"1":"brown","2":"10"},{"1":"blue","2":"6"},{"1":"green","2":"10"},{"1":"brown","2":"8"},{"1":"brown","2":"8"},{"1":"green","2":"7"},{"1":"green","2":"9"},{"1":"other","2":"5"},{"1":"other","2":"4"},{"1":"green","2":"10"},{"1":"green","2":"8"},{"1":"blue","2":"8"},{"1":"green","2":"10"},{"1":"brown","2":"8"},{"1":"brown","2":"7"},{"1":"brown","2":"3"},{"1":"brown","2":"10"},{"1":"brown","2":"6"},{"1":"brown","2":"4"},{"1":"brown","2":"7"},{"1":"brown","2":"3"},{"1":"brown","2":"9"},{"1":"blue","2":"10"},{"1":"brown","2":"4"},{"1":"other","2":"10"},{"1":"brown","2":"10"},{"1":"green","2":"7"},{"1":"blue","2":"10"},{"1":"brown","2":"9"},{"1":"blue","2":"8"},{"1":"blue","2":"7"},{"1":"green","2":"7"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="матрицы" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Матрицы</h3>
+<p><img src="http://memesmix.net/media/created/3bks8p.jpg" /></p>
+<p>Матрица - такая структура данных, где есть столбики и строки. Вектор может быть превращён в матрицу. Для этого надо сказать, сколько в нём строчек или столбиков.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="введение-в-r.html#cb136-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 1 2 3 3 2 1</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="введение-в-r.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(a[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],<span class="at">nrow=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## Warning in matrix(a[1:2], nrow = 3): data length [2] is not a sub-multiple or
+## multiple of the number of rows [3]</code></pre>
+<pre><code>##      [,1]
+## [1,]    1
+## [2,]    2
+## [3,]    1</code></pre>
+<p>R выдает предупреждение. Видишь, что случилось? Из нашего вектора из двух элементов <code>a[1:2]</code> мы создали матрицу с тремя строками. Что будет, если сделать больше строк?</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="введение-в-r.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(a[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],<span class="at">nrow=</span><span class="dv">6</span>)</span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]    1
+## [2,]    2
+## [3,]    1
+## [4,]    2
+## [5,]    1
+## [6,]    2</code></pre>
+<p>Никакой ругани)) В матрице из раза в раз повторяются 1 и 2 элементы вектора. Не ругается R потому что 6 рядок кратно 2. Так как 3 строки не кратны 2, то ровненько повторить элементы не получилось, о чем R нас предупредил.</p>
+<p>Кстати, это была одночастная матрица. Она бывает такой</p>
+<p><img src="https://www.ikea.com/ru/ru/images/products/kallax-kallaks-stellazh-belyy__0627095_pe693171_S5.JPG" /></p>
+<p>или такой</p>
+<p><img src="https://i.imgur.com/bzwFYXj.jpg" /></p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="введение-в-r.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(a,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    3    2    1</code></pre>
+<p>А это уже многочастная матрица. Спасибо, Икеа!</p>
+<p><img src="https://www.ikea.com/ru/ru/images/products/kallax-kallaks-stellazh-belyy__0644182_pe702466_s5.jpg" /></p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="введение-в-r.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(a,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">FALSE</span>) <span class="co">#что будет?</span></span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    2
+## [2,]    2    3    1</code></pre>
+<p>Как видите, можно заполнять матрицу элементами построчно или по столбцам.</p>
+<p>Пустую матрицу тоже можно создать</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="введение-в-r.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>()</span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]   NA</code></pre>
+<p>Тебе, наверняка, известна корреляционная матрица</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="введение-в-r.html#cb149-1" aria-hidden="true" tabindex="-1"></a>ddd <span class="ot">&lt;-</span> data[<span class="fu">c</span>(<span class="st">&quot;height&quot;</span>,<span class="st">&quot;eye_number&quot;</span>,<span class="st">&quot;gorgeous&quot;</span>)]</span>
+<span id="cb149-2"><a href="введение-в-r.html#cb149-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-3"><a href="введение-в-r.html#cb149-3" aria-hidden="true" tabindex="-1"></a>cor1<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">cor</span>(ddd, <span class="at">use=</span><span class="st">&quot;pairwise.complete.obs&quot;</span>),<span class="dv">3</span>)</span>
+<span id="cb149-4"><a href="введение-в-r.html#cb149-4" aria-hidden="true" tabindex="-1"></a>cor1</span></code></pre></div>
+<pre><code>##            height eye_number gorgeous
+## height      1.000     -0.105   -0.153
+## eye_number -0.105      1.000   -0.046
+## gorgeous   -0.153     -0.046    1.000</code></pre>
+<p>К элементам матрицы можно обращаться по координатам:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="введение-в-r.html#cb151-1" aria-hidden="true" tabindex="-1"></a>cor1[<span class="dv">1</span>,]</span></code></pre></div>
+<pre><code>##     height eye_number   gorgeous 
+##      1.000     -0.105     -0.153</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="введение-в-r.html#cb153-1" aria-hidden="true" tabindex="-1"></a>cor1[<span class="dv">1</span>,<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>или опять-таки - по именам!</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="введение-в-r.html#cb155-1" aria-hidden="true" tabindex="-1"></a>cor1[<span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>,<span class="st">&quot;APPEAL1&quot;</span>)]</span></code></pre></div>
+<pre><code>## [1] NA NA</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="введение-в-r.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(cor1)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;height&quot;     &quot;eye_number&quot; &quot;gorgeous&quot;  
+## 
+## [[2]]
+## [1] &quot;height&quot;     &quot;eye_number&quot; &quot;gorgeous&quot;</code></pre>
+</div>
+<div id="списки" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Списки</h3>
+<p>Список (list) - структура данных, которая может включать в себя набор из данных разного формата, например, вектор и строку, число и матрицу и пр.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="введение-в-r.html#cb159-1" aria-hidden="true" tabindex="-1"></a>u0 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;A&#39;</span>, <span class="dv">1</span>)</span>
+<span id="cb159-2"><a href="введение-в-r.html#cb159-2" aria-hidden="true" tabindex="-1"></a>u0</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;A&quot;
+## 
+## [[2]]
+## [1] 1</code></pre>
+<p>Мы можем посмотреть структуру объекта:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="введение-в-r.html#cb161-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1</span>, <span class="fu">list</span> (<span class="st">&quot;A&quot;</span>, T))</span>
+<span id="cb161-2"><a href="введение-в-r.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(u)</span></code></pre></div>
+<pre><code>## List of 3
+##  $ : chr &quot;A&quot;
+##  $ : num 1
+##  $ :List of 2
+##   ..$ : chr &quot;A&quot;
+##   ..$ : logi TRUE</code></pre>
+<p>Представим, что список — это мешочек. Функция <code>unlist()</code> вытаскивает предметы из мешочка и просто выставляет их на стол</p>
+<p><img src="https://geekprepper.com/wp-content/uploads/2018/01/survivortown-kit.jpg" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="введение-в-r.html#cb163-1" aria-hidden="true" tabindex="-1"></a>uu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">list</span>(<span class="st">&quot;a&quot;</span>,<span class="dv">5</span>),<span class="fu">list</span>(<span class="fu">list</span>(<span class="dv">5</span>)))</span>
+<span id="cb163-2"><a href="введение-в-r.html#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(uu)</span></code></pre></div>
+<pre><code>## List of 3
+##  $ : chr &quot;a&quot;
+##  $ : num 5
+##  $ :List of 1
+##   ..$ : num 5</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="введение-в-r.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(u)</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;    &quot;1&quot;    &quot;A&quot;    &quot;TRUE&quot;</code></pre>
+<p>Можно превратить список в другие структуры данных, например, таблицу или матрицу.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="введение-в-r.html#cb167-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;a&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="st">&quot;b&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>))</span>
+<span id="cb167-2"><a href="введение-в-r.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(u)</span></code></pre></div>
+<pre><code>## List of 2
+##  $ a: num [1:2] 1 2
+##  $ b: num [1:2] 3 4</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="введение-в-r.html#cb169-1" aria-hidden="true" tabindex="-1"></a>u2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(u)</span>
+<span id="cb169-2"><a href="введение-в-r.html#cb169-2" aria-hidden="true" tabindex="-1"></a>u3 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(u2)</span>
+<span id="cb169-3"><a href="введение-в-r.html#cb169-3" aria-hidden="true" tabindex="-1"></a>u4 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(u)</span></code></pre></div>
+<p>Найдите эти переменные в глобальном окружении. Выглядят они похоже, но описания у них в глобальном окружении разные, как и принципы работы с ними.</p>
+<p>Элементам списка также можно давать имена, а не обращаться к ним по номерам:</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="введение-в-r.html#cb170-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;a&#39;</span>, <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span>
+<span id="cb170-2"><a href="введение-в-r.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(u) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;meow&#39;</span>, <span class="st">&#39;meow_num&#39;</span>)</span>
+<span id="cb170-3"><a href="введение-в-r.html#cb170-3" aria-hidden="true" tabindex="-1"></a>u</span></code></pre></div>
+<pre><code>## $meow
+## [1] &quot;a&quot;
+## 
+## $meow_num
+##      [,1]
+## [1,]    1
+## [2,]    2</code></pre>
+<p>Выведем второй элемент списка и посмотрим, какой тип данных он имеет:</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="введение-в-r.html#cb172-1" aria-hidden="true" tabindex="-1"></a>u[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## $meow_num
+##      [,1]
+## [1,]    1
+## [2,]    2</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="введение-в-r.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(u[<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>Второй элемент этого списка был превращен из матрицы с одной колонкой в вертикальный список с именем meow_num, состоящий из одного элемента - матрицы.</p>
+<p>Чтобы нам добраться до самого второго элемента именнованного списка - матрицы - нужно использовать двойные скобки <code>[[x]]</code>. Это особенность синтаксиса.</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="введение-в-r.html#cb176-1" aria-hidden="true" tabindex="-1"></a>u[[<span class="dv">2</span>]]</span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]    1
+## [2,]    2</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="введение-в-r.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(u[[<span class="dv">2</span>]])</span></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<p>Либо обратиться не по индексу, а по имени:</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="введение-в-r.html#cb180-1" aria-hidden="true" tabindex="-1"></a>u<span class="sc">$</span>meow</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot;</code></pre>
+<p><img src="http://risovach.ru/upload/2014/06/mem/ty-delaesh-eto-bez-uvazheniya_54111441_orig_.jpeg" /></p>
+</div>
+<div id="дата-фреймы" class="section level3" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Дата фреймы</h3>
+<p>Это наши любимые таблицы. В каждом столбце находятся элементы одного типа. В переменной data находится наш датафрейм.
+Как и с векторами, есть три базовых способа фильтрации датафреймов:</p>
+<ol style="list-style-type: decimal">
+<li>с помощью вектора с адресами (номерами строк)</li>
+</ol>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="введение-в-r.html#cb182-1" aria-hidden="true" tabindex="-1"></a>data10_1<span class="ot">&lt;-</span>data[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>с помощью вектора с именами</li>
+</ol>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="введение-в-r.html#cb183-1" aria-hidden="true" tabindex="-1"></a>data10_1<span class="ot">&lt;-</span>data[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">7</span><span class="sc">:</span><span class="dv">10</span>),<span class="fu">c</span>(<span class="st">&quot;soft_drink&quot;</span>,<span class="st">&quot;hot_drink&quot;</span>)]</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>С помощью логического вектора (<code>rep()</code> - функция, генерирующая повторяющиеся значения)</li>
+</ol>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="введение-в-r.html#cb184-1" aria-hidden="true" tabindex="-1"></a>data10_1<span class="ot">&lt;-</span>data[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>,<span class="dv">10</span>),<span class="fu">rep</span>(<span class="cn">FALSE</span>,<span class="dv">25</span>)),]</span></code></pre></div>
+<p>Подробнее о логической фильтрации будет в следующем уроке.</p>
+</div>
+</div>
+<div id="функции-и-простые-действия-с-данными" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Функции и простые действия с данными</h2>
+<p>Для начала мы можем узнать тип данных, из которых состоит вектор</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="введение-в-r.html#cb185-1" aria-hidden="true" tabindex="-1"></a>ch <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;pear&#39;</span>, <span class="st">&#39;banana&#39;</span>, <span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb185-2"><a href="введение-в-r.html#cb185-2" aria-hidden="true" tabindex="-1"></a>ch</span></code></pre></div>
+<pre><code>## [1] &quot;apple&quot;  &quot;pear&quot;   &quot;banana&quot; &quot;orange&quot;</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="введение-в-r.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(ch)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Сколько уникальных элементов содержится в векторе?</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="введение-в-r.html#cb189-1" aria-hidden="true" tabindex="-1"></a>ch2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;pear&#39;</span>, <span class="st">&#39;banana&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;apple&#39;</span>, <span class="st">&#39;apple&#39;</span>)</span>
+<span id="cb189-2"><a href="введение-в-r.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(ch2)</span></code></pre></div>
+<pre><code>## [1] &quot;apple&quot;  &quot;pear&quot;   &quot;banana&quot; &quot;orange&quot;</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="введение-в-r.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(ch2) <span class="co">#сортировка объектов</span></span></code></pre></div>
+<pre><code>## [1] &quot;apple&quot;  &quot;apple&quot;  &quot;apple&quot;  &quot;banana&quot; &quot;orange&quot; &quot;pear&quot;</code></pre>
+<p>Фильтруем все, что по алфавиту идет раньше ‘ba’. При этом считается, что ‘ba..’ идет позже просто ‘ba’</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="введение-в-r.html#cb193-1" aria-hidden="true" tabindex="-1"></a>ch[ch<span class="sc">&gt;</span><span class="st">&quot;ba&quot;</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;pear&quot;   &quot;banana&quot; &quot;orange&quot;</code></pre>
+<p>Сколько символов в элементах вектора?</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="введение-в-r.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(ch)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="введение-в-r.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(ch)</span></code></pre></div>
+<pre><code>## [1] 5 4 6 6</code></pre>
+<p>Поиск элементов</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="введение-в-r.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&#39;b&#39;</span>, ch, <span class="at">value=</span><span class="cn">TRUE</span>) <span class="co">#дает само значение</span></span></code></pre></div>
+<pre><code>## [1] &quot;banana&quot;</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="введение-в-r.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&#39;b&#39;</span>, ch, <span class="at">value=</span><span class="cn">FALSE</span>) <span class="co">#дает порядковый номер элемента</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="введение-в-r.html#cb203-1" aria-hidden="true" tabindex="-1"></a>ch[<span class="fu">grep</span>(<span class="st">&#39;b&#39;</span>, ch, <span class="at">value=</span><span class="cn">FALSE</span>)] <span class="co">#определяет значение по порядковому номеру элемента</span></span></code></pre></div>
+<pre><code>## [1] &quot;banana&quot;</code></pre>
+<p>Bывод элемента по номеру</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="введение-в-r.html#cb205-1" aria-hidden="true" tabindex="-1"></a>ch2[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;apple&quot;</code></pre>
+<p>Исключение элемента по номеру</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="введение-в-r.html#cb207-1" aria-hidden="true" tabindex="-1"></a>ch2[<span class="sc">-</span><span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;apple&quot;  &quot;pear&quot;   &quot;banana&quot; &quot;apple&quot;  &quot;apple&quot;</code></pre>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="введение-в-r.html#cb209-1" aria-hidden="true" tabindex="-1"></a>ch[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;pear&quot;   &quot;banana&quot; &quot;orange&quot;</code></pre>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="введение-в-r.html#cb211-1" aria-hidden="true" tabindex="-1"></a>ch2[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;banana&quot; &quot;orange&quot; &quot;apple&quot;  &quot;apple&quot;</code></pre>
+<p>Разбиение по разделителю (пробел)</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="введение-в-r.html#cb213-1" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="st">&#39;Ну-ка фрукты встаньте в ряд&#39;</span></span>
+<span id="cb213-2"><a href="введение-в-r.html#cb213-2" aria-hidden="true" tabindex="-1"></a><span class="fu">strsplit</span>(text, <span class="st">&#39; &#39;</span>)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;Ну-ка&quot;    &quot;фрукты&quot;   &quot;встаньте&quot; &quot;в&quot;        &quot;ряд&quot;</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="введение-в-r.html#cb215-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span>  <span class="fu">strsplit</span>(text, <span class="st">&#39; &#39;</span>)</span>
+<span id="cb215-2"><a href="введение-в-r.html#cb215-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(a)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="введение-в-r.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(a[<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>Строка с пропусками вида character и digit</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="введение-в-r.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;%s отправляется в %d часов&quot;</span>, <span class="st">&quot;Электричка&quot;</span>, <span class="dv">12</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Электричка отправляется в 12 часов&quot;</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="введение-в-r.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;%s отправляется в %d часов&quot;</span>, <span class="fu">rep</span>(<span class="st">&quot;Электричка&quot;</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">13</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;Электричка отправляется в 12 часов&quot; &quot;Электричка отправляется в 13 часов&quot;</code></pre>
+<p>Вытащить кусок строки</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="введение-в-r.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(<span class="st">&quot;Я маленькая лошадка&quot;</span>, <span class="at">start=</span><span class="dv">3</span>, <span class="at">stop=</span><span class="dv">12</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;маленькая &quot;</code></pre>
+<p>Заменить кусок внутри строки</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="введение-в-r.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">&quot;маленькая&quot;</span>, <span class="st">&quot;большая&quot;</span>, <span class="st">&quot;Я маленькая лошадка&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;Я большая лошадка&quot;</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="введение-в-r.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">&quot;маленькая&quot;</span>, <span class="st">&quot;большая&quot;</span>, <span class="st">&quot;Я маленькая маленькая лошадка&quot;</span>) <span class="co">#заменяет только первое появление подстроки</span></span></code></pre></div>
+<pre><code>## [1] &quot;Я большая маленькая лошадка&quot;</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="введение-в-r.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;маленькая&quot;</span>, <span class="st">&quot;большая&quot;</span>, <span class="st">&quot;Я маленькая маленькая лошадка&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Я большая большая лошадка&quot;</code></pre>
+<p>Отбор элементов по номеру позиции (индекс) и по его значению</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="введение-в-r.html#cb231-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">4</span>)</span>
+<span id="cb231-2"><a href="введение-в-r.html#cb231-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">&gt;</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="введение-в-r.html#cb233-1" aria-hidden="true" tabindex="-1"></a>d[d<span class="sc">&gt;</span><span class="dv">2</span>] <span class="co">#сами элементы</span></span></code></pre></div>
+<pre><code>## [1] 6 4</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="введение-в-r.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(d<span class="sc">&gt;</span><span class="dv">2</span>) <span class="co">#номера их позиций</span></span></code></pre></div>
+<pre><code>## [1] 3 4</code></pre>
+<p>Можно проверить, принадлежат ли элементы вектора определенному типу данных</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="введение-в-r.html#cb237-1" aria-hidden="true" tabindex="-1"></a>int_num<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4000</span>)</span>
+<span id="cb237-2"><a href="введение-в-r.html#cb237-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(int_num)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="введение-в-r.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(int_num)</span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>К целочисленному выражению элементы вектора можно привести несколькими способами:</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="введение-в-r.html#cb241-1" aria-hidden="true" tabindex="-1"></a>int_num<span class="ot">&lt;-</span><span class="fu">as.integer</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4000</span>))</span>
+<span id="cb241-2"><a href="введение-в-r.html#cb241-2" aria-hidden="true" tabindex="-1"></a>int_num<span class="ot">&lt;-</span><span class="fu">c</span>(1L,2L,3L,4000L) <span class="co">#сохраняет как целые</span></span>
+<span id="cb241-3"><a href="введение-в-r.html#cb241-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">214748364.7</span>)</span></code></pre></div>
+<pre><code>## [1] 214748364</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="введение-в-r.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="dv">2147483648</span>) <span class="co">#слишком большое число, не может хранить</span></span></code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion to integer range</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="введение-в-r.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="sc">-</span><span class="dv">2147483647</span>)</span></code></pre></div>
+<pre><code>## [1] -2147483647</code></pre>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="введение-в-r.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="sc">-</span><span class="dv">2147483648</span>)</span></code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion to integer range</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>Для больших чисел мы вынуждены использовать формат с плавающей точкой, он может хранить больше информации</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="введение-в-r.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.double</span>(<span class="st">&quot;10000998843483274893274892374238947273&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 1.0001e+37</code></pre>
+<p>Включение scientific notation</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="введение-в-r.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>) </span>
+<span id="cb253-2"><a href="введение-в-r.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">64</span></span></code></pre></div>
+<pre><code>## [1] 18446744073709551616</code></pre>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="введение-в-r.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="dv">90071992547409923</span></span></code></pre></div>
+<pre><code>## [1] 90071992547409920</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="введение-в-r.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">0</span>)</span>
+<span id="cb257-2"><a href="введение-в-r.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">64</span></span></code></pre></div>
+<pre><code>## [1] 1.844674e+19</code></pre>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="введение-в-r.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="dv">90071992547409923</span></span></code></pre></div>
+<pre><code>## [1] 9.007199e+16</code></pre>
+<p>Numeric - общее название для числовых данных, включает в себя и double, и integer. Подробнее о форматах можно посмотреть в справке <code>?double</code> и <code>?integer</code>.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="введение-в-r.html#cb261-1" aria-hidden="true" tabindex="-1"></a>numeric_num<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="fl">2.5</span>)</span>
+<span id="cb261-2"><a href="введение-в-r.html#cb261-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(numeric_num)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="введение-в-r.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(int_num)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="введение-в-r.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(int_num)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="введение-в-r.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(numeric_num)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="введение-в-r.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(numeric_num)</span></code></pre></div>
+<pre><code>##  num [1:3] 1 2 2.5</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="введение-в-r.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(numeric_num)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="введение-в-r.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(numeric_num)</span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>Объединение векторов с разнымм типами значений</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="введение-в-r.html#cb275-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb275-2"><a href="введение-в-r.html#cb275-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>)</span>
+<span id="cb275-3"><a href="введение-в-r.html#cb275-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(n,s)</span></code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<p>Как видите, при объединении числовой формат был переделан в строковый. Как мы узнали ранее, разные форматы можно хранить только в списках и таблицах.</p>
+</div>
+<div id="задания-для-тренировки" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Задания для тренировки</h2>
+<div class="rmdtask">
+<ol style="list-style-type: decimal">
+<li>
+Соедини значение 1 и TRUE в вектор. Что получилось?
+</li>
+</ol>
+</div>
+<div class="rmdtask">
+<ol start="2" style="list-style-type: decimal">
+<li>
+У тебя есть вектор <code>a &lt;-c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</code>. Создай из него матрицу с заполнением по строкам. Выбери первый столбец. Помни, что при фильтрации в формате <code>vec[x, y]</code>, <code>x</code>— это строка, <code>y</code> — это столбец.
+</li>
+</ol>
+</div>
+<div class="rmdtask">
+<ol start="3" style="list-style-type: decimal">
+<li>
+Список со вложенными списками <code>subjects &lt;- list(list(‘Masha’, 18, list(39, 40)), list(‘Nastya’, 22, 41), list(‘Mitya’, 25, 46))</code>. Выведи второй элемент третьего элемента первого списка. Что это за число? Поэкспериментируй. Не забудь про двойные кавычки <code>[[]]</code>.
+</li>
+</ol>
+</div>
+<div class="rmdtask">
+<ol start="4" style="list-style-type: decimal">
+<li>
+Определи среднее, сумму, максимальное и минимальное значение в векторе <code>data$hair_length</code>. Нарисуй гистограмму.
+</li>
+</ol>
+</div>
+<div class="rmdtask">
+<ol start="5" style="list-style-type: decimal">
+<li>
+Выведи вектор, получившийся в результате проверки каждого элемента из <code>data$hair_length</code> на четность/нечетность (используй остаток от целочисленного деления)
+</li>
+</ol>
+</div>
+<div class="rmdtask">
+<ol start="6" style="list-style-type: decimal">
+<li>
+Из нашей таблицы data выбери элемент, находящийся на 18 строке в 6 столбце и выведи на экран с помощью функции <code>paste()</code>
+</li>
+</ol>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/maria-srv/AnDan2021Start/edit/master/01_intro_to_R.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"self_contained": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

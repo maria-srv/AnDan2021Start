@@ -1,0 +1,22 @@
+--- 
+title: "АнДан 2021: стартовая программа"
+author: "А. Ангельгардт, М. Серветник, Ю. Мартысенко, А. Котликова"
+editor_options:
+  chunk_output_type: console
+link-citations: yes
+documentclass: book
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+# О курсе
+
+Материалы для курса школы Анализа данных: стартовая.
+
+Пакеты:
+
+```{r, eval = FALSE}
+install.packages(c("data.table", 
+                   "ggplot2", 
+                   "reshape2"))
+```

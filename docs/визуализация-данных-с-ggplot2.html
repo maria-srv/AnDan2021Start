@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Визуализация данных с ggplot2 | АнДан 2021: стартовая программа</title>
+  <meta name="description" content="5 Визуализация данных с ggplot2 | АнДан 2021: стартовая программа" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Визуализация данных с ggplot2 | АнДан 2021: стартовая программа" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Визуализация данных с ggplot2 | АнДан 2021: стартовая программа" />
+  
+  
+  
+
+<meta name="author" content="А. Ангельгардт, М. Серветник, Ю. Мартысенко, А. Котликова" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="продолжаем-с-data-table.html"/>
+<link rel="next" href="anova-a-k-a-дисперсионный-анализ.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">2021 Андан стартовая</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> О курсе</a></li>
+<li class="chapter" data-level="2" data-path="введение-в-r.html"><a href="введение-в-r.html"><i class="fa fa-check"></i><b>2</b> Введение в R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="введение-в-r.html"><a href="введение-в-r.html#общее"><i class="fa fa-check"></i><b>2.1</b> Общее</a></li>
+<li class="chapter" data-level="2.2" data-path="введение-в-r.html"><a href="введение-в-r.html#типы-данных"><i class="fa fa-check"></i><b>2.2</b> Типы данных</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="введение-в-r.html"><a href="введение-в-r.html#целое-число-integer"><i class="fa fa-check"></i><b>2.2.1</b> Целое число — integer</a></li>
+<li class="chapter" data-level="2.2.2" data-path="введение-в-r.html"><a href="введение-в-r.html#число-с-плавающей-запятой-double"><i class="fa fa-check"></i><b>2.2.2</b> Число с плавающей запятой — double</a></li>
+<li class="chapter" data-level="2.2.3" data-path="введение-в-r.html"><a href="введение-в-r.html#комплексные-числа-complex"><i class="fa fa-check"></i><b>2.2.3</b> Комплексные числа — complex</a></li>
+<li class="chapter" data-level="2.2.4" data-path="введение-в-r.html"><a href="введение-в-r.html#символьный-тип-данныхстроки-character"><i class="fa fa-check"></i><b>2.2.4</b> Символьный тип данных(строки) — character</a></li>
+<li class="chapter" data-level="2.2.5" data-path="введение-в-r.html"><a href="введение-в-r.html#факторы"><i class="fa fa-check"></i><b>2.2.5</b> Факторы</a></li>
+<li class="chapter" data-level="2.2.6" data-path="введение-в-r.html"><a href="введение-в-r.html#ordered-factor-упорядоченный"><i class="fa fa-check"></i><b>2.2.6</b> Ordered factor (упорядоченный)</a></li>
+<li class="chapter" data-level="2.2.7" data-path="введение-в-r.html"><a href="введение-в-r.html#логические---boolean"><i class="fa fa-check"></i><b>2.2.7</b> Логические - boolean</a></li>
+<li class="chapter" data-level="2.2.8" data-path="введение-в-r.html"><a href="введение-в-r.html#есть-еще-такой-тип-данных-как-даты."><i class="fa fa-check"></i><b>2.2.8</b> Есть еще такой тип данных, как даты.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="введение-в-r.html"><a href="введение-в-r.html#структуры-данных"><i class="fa fa-check"></i><b>2.3</b> Структуры данных</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="введение-в-r.html"><a href="введение-в-r.html#вектор"><i class="fa fa-check"></i><b>2.3.1</b> Вектор</a></li>
+<li class="chapter" data-level="2.3.2" data-path="введение-в-r.html"><a href="введение-в-r.html#матрицы"><i class="fa fa-check"></i><b>2.3.2</b> Матрицы</a></li>
+<li class="chapter" data-level="2.3.3" data-path="введение-в-r.html"><a href="введение-в-r.html#списки"><i class="fa fa-check"></i><b>2.3.3</b> Списки</a></li>
+<li class="chapter" data-level="2.3.4" data-path="введение-в-r.html"><a href="введение-в-r.html#дата-фреймы"><i class="fa fa-check"></i><b>2.3.4</b> Дата фреймы</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="введение-в-r.html"><a href="введение-в-r.html#функции-и-простые-действия-с-данными"><i class="fa fa-check"></i><b>2.4</b> Функции и простые действия с данными</a></li>
+<li class="chapter" data-level="2.5" data-path="введение-в-r.html"><a href="введение-в-r.html#задания-для-тренировки"><i class="fa fa-check"></i><b>2.5</b> Задания для тренировки</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><i class="fa fa-check"></i><b>3</b> Фильтрация строк и столбцов в base R. Введение в data.table</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-строк-и-столбцов-в-base-r"><i class="fa fa-check"></i><b>3.1</b> Фильтрация строк и столбцов в base R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-вектора-по-условию"><i class="fa fa-check"></i><b>3.1.1</b> Фильтрация вектора по условию</a></li>
+<li class="chapter" data-level="3.1.2" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-дата.фрейма-по-условию"><i class="fa fa-check"></i><b>3.1.2</b> Фильтрация дата.фрейма по условию</a></li>
+<li class="chapter" data-level="3.1.3" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-по-результату-функции"><i class="fa fa-check"></i><b>3.1.3</b> Фильтрация по результату функции</a></li>
+<li class="chapter" data-level="3.1.4" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-для-группировки"><i class="fa fa-check"></i><b>3.1.4</b> Фильтрация для группировки</a></li>
+<li class="chapter" data-level="3.1.5" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#введение-в-data.table"><i class="fa fa-check"></i><b>3.1.5</b> Введение в data.table</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html"><i class="fa fa-check"></i><b>4</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#продолжаем-с-data.table-1"><i class="fa fa-check"></i><b>4.1</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#счёт-элементов-с-помощью-.n"><i class="fa fa-check"></i><b>4.1.1</b> Счёт элементов с помощью .N</a></li>
+<li class="chapter" data-level="4.1.2" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#несколько-группировок"><i class="fa fa-check"></i><b>4.1.2</b> Несколько группировок</a></li>
+<li class="chapter" data-level="4.1.3" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#несколько-выражений"><i class="fa fa-check"></i><b>4.1.3</b> Несколько выражений</a></li>
+<li class="chapter" data-level="4.1.4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#имена-колонок"><i class="fa fa-check"></i><b>4.1.4</b> Имена колонок</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#указание-имён-при-создании-колонок"><i class="fa fa-check"></i><b>4.2</b> Указание имён при создании колонок</a></li>
+<li class="chapter" data-level="4.3" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#вечер-в-хату-вектор-в-colnames"><i class="fa fa-check"></i><b>4.3</b> Вечер в хату, вектор в <code>colnames()</code></a></li>
+<li class="chapter" data-level="4.4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#setnames-из-библиотеки-data.table"><i class="fa fa-check"></i><b>4.4</b> <code>setnames()</code> из библиотеки <code>data.table</code></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#новый-дата.тейбл-или-колонка-в-существующем"><i class="fa fa-check"></i><b>4.4.1</b> Новый дата.тейбл или колонка в существующем?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html"><i class="fa fa-check"></i><b>5</b> Визуализация данных с <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#визуализация-это-зачем"><i class="fa fa-check"></i><b>5.1</b> Визуализация это зачем?</a></li>
+<li class="chapter" data-level="5.2" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#философия-a-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>5.2</b> Философия A Layered Grammar of Graphics</a></li>
+<li class="chapter" data-level="5.3" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#экшон"><i class="fa fa-check"></i><b>5.3</b> Экшон</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#пакеты"><i class="fa fa-check"></i><b>5.3.1</b> Пакеты</a></li>
+<li class="chapter" data-level="5.3.2" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#данные"><i class="fa fa-check"></i><b>5.3.2</b> Данные</a></li>
+<li class="chapter" data-level="5.3.3" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#строим-базовый-график"><i class="fa fa-check"></i><b>5.3.3</b> Строим базовый график</a></li>
+<li class="chapter" data-level="5.3.4" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#ищем-более-сложные-закономерности"><i class="fa fa-check"></i><b>5.3.4</b> Ищем более сложные закономерности</a></li>
+<li class="chapter" data-level="5.3.5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#важное-замечание-о-визуализации"><i class="fa fa-check"></i><b>5.3.5</b> Важное замечание о визуализации</a></li>
+<li class="chapter" data-level="5.3.6" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#инструменты-встроенной-статистической-обработки"><i class="fa fa-check"></i><b>5.3.6</b> Инструменты встроенной статистической обработки</a></li>
+<li class="chapter" data-level="5.3.7" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#настраиваем-график"><i class="fa fa-check"></i><b>5.3.7</b> Настраиваем график</a></li>
+<li class="chapter" data-level="5.3.8" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#сохранение-графиков"><i class="fa fa-check"></i><b>5.3.8</b> Сохранение графиков</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#файнал-босс"><i class="fa fa-check"></i><b>5.4</b> Файнал босс</a></li>
+<li class="chapter" data-level="5.5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#конклюжон"><i class="fa fa-check"></i><b>5.5</b> Конклюжон</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html"><i class="fa fa-check"></i><b>6</b> ANOVA a.k.a. Дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#зачем-нужен-дисперсионный-анализ"><i class="fa fa-check"></i><b>6.1</b> Зачем нужен дисперсионный анализ?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#проблема-множественных-сравнений"><i class="fa fa-check"></i><b>6.1.1</b> Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="6.1.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#идея-дисперсионного-анализа"><i class="fa fa-check"></i><b>6.1.2</b> Идея дисперсионного анализа</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#однофакторный-дисперсионный-анализ"><i class="fa fa-check"></i><b>6.2</b> Однофакторный дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#структура-изменчивости"><i class="fa fa-check"></i><b>6.2.1</b> Структура изменчивости</a></li>
+<li class="chapter" data-level="6.2.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#тестирование-значимости-фактора"><i class="fa fa-check"></i><b>6.2.2</b> Тестирование значимости фактора</a></li>
+<li class="chapter" data-level="6.2.3" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#данные-1"><i class="fa fa-check"></i><b>6.2.3</b> Данные</a></li>
+<li class="chapter" data-level="6.2.4" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#дисперсионный-анализ-в-r"><i class="fa fa-check"></i><b>6.2.4</b> Дисперсионный анализ в R</a></li>
+<li class="chapter" data-level="6.2.5" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#post-hoc-тесты"><i class="fa fa-check"></i><b>6.2.5</b> Post hoc тесты</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ"><i class="fa fa-check"></i><b>6.3</b> Многофакторный дисперсионный анализ</a></li>
+<li class="chapter" data-level="6.4" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-без-взаимодействия-в-r"><i class="fa fa-check"></i><b>6.4</b> Многофакторный дисперсионный анализ без взаимодействия в R</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-со-взаимодействием-в-r"><i class="fa fa-check"></i><b>6.4.1</b> Многофакторный дисперсионный анализ со взаимодействием в R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#важность-аггрегации-данных"><i class="fa fa-check"></i><b>6.5</b> Важность аггрегации данных</a></li>
+<li class="chapter" data-level="6.6" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#итоги"><i class="fa fa-check"></i><b>6.6</b> Итоги</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">АнДан 2021: стартовая программа</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="визуализация-данных-с-ggplot2" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Визуализация данных с <code>ggplot2</code></h1>
+<div id="визуализация-это-зачем" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Визуализация это зачем?</h2>
+<p>Вопрос не праздный, ибо что мы зря 100500 видов описательных статистик считали? Однако всё не так просто. Рассмотрим пример.</p>
+<p>У нас есть датасет Квартет Анскомба<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, который выглядит так (первые десять строк):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">dataset</th>
+<th align="right">x</th>
+<th align="right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="right">8.04</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">10</td>
+<td align="right">9.14</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">10</td>
+<td align="right">7.46</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">8</td>
+<td align="right">6.58</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">8</td>
+<td align="right">6.95</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">8</td>
+<td align="right">8.14</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">8</td>
+<td align="right">6.77</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">8</td>
+<td align="right">5.76</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">13</td>
+<td align="right">7.58</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">13</td>
+<td align="right">8.74</td>
+</tr>
+</tbody>
+</table>
+<p>Если мы посчитаем описательные статистики в каждом субдатасете, то получим следующее:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">dataset</th>
+<th align="right">mean_x</th>
+<th align="right">mean_y</th>
+<th align="right">sd_x</th>
+<th align="right">sd_y</th>
+<th align="right">cor</th>
+<th align="right">n_obs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">7.5</td>
+<td align="right">3.32</td>
+<td align="right">2.03</td>
+<td align="right">0.82</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">9</td>
+<td align="right">7.5</td>
+<td align="right">3.32</td>
+<td align="right">2.03</td>
+<td align="right">0.82</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">7.5</td>
+<td align="right">3.32</td>
+<td align="right">2.03</td>
+<td align="right">0.82</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">9</td>
+<td align="right">7.5</td>
+<td align="right">3.32</td>
+<td align="right">2.03</td>
+<td align="right">0.82</td>
+<td align="right">11</td>
+</tr>
+</tbody>
+</table>
+<p>Ребят, тут всё идентично!</p>
+<center>
+<img src="images/bob.png" width="50%">
+</center>
+<p>Однако давайте нарисуем:</p>
+<center>
+<img src="andan_2021_files/figure-html/unnamed-chunk-180-1.png" width="672" />
+</center>
+<p>Што?</p>
+<center>
+<img src="images/wat.jpg">
+</center>
+<p>Мы обнаружили в явном виде, что несмотря на идентичные значения описательных статистик, паттерны в данных могут быть различны.</p>
+<p>Чтобы впечатлиться окончательно, посмотрим на Datasaurus<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dataset</th>
+<th align="right">mean_x</th>
+<th align="right">mean_y</th>
+<th align="right">sd_x</th>
+<th align="right">sd_y</th>
+<th align="right">cor</th>
+<th align="right">n_obs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">away</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="even">
+<td align="left">bullseye</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="odd">
+<td align="left">circle</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="even">
+<td align="left">dino</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="odd">
+<td align="left">dots</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="even">
+<td align="left">h_lines</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="odd">
+<td align="left">high_lines</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="even">
+<td align="left">slant_down</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="odd">
+<td align="left">slant_up</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="even">
+<td align="left">star</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="odd">
+<td align="left">v_lines</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="even">
+<td align="left">wide_lines</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+<tr class="odd">
+<td align="left">x_shape</td>
+<td align="right">54.3</td>
+<td align="right">47.8</td>
+<td align="right">16.8</td>
+<td align="right">26.9</td>
+<td align="right">-0.1</td>
+<td align="right">142</td>
+</tr>
+</tbody>
+</table>
+<center>
+<img src="andan_2021_files/figure-html/unnamed-chunk-182-1.png" width="672" />
+</center>
+<center>
+<img src="images/so.jpg" width="50%">
+</center>
+<p>К чему это всё? К тому, что визуализация данных является жизненно необходимым этапом разведочного анализа. Она позволяет вам глубже и детальнее понять, что происходит в данных, и как это происходящее может отразиться на дальнейшем анализе.</p>
+</div>
+<div id="философия-a-layered-grammar-of-graphics" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Философия A Layered Grammar of Graphics</h2>
+<p>Идея, воплолщенная в одном из мощнейших пакетов для визуализации <code>ggplot2</code>, восходит к работе <a href="https://www.springer.com/gp/book/9780387245447">L. Wilkinson «The Grammar of Graphics»</a>. Базируясь на идеях, изложенных в этой работе, Hadley Wickham разработал концепцию <a href="https://doi.org/10.1198/jcgs.2009.07098">Layered Grammar of Graphics</a> и создал пакет для визуализации, ради которого мы все здесь собрались. Автором по этому пакету написана целая <a href="https://www.springer.com/gp/book/9780387981413">книга</a>, но мы сосредоточимся на основных смысловых и ключевых моментах, которые необходимы, чтобы сделать что-то крутое.</p>
+<blockquote>
+<p>Часто возникает вопрос: почему 2? Ответ примерно такой: был и первый ggplot, но попытка не задалась от слова совсем, и пришлось все переделать.</p>
+</blockquote>
+<p>По своей сути график представляет собой сложную аппликацию из нескольких слоев. На каждом слое располагаются сходные по содержанию элементы. Начиная с самого первого — базового — и постепенно добавляя слой за слоем необходимые элементы, можно создавать сложные визуализации для отображения интересных закономерностей в данных.</p>
+<p>После создания базового графика осуществляется настройка отдельных элементов по необходимости и в зависимости от требований издательства / преподавателя / научника / комиссии и т.д. И поскольку все элементы в определенной степени изолированы друг от друга, это открывает большие возможности кастомизации. Кроме того, чтобы оформить график в соответствии с конкретными требованиями, нет необходимости перерисовывать его целиком, так как содержательная часть графика независима от настроек внешнего облика. Все, что вам нужно — это добавить/удалить пару строк кода.</p>
+<p>Но — хватит слов! Поехали уже рисовать уже!</p>
+</div>
+<div id="экшон" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Экшон</h2>
+<div id="пакеты" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Пакеты</h3>
+<p>Для рисования нам понадобится пакет <code>ggplot2</code>. Если вы ранее его никогда не устанавливали, то воспользуйтесь такой командой:</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="визуализация-данных-с-ggplot2.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<p>Проверить, установлен пакет или нет, можно так:</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="визуализация-данных-с-ggplot2.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;ggplot2&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>()</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>После установки пакета его необходимо подключить к текущей сессии, чтобы мы могли пользоваться функциями, которые в нём лежат:</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="визуализация-данных-с-ggplot2.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+</div>
+<div id="данные" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Данные</h3>
+<p>Чтобы не ворочаться с загрузкой данных, воспользуемся для освоения мощностей ггплота встроенным в него датасетом <code>diamonds</code>:</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="визуализация-данных-с-ggplot2.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(diamonds)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["carat"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cut"],"name":[2],"type":["ord"],"align":["right"]},{"label":["color"],"name":[3],"type":["ord"],"align":["right"]},{"label":["clarity"],"name":[4],"type":["ord"],"align":["right"]},{"label":["depth"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["table"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[7],"type":["int"],"align":["right"]},{"label":["x"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.23","2":"Ideal","3":"E","4":"SI2","5":"61.5","6":"55","7":"326","8":"3.95","9":"3.98","10":"2.43"},{"1":"0.21","2":"Premium","3":"E","4":"SI1","5":"59.8","6":"61","7":"326","8":"3.89","9":"3.84","10":"2.31"},{"1":"0.23","2":"Good","3":"E","4":"VS1","5":"56.9","6":"65","7":"327","8":"4.05","9":"4.07","10":"2.31"},{"1":"0.29","2":"Premium","3":"I","4":"VS2","5":"62.4","6":"58","7":"334","8":"4.20","9":"4.23","10":"2.63"},{"1":"0.31","2":"Good","3":"J","4":"SI2","5":"63.3","6":"58","7":"335","8":"4.34","9":"4.35","10":"2.75"},{"1":"0.24","2":"Very Good","3":"J","4":"VVS2","5":"62.8","6":"57","7":"336","8":"3.94","9":"3.96","10":"2.48"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Описание датасета примерно такое:</p>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="43%" />
+<col width="48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Description</th>
+<th align="left">Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">price</td>
+<td align="left">price in US dollars</td>
+<td align="left">$326-$18,823</td>
+</tr>
+<tr class="even">
+<td align="left">carat</td>
+<td align="left">weight of the diamond</td>
+<td align="left">0.2-5.01</td>
+</tr>
+<tr class="odd">
+<td align="left">cut</td>
+<td align="left">quality of the cut</td>
+<td align="left">Fair, Good, Very Good, Premium, Ideal</td>
+</tr>
+<tr class="even">
+<td align="left">color</td>
+<td align="left">diamond color</td>
+<td align="left">J (worst) to D (best)</td>
+</tr>
+<tr class="odd">
+<td align="left">clarity</td>
+<td align="left">measurement of how clear the diamond is</td>
+<td align="left">I1 (worst), SI2, SI1, VS2, VS1, VVS2, VVS1, IF (best)</td>
+</tr>
+<tr class="even">
+<td align="left">x</td>
+<td align="left">length in mm</td>
+<td align="left">0-10.74</td>
+</tr>
+<tr class="odd">
+<td align="left">y</td>
+<td align="left">width in mm</td>
+<td align="left">0-58.9</td>
+</tr>
+<tr class="even">
+<td align="left">z</td>
+<td align="left">depth in mm</td>
+<td align="left">0-31.8</td>
+</tr>
+<tr class="odd">
+<td align="left">depth</td>
+<td align="left">total depth percentage</td>
+<td align="left">43-79</td>
+</tr>
+<tr class="even">
+<td align="left">table</td>
+<td align="left">width of top of diamond relative to widest point</td>
+<td align="left">43-95</td>
+</tr>
+</tbody>
+</table>
+<p>Но этот датасет очень большой — 53k наблюдений. Нам для освоения возможностей визуализации пока этого многовато. Давайте сделает случайную подвыборку из 1000 наблюдений:</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="визуализация-данных-с-ggplot2.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">34</span>)</span>
+<span id="cb378-2"><a href="визуализация-данных-с-ggplot2.html#cb378-2" aria-hidden="true" tabindex="-1"></a>diamonds1000 <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(diamonds), <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+</div>
+<div id="строим-базовый-график" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Строим базовый график</h3>
+<div id="базовый-слой" class="section level4" number="5.3.3.1">
+<h4><span class="header-section-number">5.3.3.1</span> Базовый слой</h4>
+<p>Первое, что мы делаем, когда собираемся что-либо рисовать — берем холст.</p>
+<p>Аналогично, когда мы собираем рисовать график с использованием <code>ggplot2</code>, первое, что мы делаем — говорим «Дай мне холст!». На языке <code>ggplot2</code> это делается с помощью команды <code>ggplot()</code>.</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="визуализация-данных-с-ggplot2.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-190-1.png" width="672" /></p>
+<p>И, о Боже, <code>ggplot2</code> дал нам холст! Иначе говоря, мы построили <em>базовый слой</em>, на который в дальнейшем будем набрасывать элементы нашего графика.</p>
+<p>Следующее, что необходимо сделать — указать данные, на основе которых мы будем строить наш график. Это делается к помощью аргумента <code>data</code>:</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="визуализация-данных-с-ggplot2.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-191-1.png" width="672" /></p>
+<p>Вроде бы ничего не изменилось, да и собственно, не должно было, ведь мы никак не указали, что мы хотим отобразить. Давайте укажем.</p>
+</div>
+<div id="разметка-осей-и-переменные.-эстетики" class="section level4" number="5.3.3.2">
+<h4><span class="header-section-number">5.3.3.2</span> Разметка осей и переменные. Эстетики</h4>
+<p>Важнейшие элементы любого графика — это оси. Мы строим двумерные графики, поэтому и оси у нас две — как учили в школе, <em>x (горизонтальная ось, ось абсцисс)</em> и <em>y (вертикальная ось, ось ординат)</em>.</p>
+<p>Чтобы задать оси графика потребуется отдельная функция. Она называется <code>aes()</code>, и в общем задает <em>эстетики</em> графика.</p>
+<p>Итак, конкретнее об эстетиках. Иначе говоря, это то <em>форматирование, которое связано с данными</em>. Или еще один способ понимания — способы отображения переменных из датасета. У функции <code>aes()</code> есть ряд параметров, они тоже называются <em>эстетики</em>.</p>
+<p><a name="aes_list"></a>
+Вот список эстетик, которые используются чаще всего:</p>
+<ul>
+<li><code>x</code></li>
+<li><code>y</code></li>
+<li><code>color</code></li>
+<li><code>fill</code></li>
+<li><code>shape</code></li>
+<li><code>size</code></li>
+<li><code>linetype</code></li>
+</ul>
+<p>Несложно догадаться, что переменные по осям задаются параметрами x и y. Что ж, зададим.</p>
+<p>Давайте визуализируем связь между весом и ценой бриллианта:</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="визуализация-данных-с-ggplot2.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price))</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-192-1.png" width="672" /></p>
+<p>Так, ну, допустим… Оси разметились. А где картинка?</p>
+<p>Картинки нет, но <code>ggplot2</code> честно отработал свою работу. Мы задали только оси — и он нам разметил их в соответствии с имеющимися в векторах значениях. Больше мы ему ничего не написали. Чтобы всё-таки получить картинку, необходимо указать, как мы хотим отборазить наши переменные.</p>
+</div>
+<div id="геомы" class="section level4" number="5.3.3.3">
+<h4><span class="header-section-number">5.3.3.3</span> Геомы</h4>
+<p>За то, каким образом будут отображены переменными, а конкретно, какими «геометрическими объектами», отвечает семейство функций <code>geom_*</code>. Когда мы переходим к этой функции, мы ступаем на новый слой. Чтобы это обозначить используется «плюсик» (<code>+</code>).</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="визуализация-данных-с-ggplot2.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb382-2"><a href="визуализация-данных-с-ggplot2.html#cb382-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-193-1.png" width="672" /></p>
+<p>Мы выбрали точки для отображения наблюдений, потому что наиболее наглядный вариант отобразить зависимость между двумя переменными. Такой тип графика называется scatterplot, или диаграмма рассеяния.</p>
+<p>Но, вообще-то, можно и получше отобразить закономерность. Как минимум, добавить линию тренда в помощью специального геома:</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="визуализация-данных-с-ggplot2.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb383-2"><a href="визуализация-данных-с-ggplot2.html#cb383-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb383-3"><a href="визуализация-данных-с-ggplot2.html#cb383-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-194-1.png" width="672" /></p>
+<p>Как видите, при добавлении нового «геометрического» способа отображения данных мы добавляем новый слой.</p>
+<p><code>geom_smooth()</code> подразумевает «сглаживание», оно может происходить с помощью разных методов (используемый метод нам написали в консоль). Мы можем эскплицитно указать метод, который хотим использовать. Например, линейную регрессию:</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="визуализация-данных-с-ggplot2.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb385-2"><a href="визуализация-данных-с-ggplot2.html#cb385-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb385-3"><a href="визуализация-данных-с-ggplot2.html#cb385-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-195-1.png" width="672" /></p>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Используя тот же датасет <code>diamonds1000</code>, визуализируйте связь между длиной и шириной бриллиантов.</p>
+<details>
+<summary>
+Референс
+</summary>
+<img src="andan_2021_files/figure-html/unnamed-chunk-196-1.png" width="672" />
+</details>
+</div>
+</div>
+<p>В случае, если нас интересует распределение нашей переменной, мы можем использовать <code>geom_histogram()</code> или <code>geom_density()</code>:</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="визуализация-данных-с-ggplot2.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000,</span>
+<span id="cb387-2"><a href="визуализация-данных-с-ggplot2.html#cb387-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span></span>
+<span id="cb387-3"><a href="визуализация-данных-с-ggplot2.html#cb387-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-197-1.png" width="672" /></p>
+<p>Кстати, аргументы функции можно передавать и без указания их имён — <code>R</code> будет ориентироваться по их порядку:</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="визуализация-данных-с-ggplot2.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb388-2"><a href="визуализация-данных-с-ggplot2.html#cb388-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(price)) <span class="sc">+</span></span>
+<span id="cb388-3"><a href="визуализация-данных-с-ggplot2.html#cb388-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-198-1.png" width="672" /></p>
+<p>При рисовании гистограммы для обнаружения деталей в распределении можно задать ширину столбика — например, сделать её более мелкой:</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="визуализация-данных-с-ggplot2.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb390-2"><a href="визуализация-данных-с-ggplot2.html#cb390-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(price)) <span class="sc">+</span></span>
+<span id="cb390-3"><a href="визуализация-данных-с-ggplot2.html#cb390-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
+<p>Для отображения распределений мы также можем использовать боксплот — это отдельный геом:</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="визуализация-данных-с-ggplot2.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb391-2"><a href="визуализация-данных-с-ggplot2.html#cb391-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb391-3"><a href="визуализация-данных-с-ggplot2.html#cb391-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-200-1.png" width="672" /></p>
+<p>Чуть позже мы столкнемся ещё c некоторыми геомами, но вот вам сразу список самых полезных для старта:</p>
+<ul>
+<li><code>geom_histogram()</code></li>
+<li><code>geom_density()</code></li>
+<li><code>geom_boxplot()</code></li>
+<li><code>geom_point()</code></li>
+<li><code>geom_errorbar()</code></li>
+<li><code>geom_pointrage()</code></li>
+<li><code>geom_line()</code></li>
+<li><code>geom_vline()</code></li>
+<li><code>geom_hline()</code></li>
+<li><code>geom_smooth()</code></li>
+</ul>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Вопрос
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>График плотности вероятности, гистограмма и боксплот — все три визуализации отображают распределение. Для чего каждая из них может быть полезна?</p>
+<p><em>В помощь картинка ниже.</em></p>
+<center>
+<img src="andan_2021_files/figure-html/unnamed-chunk-201-1.png" width="672" />
+</center>
+</div>
+</div>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Визуализируйте распределение веса бриллиантов (переменная <code>carat</code>). Выберите один из возможных способов визуализации распределения. Можете визуализировать несколькими способами и сравните результаты.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="ищем-более-сложные-закономерности" class="section level3" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Ищем более сложные закономерности</h3>
+<p>Пока что мы работали только с одной-двумя переменными, однако на практике нас могут интересовать более сложные взаимосвязи. Например, в случае с бриллиантами распределение цены по всему датасету даёт нам весьма мало информации, поскольку есть много факторов, которые на неё могут влиять — размер бриллианта, качество огранки и др. Пропробуем их отобразить.</p>
+<div id="группировка-по-переменной" class="section level4" number="5.3.4.1">
+<h4><span class="header-section-number">5.3.4.1</span> Группировка по переменной</h4>
+<p>Один из вариантов того, что мы можем сделать, это сгруппировать наши наблюдения по какой-либо из переменных. Как группировка будет выражена в коде сильно зависит от типа визуализации. Разберем на двух примерах.</p>
+<p>Выше мы рисовали вот такой боксплот, который отображает распределение цены:</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="визуализация-данных-с-ggplot2.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb392-2"><a href="визуализация-данных-с-ggplot2.html#cb392-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb392-3"><a href="визуализация-данных-с-ggplot2.html#cb392-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-202-1.png" width="672" /></p>
+<p>Однако вполне ожидаемо, что цена может быть по-разному распределена в зависимости от качества огранки. В нашем датасете есть переменна <code>cut</code>, и нам было бы хорошо отобразить её на графике. Так как боксплоты требуют по оси <code>x</code> <em>категориальную</em> переменную, то сделать это достаточно просто:</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="визуализация-данных-с-ggplot2.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb393-2"><a href="визуализация-данных-с-ggplot2.html#cb393-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb393-3"><a href="визуализация-данных-с-ggplot2.html#cb393-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-203-1.png" width="672" /></p>
+<p>Вот мы уже видим много чего: в группах <code>Good</code> и <code>Premium</code> распределение симметричное, а во всех остальных скошенное. Также мы наблюдаем, что чем выше качество огранки, тем больше <em>выбросов</em> в группе.</p>
+<p>Если мы визуализируем распределение в помошью, например, графика плотности вероятности, то задание группировки в помощью эстетики <code>x</code> нам не подойдёт: она уже занята нашей переменной <code>price</code>. Эстетика <code>y</code> в этой визуализации рассчитывается автоматически, поэтому её мы тоже не можем использовать — да и как мы по не вообще смогли бы задать группировку? Значит нам необходимо использовать какую-то другую эстетику. Пусть это будет <code>fill</code>:</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="визуализация-данных-с-ggplot2.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb394-2"><a href="визуализация-данных-с-ggplot2.html#cb394-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb394-3"><a href="визуализация-данных-с-ggplot2.html#cb394-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-204-1.png" width="672" /></p>
+<p><a name="alpha"></a></p>
+<p>Обратите внимание, что теперь у нас справа появилась легенда, которая позволяет понять, что отображено тем или иным цветом. Однако пока визуализация не очень хороша, так как распределения перекрывают друг друга. Чтобы это поправить, нужно задать позрачность с помощью аргумента <code>alpha</code> в функции <code>geom_density()</code>:</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="визуализация-данных-с-ggplot2.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb395-2"><a href="визуализация-данных-с-ggplot2.html#cb395-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb395-3"><a href="визуализация-данных-с-ggplot2.html#cb395-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> .<span class="dv">5</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-205-1.png" width="672" /></p>
+<p>Теперь мы видим все распределения на одном графике. Классно? Классно!</p>
+<center>
+<img src="images/cool.jpg">
+</center>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>В нашем датасете есть переменная <code>depth</code>, которая обозначает total depth percentage<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Каково распределение этой величины у бриллиантов разного цвета (переменная <code>color</code>)?</p>
+</div>
+</div>
+</div>
+<div id="больше-переменных" class="section level4" number="5.3.4.2">
+<h4><span class="header-section-number">5.3.4.2</span> Больше переменных</h4>
+<p>Это всё, конечно, хорошо, но мы пока что не вышли за пределы двух переменных на одном графике.</p>
+<center>
+<img src="images/malovato.jpg" width="50%">
+</center>
+<p>Вспомним нашу диаграмму рассенияния «Вес — Цена»:</p>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="визуализация-данных-с-ggplot2.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb396-2"><a href="визуализация-данных-с-ggplot2.html#cb396-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
+<p>Уберём линию тренда, она нам будет мешать.</p>
+<p>Как бы нам сделать так, чтобы на этот график добавить переменную <code>depth</code>?</p>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Вопрос
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Вернитесь к списку <a href="#aes_list">эстетик</a>. <code>x</code> и <code>y</code> у нас заняты. Предложите, какую эстетику мы могли бы использовать для отображения переменной <code>depth</code>?</p>
+</div>
+</div>
+<p>Возможно несколько вариантов — я предлагаю использовать <code>size</code>:</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="визуализация-данных-с-ggplot2.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000,</span>
+<span id="cb397-2"><a href="визуализация-данных-с-ggplot2.html#cb397-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> carat,</span>
+<span id="cb397-3"><a href="визуализация-данных-с-ggplot2.html#cb397-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> price,</span>
+<span id="cb397-4"><a href="визуализация-данных-с-ggplot2.html#cb397-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> depth)) <span class="sc">+</span></span>
+<span id="cb397-5"><a href="визуализация-данных-с-ggplot2.html#cb397-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-207-1.png" width="672" /></p>
+<p>В целом, получилось неплохо, но сейчас на графике происходит небольшой флекс. Надо немножко поправить, чтобы происходил чилл.</p>
+<p>Точки и раньше накладывались друг на друга, однако теперь в силу того, что размер точки для нас информативен, наложение стало критично. С наложением элементов друг на друга мы боролись <a href="#alpha">чуть выше</a>. Можем попробовать аналогичный способ:</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="визуализация-данных-с-ggplot2.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000,</span>
+<span id="cb398-2"><a href="визуализация-данных-с-ggplot2.html#cb398-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> carat,</span>
+<span id="cb398-3"><a href="визуализация-данных-с-ggplot2.html#cb398-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> price,</span>
+<span id="cb398-4"><a href="визуализация-данных-с-ggplot2.html#cb398-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> depth)) <span class="sc">+</span></span>
+<span id="cb398-5"><a href="визуализация-данных-с-ggplot2.html#cb398-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-208-1.png" width="672" /></p>
+<p>Получилась пузырькая диаграмма. Ну, неплохо.</p>
+<center>
+<img src="images/notbad.jpg" width="50%">
+</center>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Выше мы рисовали диаграмму рассеяния, которая отображала связь между длиной (<code>x</code>) и шириной (<code>y</code>) бриллианта. Возьмите за основу получившийся график и превратите его в пузырьковую диаграмму, которая будет отображать связь между (<code>x</code>), шириной (<code>y</code>) и глубиной (<code>z</code>) бриллианта.</p>
+<details>
+<summary>
+Референс
+</summary>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
+</details>
+</div>
+</div>
+<p>На фоне успешной работы с прозрачностью элементов мы словили состояние потока, и хотим добавить ещё переменных!</p>
+<center>
+<img src="images/moregold.jpg" width="50%">
+</center>
+<p>Круто было бы отобразить, как зависит цена от <code>carat</code> и <code>depth</code> у бриллиантов различного качества огранки. Переменную <code>cut</code> мы уже отображали — здесь использованный подход тоже сработает:</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="визуализация-данных-с-ggplot2.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000,</span>
+<span id="cb399-2"><a href="визуализация-данных-с-ggplot2.html#cb399-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> carat,</span>
+<span id="cb399-3"><a href="визуализация-данных-с-ggplot2.html#cb399-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> price,</span>
+<span id="cb399-4"><a href="визуализация-данных-с-ggplot2.html#cb399-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> depth,</span>
+<span id="cb399-5"><a href="визуализация-данных-с-ggplot2.html#cb399-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb399-6"><a href="визуализация-данных-с-ggplot2.html#cb399-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-210-1.png" width="672" /></p>
+<p>Ммм, красота!</p>
+<center>
+<img src="images/krasota.jpg" width="50%">
+</center>
+</div>
+</div>
+<div id="важное-замечание-о-визуализации" class="section level3" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> Важное замечание о визуализации</h3>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Вопрос
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Как определить, что визуализация хороша?</p>
+</div>
+</div>
+<p>Можно придумать огромное количество критериев. На мой взгляд, критические параметры таковы:</p>
+<ul>
+<li><strong>Честность</strong>
+<ul>
+<li>график отображает то, что реально поисходит в данных</li>
+</ul></li>
+<li><strong>Читаемость</strong>
+<ul>
+<li>выбран корретных способ визуализации</li>
+<li>график удобно рассматривать и понимать, что происходит</li>
+</ul></li>
+<li><strong>Дизайн</strong>
+<ul>
+<li>подобрана корректная палитра, все цвета хорошо видны и отличимы друг от друга</li>
+<li>подобраны адекватные шрифты</li>
+</ul></li>
+<li><strong>Качество картинки</strong>
+<ul>
+<li>график хорошего разрешения</li>
+</ul></li>
+</ul>
+<p>Прочекаем наш график по этим параметрам:</p>
+<ul>
+<li>Честность — ОК
+<ul>
+<li>мы работаем с теми данными, котрые у нас есть и не модифицируем их в угоду каким-либо нашим целям; да, мы сейчас работаем на части датасета, но делаем это исключительно в учебных целях</li>
+</ul></li>
+<li>Читаемость — нутакое
+<ul>
+<li>способ визуализации мы выбрали корректный — пузырькая диаграмма, которая у нас получилась, вполне подходит для отображения интересующих нас закономерностей</li>
+<li>но понимать, что происходит в левом нижнем углу сложновато</li>
+</ul></li>
+<li>Дизайн — приемлемо
+<ul>
+<li>хотя есть некоторые вопросы к используемой стандартеной палитре, на данном этапе это окей, кастомизировать график мы научимся далее</li>
+</ul></li>
+<li>Качество картинки — приемлемо
+<ul>
+<li>пока что мы может не задумываться об этом, так как не выгружаем график в файл для публикации или отчёта, однако надо будет не забывать об этом позднее</li>
+</ul></li>
+</ul>
+<p>Итого, у нас хромает крайне существенный парамет — <strong>читаемость</strong>. Когда мы строим визуализацию, мы должны четко понимать, зачем мы это делаем, и в конечном итоге <em>мы рисуем картинки для нашего читателя</em>. Нам важно позабиться о том, чтобы нашу визуализацию было удобно читать и понимать тому, кто с ней сталкивается впервые — то есть сделать её максимально понятной. Давайте поработаем на этим.</p>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Вопрос
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Как можно изменить график, чтобы он был более читаемым и лучше отображал интересующие нас закономерности?</p>
+</div>
+</div>
+<div id="фасетирование" class="section level4" number="5.3.5.1">
+<h4><span class="header-section-number">5.3.5.1</span> Фасетирование</h4>
+<p>Один из способов сделать визуализацию понятнее — использовать <strong>фасетирование</strong>. Оно позволяет разбить график на несколько субграфиков по некоторой категориальной переменной. Таким образом, на каждом субграфике окажется меньше данных, поэтому каждый из них будет проще читать. Вместе с тем все субграфики будут располагаться рядом друг с другом, поэтому их будет удобно сравнивать.</p>
+<p>Для фасетирования существует два варианта: <code>facet_grid()</code> и <code>facet_wrap()</code>. Первый удобен, когда у вас две (и более) группирующий переменных, второй — когда такая переменная одна. У нас сейчас группировка по одной переменной <code>cut</code>, поэтому мы будем использовать второй вариант:</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="визуализация-данных-с-ggplot2.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000,</span>
+<span id="cb400-2"><a href="визуализация-данных-с-ggplot2.html#cb400-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> carat,</span>
+<span id="cb400-3"><a href="визуализация-данных-с-ggplot2.html#cb400-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> price,</span>
+<span id="cb400-4"><a href="визуализация-данных-с-ggplot2.html#cb400-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> depth,</span>
+<span id="cb400-5"><a href="визуализация-данных-с-ggplot2.html#cb400-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb400-6"><a href="визуализация-данных-с-ggplot2.html#cb400-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb400-7"><a href="визуализация-данных-с-ggplot2.html#cb400-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> cut)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
+<p>Отлично, наши наблюдения зазбилить по субграфикам и в целом визуализация стала чуть более читаемой. Хотя, конечно, большие скопления точек слева внизу всё равно остались<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
+<p>Внимательно посмотрим на получившийся график: переменная <code>cut</code> у нас отображена двумя разными способами — цветом и фасетированием. Это не оч. хор. — возникла <em>избыточность</em>. Когда читатель будет смотреть на этот график, он озадачится, так как, скорее всего, будет ожидать, что каждая переменная отбражена <em>единственным</em> способом. Пока он разберется, что цвет не несет дополнительной информации, он будет тратить время — это нехорошо. Поэтому цвет надо либо убрать вовсе — и это лучший вариант, либо как минимум скрыть цветовую легенду.</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="визуализация-данных-с-ggplot2.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds1000,</span>
+<span id="cb401-2"><a href="визуализация-данных-с-ggplot2.html#cb401-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> carat,</span>
+<span id="cb401-3"><a href="визуализация-данных-с-ggplot2.html#cb401-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> price,</span>
+<span id="cb401-4"><a href="визуализация-данных-с-ggplot2.html#cb401-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> depth)) <span class="sc">+</span></span>
+<span id="cb401-5"><a href="визуализация-данных-с-ggplot2.html#cb401-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb401-6"><a href="визуализация-данных-с-ggplot2.html#cb401-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> cut)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-212-1.png" width="672" /></p>
+<p>Вот так хорошо — дублирования информации теперь нет.</p>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Я тут в сносках упоминал, что нам стоило бы внимательнее посмотреть на распределение переменной <code>price</code>. Давайте это сделаем! Визуализируйте распределение этой переменной в зависимости от качества огранки (<code>cut</code>) и цвета (<code>color</code>). Властью данной мне мною налагаю запрет на использование эстетик (кроме обязательной — <code>x</code>)!</p>
+<details>
+<summary>
+Подсказка
+</summary>
+<a href="https://ggplot2.tidyverse.org/reference/facet_grid.html"><code>facet_grid</code></a>
+</details>
+<details>
+<summary>
+Вариант референса
+</summary>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-213-1.png" width="672" /></p>
+</details>
+</div>
+</div>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #0044aa; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Сложное задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Часто нам бывает полезно знать, как расположено распределение по какой-либо группе наблюдений в контексте всего распредления переменной. Доработайте предыдущий график так, чтобы на каждом субграфике распределение цены в каждом из сочетаний условий <code>color</code> x <code>cut</code> лежало поверх распределения всей переменной <code>price</code>. Это должно выглядеть так:</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="визуализация-данных-с-ggplot2.html#cb402-1" aria-hidden="true" tabindex="-1"></a>diamonds1000 <span class="sc">%&gt;%</span> </span>
+<span id="cb402-2"><a href="визуализация-данных-с-ggplot2.html#cb402-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(price)) <span class="sc">+</span></span>
+<span id="cb402-3"><a href="визуализация-данных-с-ggplot2.html#cb402-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">data =</span> diamonds1000 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>cut, <span class="sc">-</span>color))<span class="sc">+</span></span>
+<span id="cb402-4"><a href="визуализация-данных-с-ggplot2.html#cb402-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb402-5"><a href="визуализация-данных-с-ggplot2.html#cb402-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(cut <span class="sc">~</span> color)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-214-1.png" width="672" /></p>
+<p>Серые гистограммы — распределение по всей переменной <code>price</code>, белые (маленькие внизу) — распределения цены в каждом из сочетаний условий <code>color</code> x <code>cut</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="инструменты-встроенной-статистической-обработки" class="section level3" number="5.3.6">
+<h3><span class="header-section-number">5.3.6</span> Инструменты встроенной статистической обработки</h3>
+<p>Досих пор мы отображали <em>«сырые данные»</em> — то есть то, что непосредственно есть в данных. Однако часто бывает так, что мы хотим отобразить какие-то посчитанные статистики, или <em>аггрегированные данные</em>. Поэтому необходимо сначала предобработать данные, получить необходимые значения и затем на их основе построить график.</p>
+<p>Но зачем? Если можно сразу в коде построения графика рассчитать все, что нам нужно! В <code>ggplot2</code> уже встроены инструменты простейшей статистический обработки!</p>
+<p>Еще раз посмотрим на датасет. У нас есть переменная <code>price</code>, а также категории качества огранки <code>cut</code>. Наверняка, средняя цена будет различаться в этих категориях. Давайте это проверим! Но сначала нам необходимо познакомиться с новым семейством функций <code>stat_*</code>.</p>
+<div id="статы" class="section level4" number="5.3.6.1">
+<h4><span class="header-section-number">5.3.6.1</span> Статы</h4>
+<p>Статы и есть те самые встроенные инструенты статистической обработки. Они позволяют прямо в коде графика обсчитать данные и сразу же визуализировать результаты.</p>
+<blockquote>
+<p>На самом деле, мы уже сталкивались со встроенными инструментами статистической обработки, ведь что делает <code>geom_smooth(method = 'lm')</code>? Не что иное, как визуализирует линейную регрессию, построенную на выбранных данных!</p>
+</blockquote>
+<p>Наиболее популярная функция из рассматриваемого семейста — <code>stat_summary()</code>. С помощью неё мы и будем визуализировать наши средние.</p>
+<blockquote>
+<p>Обратите внимание, что теперь мы будем работать с полным датасетом <code>diamonds</code>!</p>
+</blockquote>
+<p>Приступим к построению графика. Начнём с базового слоя:</p>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="визуализация-данных-с-ggplot2.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb404-2"><a href="визуализация-данных-с-ggplot2.html#cb404-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price)) <span class="co"># напоминаю, что аргументы функции можно передавать просто по порядку, не указывая имя самого аргумента</span></span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-215-1.png" width="672" /></p>
+<p>Взяли холст, расчертили. По оси <em>x</em> у нас будет идти группирующая переменная. Теперь добавим средние. Как и полагается, на новый слой.</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="визуализация-данных-с-ggplot2.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb405-2"><a href="визуализация-данных-с-ggplot2.html#cb405-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price)) <span class="sc">+</span></span>
+<span id="cb405-3"><a href="визуализация-данных-с-ggplot2.html#cb405-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-216-1.png" width="672" /></p>
+<p>Разберемся, что тут написано. Первый аргумент (<code>fun</code>) принимает функцию, результат которой будет отложен по оси <em>y</em>. В нашем случае это среднее (<code>mean</code>). Она будет применена к переменой <code>price</code>, причем наблюдения будут автоматически сгруппированы по интересующим нас группам (<code>cut</code>). Второй аргумент — это уже знакомый нам <code>geom</code>, которые отвечает за то, как «геометрически» будут отрисованы знаечния на графике. Наш выбор — точки. Как результат мы наблюдаем то, что хотели.</p>
+<p>Однако как мы знаем из статистики, чтобы определить, есть ли различия между группами, нам недостаточно только средних значений — необходимы доверительные интервалы. Что ж, отобразим и их.</p>
+<p>Добавим новый слой с помощью всё той же функции <code>stat_summary()</code>, но на этот раз она будет выглядеть немного по-другому:</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="визуализация-данных-с-ggplot2.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb406-2"><a href="визуализация-данных-с-ggplot2.html#cb406-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price)) <span class="sc">+</span></span>
+<span id="cb406-3"><a href="визуализация-данных-с-ggplot2.html#cb406-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>) <span class="sc">+</span></span>
+<span id="cb406-4"><a href="визуализация-данных-с-ggplot2.html#cb406-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
+<p>Как мы видим, немного изменился первый аргумент. Это связано с изменением геома. Для отображения доверительных интервалов нам нужен геом <code>errorbar</code>, который требует не одно значение, а два — верхнюю и нижнюю границу доверительного интервала. То есть <code>fun.data</code> принимает как аргумент мини-датафрейм — как раз в таком формате и возвращается результат функции <code>mean_cl_boot</code>. Можно посмотреть на её работу отдельно:</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="визуализация-данных-с-ggplot2.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean_cl_boot</span>(diamonds<span class="sc">$</span>price)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["y"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["ymin"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ymax"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"3932.8","2":"3898.16","3":"3965.277"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Собственно, вот он датафрейм из одной строки. Здесь три значения, но <code>errorbar</code> игронирует первое (само среднее значение) и использует только второе и третье, строя по ним «усы».</p>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>С ценой разобрались. Теперь давайте сравним вес бриллиантов в разных группах. Визуализируйте средние значения веса бриллиантов (<code>carat</code>) в группах по степени чистоты (<code>clarity</code>). Не забудьте про доверительные интервалы!</p>
+</div>
+</div>
+<p>Однако мы продолжваем гнаться за сложными закономерностями, поэтому добавим ещё одну группирующую переменную. В наших данных есть переменная <code>color</code>, которая задаёт «цвет» бриллианта. Наверное, он тоже может влиять на цену камня.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="визуализация-данных-с-ggplot2.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb408-2"><a href="визуализация-данных-с-ggplot2.html#cb408-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb408-3"><a href="визуализация-данных-с-ggplot2.html#cb408-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> <span class="co"># не путайтесь: первый color ---  название аргумента, второй --- имя переменной)</span></span>
+<span id="cb408-4"><a href="визуализация-данных-с-ggplot2.html#cb408-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>) <span class="sc">+</span></span>
+<span id="cb408-5"><a href="визуализация-данных-с-ggplot2.html#cb408-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-219-1.png" width="672" /></p>
+<p>Ёжкины коты, красота-то какая! Только надо как-то это в божеский вид привести…</p>
+<center>
+<img src="images/krasotaisha.jpg" width="50%">
+</center>
+</div>
+</div>
+<div id="настраиваем-график" class="section level3" number="5.3.7">
+<h3><span class="header-section-number">5.3.7</span> Настраиваем график</h3>
+<p><code>ggplot2</code> имеет широчайшие возможности кастомизации, в нем можно настроить чуть более, чем всё. Сейчас наш график выглядит хотя и содержательно верно, но с точки зрения дизайна (да и общей адекватности) — совершенно дико. Давайте подправим.</p>
+<p>Первое, что бросается в глаза — точки и «усы» лежат друг на друге, что очень нехорошо и так не надо: крайне трудно понять, что происходит на графике. Давайте их расположим рядом друг с другом, чтобы оставалось видно, что средние сгрупированы по делениям оси <em>x</em>.</p>
+<p>Это делается с помощью функции <code>position_dodge(),</code> которая создает объект задающий позицию точек. Результат её работы необходимо передать в аргумент <code>position</code> конкретного стата, но так как у нас статов несколько, прописывать 100500 раз одно и то же — неразумно. К тому же, если мы захотим как-то поменять расположение точек (сблизить, раздвинуть сильнее), нам надо будет переписывать каждую строку — всё ещё неразумно. Поэтому мы сделаем отдельный объект, в который рапишем результат работы функции:</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="визуализация-данных-с-ggplot2.html#cb409-1" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> <span class="fu">position_dodge</span>(<span class="fl">0.5</span>) <span class="co"># передаем какое-то число из диапазона [0, 1]</span></span></code></pre></div>
+<p>И далее будем использовать этот объект:</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="визуализация-данных-с-ggplot2.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb410-2"><a href="визуализация-данных-с-ggplot2.html#cb410-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb410-3"><a href="визуализация-данных-с-ggplot2.html#cb410-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb410-4"><a href="визуализация-данных-с-ggplot2.html#cb410-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb410-5"><a href="визуализация-данных-с-ggplot2.html#cb410-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd) <span class="sc">+</span></span>
+<span id="cb410-6"><a href="визуализация-данных-с-ggplot2.html#cb410-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb410-7"><a href="визуализация-данных-с-ggplot2.html#cb410-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-221-1.png" width="672" /></p>
+<p>Ну, вот стало уже поприличней.</p>
+<p>Второе, что бросается в глаза — слишком широкие <code>errorbar</code>’ы (они касаются усов соседних точек). Значит, надо уменьшить ширину. За их ширину отвечает параметр <code>width</code>. Ширина задается долями единицы.</p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="визуализация-данных-с-ggplot2.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb411-2"><a href="визуализация-данных-с-ggplot2.html#cb411-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb411-3"><a href="визуализация-данных-с-ggplot2.html#cb411-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb411-4"><a href="визуализация-данных-с-ggplot2.html#cb411-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb411-5"><a href="визуализация-данных-с-ggplot2.html#cb411-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd) <span class="sc">+</span></span>
+<span id="cb411-6"><a href="визуализация-данных-с-ggplot2.html#cb411-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb411-7"><a href="визуализация-данных-с-ggplot2.html#cb411-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
+<p>Вот так вроде хорошо, хвосты <code>errorbar</code>’ов ни с чем не пересекаются.</p>
+<p>Что ты еще хотелось подправить? Наверное, сделать акцент на главных смысловых элементах графика. В нашем случае это точки. Давайте сделаем их побольше.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="визуализация-данных-с-ggplot2.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb412-2"><a href="визуализация-данных-с-ggplot2.html#cb412-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb412-3"><a href="визуализация-данных-с-ggplot2.html#cb412-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb412-4"><a href="визуализация-данных-с-ggplot2.html#cb412-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb412-5"><a href="визуализация-данных-с-ggplot2.html#cb412-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb412-6"><a href="визуализация-данных-с-ggplot2.html#cb412-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb412-7"><a href="визуализация-данных-с-ggplot2.html#cb412-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-223-1.png" width="672" /></p>
+<p>Вот теперь кайф!</p>
+<div id="темы" class="section level4" number="5.3.7.1">
+<h4><span class="header-section-number">5.3.7.1</span> Темы</h4>
+<p>Но не совсем. Фон какой-то не очень… Дефолтная серая тема в какое-то давнее время была популярна, все выдели что ты крутой и умеешь в ггплот и ваще. Однако со временем это стало #немодно, и лучше серой темы избегать, да и требования журналов обычно более строгие.</p>
+<p>В <code>ggplot2</code> есть ряд встроенных тем, которые задаются через функции семейства <code>theme_*()</code>. Наиболее популярные <code>theme_classic()</code> и <code>theme_bw()</code>. Последнюю мы и будем использовать.</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="визуализация-данных-с-ggplot2.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb413-2"><a href="визуализация-данных-с-ggplot2.html#cb413-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb413-3"><a href="визуализация-данных-с-ggplot2.html#cb413-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb413-4"><a href="визуализация-данных-с-ggplot2.html#cb413-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb413-5"><a href="визуализация-данных-с-ggplot2.html#cb413-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb413-6"><a href="визуализация-данных-с-ggplot2.html#cb413-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb413-7"><a href="визуализация-данных-с-ggplot2.html#cb413-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb413-8"><a href="визуализация-данных-с-ggplot2.html#cb413-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-224-1.png" width="672" /></p>
+<p>Ах, красота!</p>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #307dce; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Возьмите график из последнего задания.</p>
+<ol style="list-style-type: decimal">
+<li><p>Модифицируйте код так, чтобы он отображал средние значения веса блиллиантов (с доверительными интервалами) для групп бриллиантов по переменным <code>clarity</code> x <code>cut</code>. Можете использовать любые эстетики.</p></li>
+<li><p>Настройте график, так, чтобы он был читаем. За референс возьмите визуализацию выше. Поправьте положение точек и эррорбаров, ширину «усов», измените стандартную тему на любую другую.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="кастомизация-шкал" class="section level4" number="5.3.7.2">
+<h4><span class="header-section-number">5.3.7.2</span> Кастомизация шкал</h4>
+<p>Мы задали отображение групп цвета бриллиантов цветом<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>, но дефолтная шкала не совсем хороша, как минимум потому, что в ней есть жёлтый, который на нашем белом фоне будет смотреться не очень. Надо бы это поправить.</p>
+<p>Для того, чтобы кастомизировать используемые шкалы, есть ряд функций семейства <code>scale_*()</code>. Мы познакомимся с некоторыми из них. Для начала изменим цвета.</p>
+<p>В R можно задавать цвета через названия или HEX кодировку. Будем использовать названия.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="визуализация-данных-с-ggplot2.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb414-2"><a href="визуализация-данных-с-ggplot2.html#cb414-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb414-3"><a href="визуализация-данных-с-ggplot2.html#cb414-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb414-4"><a href="визуализация-данных-с-ggplot2.html#cb414-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb414-5"><a href="визуализация-данных-с-ggplot2.html#cb414-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb414-6"><a href="визуализация-данных-с-ggplot2.html#cb414-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb414-7"><a href="визуализация-данных-с-ggplot2.html#cb414-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb414-8"><a href="визуализация-данных-с-ggplot2.html#cb414-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb414-9"><a href="визуализация-данных-с-ggplot2.html#cb414-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;brown4&#39;</span>, <span class="st">&#39;chocolate4&#39;</span>, <span class="st">&#39;darkgoldenrod4&#39;</span>, <span class="st">&#39;darkolivegreen&#39;</span>, <span class="st">&#39;darkslategray&#39;</span>, <span class="st">&#39;darkslateblue&#39;</span>, <span class="st">&#39;deeppink4&#39;</span>))</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-225-1.png" width="672" /></p>
+<p>Здесь мы используем функцию <code>scale_color_manual()</code>, чтобы задать значения цвета вручную. Используя обязательный аргумент <code>values</code> мы передаем вектор названий цветов, которые хотим использовать. Не то чтобы идеал, но и мы не дизайнеры.</p>
+<p>Так-то есть готовые палитры, и чё мы тут заморачивались подбирая цвета — не оч понятно:</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="визуализация-данных-с-ggplot2.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
+<span id="cb415-2"><a href="визуализация-данных-с-ggplot2.html#cb415-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb415-3"><a href="визуализация-данных-с-ggplot2.html#cb415-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb415-4"><a href="визуализация-данных-с-ggplot2.html#cb415-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb415-5"><a href="визуализация-данных-с-ggplot2.html#cb415-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb415-6"><a href="визуализация-данных-с-ggplot2.html#cb415-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb415-7"><a href="визуализация-данных-с-ggplot2.html#cb415-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb415-8"><a href="визуализация-данных-с-ggplot2.html#cb415-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb415-9"><a href="визуализация-данных-с-ggplot2.html#cb415-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colorspace<span class="sc">::</span><span class="fu">rainbow_hcl</span>(<span class="fu">length</span>(<span class="fu">unique</span>(diamonds<span class="sc">$</span>color))))</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-226-1.png" width="672" /></p>
+</div>
+<div id="последние-штрихи" class="section level4" number="5.3.7.3">
+<h4><span class="header-section-number">5.3.7.3</span> Последние штрихи</h4>
+<p>Но настройка графика на этом не закончена. Раз уж мы в России, то надо и подписи по-русски задать. Для этого также есть отдельная функция. Она называется <code>labs()</code>. Зададим названия осей:</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="визуализация-данных-с-ggplot2.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb416-2"><a href="визуализация-данных-с-ggplot2.html#cb416-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb416-3"><a href="визуализация-данных-с-ggplot2.html#cb416-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb416-4"><a href="визуализация-данных-с-ggplot2.html#cb416-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb416-5"><a href="визуализация-данных-с-ggplot2.html#cb416-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb416-6"><a href="визуализация-данных-с-ggplot2.html#cb416-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb416-7"><a href="визуализация-данных-с-ggplot2.html#cb416-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb416-8"><a href="визуализация-данных-с-ggplot2.html#cb416-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb416-9"><a href="визуализация-данных-с-ggplot2.html#cb416-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colorspace<span class="sc">::</span><span class="fu">rainbow_hcl</span>(<span class="fu">length</span>(<span class="fu">unique</span>(diamonds<span class="sc">$</span>color)))) <span class="sc">+</span></span>
+<span id="cb416-10"><a href="визуализация-данных-с-ggplot2.html#cb416-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Качество огранки&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Цена&quot;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-227-1.png" width="672" /></p>
+<p>Теперь было бы хорошо добавить название, а то как-то непонятно, что тут вообще нарисовано. Используем аргументы <code>title</code> и <code>subtitle</code> функции <code>labs()</code>.</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="визуализация-данных-с-ggplot2.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb417-2"><a href="визуализация-данных-с-ggplot2.html#cb417-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb417-3"><a href="визуализация-данных-с-ggplot2.html#cb417-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb417-4"><a href="визуализация-данных-с-ggplot2.html#cb417-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb417-5"><a href="визуализация-данных-с-ggplot2.html#cb417-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb417-6"><a href="визуализация-данных-с-ggplot2.html#cb417-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb417-7"><a href="визуализация-данных-с-ggplot2.html#cb417-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb417-8"><a href="визуализация-данных-с-ggplot2.html#cb417-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb417-9"><a href="визуализация-данных-с-ggplot2.html#cb417-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colorspace<span class="sc">::</span><span class="fu">rainbow_hcl</span>(<span class="fu">length</span>(<span class="fu">unique</span>(diamonds<span class="sc">$</span>color)))) <span class="sc">+</span></span>
+<span id="cb417-10"><a href="визуализация-данных-с-ggplot2.html#cb417-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Качество огранки&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Цена&quot;</span>,</span>
+<span id="cb417-11"><a href="визуализация-данных-с-ggplot2.html#cb417-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Цвет бриллианта&quot;</span>,</span>
+<span id="cb417-12"><a href="визуализация-данных-с-ggplot2.html#cb417-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Зависимость цены бриллианта от его характеристик&quot;</span>,</span>
+<span id="cb417-13"><a href="визуализация-данных-с-ggplot2.html#cb417-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Цвет и качество огранки&quot;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-228-1.png" width="672" /></p>
+<p>Почти идеально! Но осталось пара моментов. Во-первых, непонятно, какая метрика отображена с помощью «усов», а во-вторых, легенда занимает много места. У <code>labs()</code> есть ещё один аргумент — <code>caption</code>, иначе говоря «подпись». В ней и можно указать метрику.</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="визуализация-данных-с-ggplot2.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb418-2"><a href="визуализация-данных-с-ggplot2.html#cb418-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb418-3"><a href="визуализация-данных-с-ggplot2.html#cb418-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb418-4"><a href="визуализация-данных-с-ggplot2.html#cb418-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb418-5"><a href="визуализация-данных-с-ggplot2.html#cb418-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb418-6"><a href="визуализация-данных-с-ggplot2.html#cb418-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb418-7"><a href="визуализация-данных-с-ggplot2.html#cb418-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb418-8"><a href="визуализация-данных-с-ggplot2.html#cb418-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb418-9"><a href="визуализация-данных-с-ggplot2.html#cb418-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colorspace<span class="sc">::</span><span class="fu">rainbow_hcl</span>(<span class="fu">length</span>(<span class="fu">unique</span>(diamonds<span class="sc">$</span>color)))) <span class="sc">+</span></span>
+<span id="cb418-10"><a href="визуализация-данных-с-ggplot2.html#cb418-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Качество огранки&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Цена&quot;</span>,</span>
+<span id="cb418-11"><a href="визуализация-данных-с-ggplot2.html#cb418-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Цвет бриллианта&quot;</span>,</span>
+<span id="cb418-12"><a href="визуализация-данных-с-ggplot2.html#cb418-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Зависимость цены бриллианта от его характеристик&quot;</span>,</span>
+<span id="cb418-13"><a href="визуализация-данных-с-ggplot2.html#cb418-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Цвет и качество огранки&quot;</span>,</span>
+<span id="cb418-14"><a href="визуализация-данных-с-ggplot2.html#cb418-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;отображён 95%-доверительный интервал&quot;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-229-1.png" width="672" /></p>
+<p>Осталось подвинуть легенду, например, вниз. Вообще положение легенды определяется темой, и мы её уже задали. Однако можно подправить дефолтные параметры с помощью функции <code>theme()</code>.</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="визуализация-данных-с-ggplot2.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds1000,</span>
+<span id="cb419-2"><a href="визуализация-данных-с-ggplot2.html#cb419-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(cut, price,</span>
+<span id="cb419-3"><a href="визуализация-данных-с-ggplot2.html#cb419-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> color)) <span class="sc">+</span> </span>
+<span id="cb419-4"><a href="визуализация-данных-с-ggplot2.html#cb419-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>,</span>
+<span id="cb419-5"><a href="визуализация-данных-с-ggplot2.html#cb419-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb419-6"><a href="визуализация-данных-с-ggplot2.html#cb419-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>,</span>
+<span id="cb419-7"><a href="визуализация-данных-с-ggplot2.html#cb419-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> pd, <span class="at">width =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb419-8"><a href="визуализация-данных-с-ggplot2.html#cb419-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb419-9"><a href="визуализация-данных-с-ggplot2.html#cb419-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colorspace<span class="sc">::</span><span class="fu">rainbow_hcl</span>(<span class="fu">length</span>(<span class="fu">unique</span>(diamonds<span class="sc">$</span>color)))) <span class="sc">+</span></span>
+<span id="cb419-10"><a href="визуализация-данных-с-ggplot2.html#cb419-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Качество огранки&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Цена&quot;</span>,</span>
+<span id="cb419-11"><a href="визуализация-данных-с-ggplot2.html#cb419-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Цвет бриллианта&quot;</span>,</span>
+<span id="cb419-12"><a href="визуализация-данных-с-ggplot2.html#cb419-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Зависимость цены бриллианта от его характеристик&quot;</span>,</span>
+<span id="cb419-13"><a href="визуализация-данных-с-ggplot2.html#cb419-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Цвет и качество огранки&quot;</span>,</span>
+<span id="cb419-14"><a href="визуализация-данных-с-ggplot2.html#cb419-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;отображён 95%-доверительный интервал&quot;</span>) <span class="sc">+</span></span>
+<span id="cb419-15"><a href="визуализация-данных-с-ggplot2.html#cb419-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-230-1.png" width="672" /></p>
+</div>
+</div>
+<div id="сохранение-графиков" class="section level3" number="5.3.8">
+<h3><span class="header-section-number">5.3.8</span> Сохранение графиков</h3>
+<p>Для того, чтобы опубликовать график в статье или даже просто вставить в презентацию нужно его как-то выгрузить. Скриншоты нам не подходят, потому что качество их совершенно никуда не годится. На наше счастье есть фукнция для выгрузки картинок из <code>R</code> и называется она <code>ggsave()</code>.</p>
+<p>Она принимает следующие аргументы:</p>
+<ul>
+<li><code>filename</code> — название файла, в которых будет сохранен график</li>
+<li><code>path</code> — путь, куда сохранять нашу картинку.</li>
+<li><code>plot</code> — график, который необходимо сохранить (по умолчанию, последний построенный)</li>
+<li><code>scale</code> — степень масштабирования изображения</li>
+<li><code>width</code> — ширина изображения</li>
+<li><code>height</code> — высота изображения</li>
+<li><code>units</code> — единицы изменения (дюймы, миллиметры, сантиметры)</li>
+<li><code>dpi</code> — разрешение изображения (точки на дюйм, стандарт для печати — 300)</li>
+</ul>
+<p>Функция позволяет сохранить изображения большинства форматов (JPEG, PNG, SVG, TIFF, PDF).</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="визуализация-данных-с-ggplot2.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&#39;graph1.png&#39;</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">&#39;cm&#39;</span>)</span></code></pre></div>
+<p>Выполнив эту функцию мы получим в рабочей директории файл с графиком, который мы только что нарисовали.</p>
+</div>
+</div>
+<div id="файнал-босс" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Файнал босс</h2>
+<p>Чтобы закрепить всё, чему вы научились, вот вам суперзадание. Скорее всего, в ходе его выполнения, вам придется погуглить — это тоже важный навык аналитика. Главное — пробовать и не сдаваться, если с первого раза не всё прошло удачно. У вас обязательно всё получится!</p>
+<div style="margin-top: 5%">
+<div style="padding: 1%; margin: 1%; background-color: #0044aa; border-radius: 10px">
+<div style="padding-left: 1%; font-weight: bold; color: white">
+Сложное задание
+</div>
+</div>
+<div style="padding: 1% 3% 1% 3%; margin: 2% 1% 1% 1%; background-color: #e0f0fa; border-radius: 10px">
+<p>Скачайте <a href="https://raw.githubusercontent.com/angelgardt/mk_ggplot2/master/sharexp_data.csv">отсюда</a> реальные данные.</p>
+<p>Команта для скачивания (с сохранением в объект <code>share</code>):</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="визуализация-данных-с-ggplot2.html#cb421-1" aria-hidden="true" tabindex="-1"></a>share <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/angelgardt/mk_ggplot2/master/sharexp_data.csv&quot;</span>)</span></code></pre></div>
+<p>Это данные поведенческого эксперимента, в котором пользователи Android и iOS искали иконки «share» обеих платформ среди универсальных иконок. Короче, зрительный поиск.</p>
+<p>Нас будут интересовать следующие переменные:</p>
+<ul>
+<li><code>trialtype</code> — тип пробы (<code>tray</code>/<code>dots</code>/<code>both</code>)</li>
+<li><code>setsize</code> — количество стимулов в пробе (<code>8</code>/<code>12</code>/<code>16</code>)</li>
+<li><code>time1</code> — время первого клика</li>
+<li><code>platform</code> — платформа смартфона (<code>Android</code>/<code>iOS</code>)</li>
+</ul>
+<p>Повторите представленную визуализацию:</p>
+<center>
+<img src="andan_2021_files/figure-html/unnamed-chunk-233-1.png" width="672" />
+</center>
+<p><em>Подсказка</em> <br>
+Вам может быть полезен вот такой код:</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="визуализация-данных-с-ggplot2.html#cb422-1" aria-hidden="true" tabindex="-1"></a>share[share<span class="sc">$</span>trialtype <span class="sc">!=</span> <span class="st">&quot;both&quot;</span>, ]</span></code></pre></div>
+</div>
+</div>
+<center>
+<img src="images/googling.jpg" width="50%">
+</center>
+</div>
+<div id="конклюжон" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Конклюжон</h2>
+<p>Мы с вами быстро пробежались по гглоту, однако за границами данного занятия осталось множество его возможностей. Мы не смотрели специфичные геомы, другие системы координат и интерактивные визуализации. Сложно посоветовать единый всеобъемлющий гайд по этой библиотеке — разве что вот эта <a href="https://www.springer.com/gp/book/9780387981413">книжка</a>.</p>
+<p>А вообще всегда помните, что есть <a href="google.com">вот этот сайт</a>, где вы можете найти любую нужную вам информацию — по <code>ggplot2</code> уж точно.</p>
+<p>Ну, и конечно, фил фри ту написать автору в <a href="https://t.me/angelgardt">телеграм</a> (<span class="citation">@angelgardt</span>) или <a href="https://www.facebook.com/a.n.angelgardt">фейсбук</a>.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>По теореме умножения вероятностей.<a href="визуализация-данных-с-ggplot2.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Справедливости ради стоит отметить, что дисперсионный анализ очень часто используется для анализа экспериментальных данных, поэтому поработаем с ними.<a href="визуализация-данных-с-ggplot2.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Что бы это ни значило…<a href="визуализация-данных-с-ggplot2.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Вообще об этом стоило подумать, когда мы смотрели на распределения переменной <code>price</code> и видели, что у нас очень много «дешёвых» бриллиантов и мало «дорогих». Но это уже следующий этап погружения в анализ картинок. Нам бы пока с возможностями ггплота разобраться…<a href="визуализация-данных-с-ggplot2.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Мы такие оригинальные!<a href="визуализация-данных-с-ggplot2.html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="продолжаем-с-data-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anova-a-k-a-дисперсионный-анализ.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/maria-srv/AnDan2021Start/edit/master/06_ggplot2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"self_contained": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

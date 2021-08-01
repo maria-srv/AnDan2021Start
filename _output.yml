@@ -1,0 +1,14 @@
+bookdown::gitbook:
+  df_print: paged
+  css: style.css
+  always_allow_html: yes
+  config:
+    self_contained: yes
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./">2021 Андан стартовая</a></li>
+    sharing: no
+    edit:
+      link: https://github.com/maria-srv/AnDan2021Start/edit/master/%s
+      text: "Edit"
