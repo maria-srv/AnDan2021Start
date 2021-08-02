@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Cтатистические критерии, корреляции | АнДан 2021: стартовая программа</title>
+  <meta name="description" content="5 Cтатистические критерии, корреляции | АнДан 2021: стартовая программа" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Cтатистические критерии, корреляции | АнДан 2021: стартовая программа" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Cтатистические критерии, корреляции | АнДан 2021: стартовая программа" />
+  
+  
+  
+
+<meta name="author" content="А. Ангельгардт, М. Серветник, Ю. Мартысенко, А. Котликова" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"/>
+<link rel="next" href="визуализация-данных-с-ggplot2.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">2021 Андан стартовая</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> О курсе</a></li>
+<li class="chapter" data-level="2" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html"><i class="fa fa-check"></i><b>2</b> Знакомство с RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#знакомство-с-rstudio-1"><i class="fa fa-check"></i><b>2.1</b> Знакомство с RStudio</a></li>
+<li class="chapter" data-level="2.2" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#открываем-файл"><i class="fa fa-check"></i><b>2.2</b> Открываем файл</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="введение-в-r.html"><a href="введение-в-r.html"><i class="fa fa-check"></i><b>3</b> Введение в R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="введение-в-r.html"><a href="введение-в-r.html#общее"><i class="fa fa-check"></i><b>3.1</b> Общее</a></li>
+<li class="chapter" data-level="3.2" data-path="введение-в-r.html"><a href="введение-в-r.html#типы-данных"><i class="fa fa-check"></i><b>3.2</b> Типы данных</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="введение-в-r.html"><a href="введение-в-r.html#целое-число-integer"><i class="fa fa-check"></i><b>3.2.1</b> Целое число — integer</a></li>
+<li class="chapter" data-level="3.2.2" data-path="введение-в-r.html"><a href="введение-в-r.html#число-с-плавающей-запятой-double"><i class="fa fa-check"></i><b>3.2.2</b> Число с плавающей запятой — double</a></li>
+<li class="chapter" data-level="3.2.3" data-path="введение-в-r.html"><a href="введение-в-r.html#комплексные-числа-complex"><i class="fa fa-check"></i><b>3.2.3</b> Комплексные числа — complex</a></li>
+<li class="chapter" data-level="3.2.4" data-path="введение-в-r.html"><a href="введение-в-r.html#символьный-тип-данных-строки-character"><i class="fa fa-check"></i><b>3.2.4</b> Символьный тип данных (строки) — character</a></li>
+<li class="chapter" data-level="3.2.5" data-path="введение-в-r.html"><a href="введение-в-r.html#фактор-factor"><i class="fa fa-check"></i><b>3.2.5</b> Фактор — factor</a></li>
+<li class="chapter" data-level="3.2.6" data-path="введение-в-r.html"><a href="введение-в-r.html#упорядоченный-фактор-ordered-factor"><i class="fa fa-check"></i><b>3.2.6</b> Упорядоченный фактор — ordered factor</a></li>
+<li class="chapter" data-level="3.2.7" data-path="введение-в-r.html"><a href="введение-в-r.html#логические-boolean"><i class="fa fa-check"></i><b>3.2.7</b> Логические — boolean</a></li>
+<li class="chapter" data-level="3.2.8" data-path="введение-в-r.html"><a href="введение-в-r.html#даты."><i class="fa fa-check"></i><b>3.2.8</b> Даты.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="введение-в-r.html"><a href="введение-в-r.html#структуры-данных"><i class="fa fa-check"></i><b>3.3</b> Структуры данных</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="введение-в-r.html"><a href="введение-в-r.html#вектор"><i class="fa fa-check"></i><b>3.3.1</b> Вектор</a></li>
+<li class="chapter" data-level="3.3.2" data-path="введение-в-r.html"><a href="введение-в-r.html#матрицы"><i class="fa fa-check"></i><b>3.3.2</b> Матрицы</a></li>
+<li class="chapter" data-level="3.3.3" data-path="введение-в-r.html"><a href="введение-в-r.html#списки"><i class="fa fa-check"></i><b>3.3.3</b> Списки</a></li>
+<li class="chapter" data-level="3.3.4" data-path="введение-в-r.html"><a href="введение-в-r.html#дата-фреймы"><i class="fa fa-check"></i><b>3.3.4</b> Дата фреймы</a></li>
+<li class="chapter" data-level="3.3.5" data-path="введение-в-r.html"><a href="введение-в-r.html#другие"><i class="fa fa-check"></i><b>3.3.5</b> Другие</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="введение-в-r.html"><a href="введение-в-r.html#функции-и-простые-действия-с-данными"><i class="fa fa-check"></i><b>3.4</b> Функции и простые действия с данными</a></li>
+<li class="chapter" data-level="3.5" data-path="введение-в-r.html"><a href="введение-в-r.html#задания-для-тренировки"><i class="fa fa-check"></i><b>3.5</b> Задания для тренировки</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><i class="fa fa-check"></i><b>4</b> Фильтрация строк и столбцов в base R. Введение в data.table</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-строк-и-столбцов-в-base-r"><i class="fa fa-check"></i><b>4.1</b> Фильтрация строк и столбцов в base R</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-вектора-по-условию"><i class="fa fa-check"></i><b>4.1.1</b> Фильтрация вектора по условию</a></li>
+<li class="chapter" data-level="4.1.2" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-дата.фрейма-по-условию"><i class="fa fa-check"></i><b>4.1.2</b> Фильтрация дата.фрейма по условию</a></li>
+<li class="chapter" data-level="4.1.3" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-по-результату-функции"><i class="fa fa-check"></i><b>4.1.3</b> Фильтрация по результату функции</a></li>
+<li class="chapter" data-level="4.1.4" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-для-группировки"><i class="fa fa-check"></i><b>4.1.4</b> Фильтрация для группировки</a></li>
+<li class="chapter" data-level="4.1.5" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#введение-в-data.table"><i class="fa fa-check"></i><b>4.1.5</b> Введение в data.table</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html"><i class="fa fa-check"></i><b>5</b> Cтатистические критерии, корреляции</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#введение"><i class="fa fa-check"></i><b>5.1</b> Введение</a></li>
+<li class="chapter" data-level="5.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>5.2</b> Goodness-of-fit tests</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#биномиальный-критерий"><i class="fa fa-check"></i><b>5.2.1</b> Биномиальный критерий</a></li>
+<li class="chapter" data-level="5.2.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#критерий-хи-квадрат"><i class="fa fa-check"></i><b>5.2.2</b> Критерий Хи-квадрат</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#тестирование-взаимосвязи-между-двумя-категориальными-переменными"><i class="fa fa-check"></i><b>5.3</b> Тестирование взаимосвязи между двумя категориальными переменными</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#таблицы-сопряжённости"><i class="fa fa-check"></i><b>5.3.1</b> таблицы сопряжённости</a></li>
+<li class="chapter" data-level="5.3.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#тест-фишера"><i class="fa fa-check"></i><b>5.3.2</b> Тест Фишера</a></li>
+<li class="chapter" data-level="5.3.3" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#добавляем-хи-квадрат"><i class="fa fa-check"></i><b>5.3.3</b> Добавляем Хи-квадрат</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#критерии-для-порядковых-или-ненормально-распределённых-переменных"><i class="fa fa-check"></i><b>5.4</b> Критерии для порядковых или ненормально распределённых переменных</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#тест-манна-уитни"><i class="fa fa-check"></i><b>5.4.1</b> Тест Манна-Уитни</a></li>
+<li class="chapter" data-level="5.4.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#t-критерий-вилкоксона-для-зависимых-выборок"><i class="fa fa-check"></i><b>5.4.2</b> T-критерий Вилкоксона для зависимых выборок</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#сравнение-средних"><i class="fa fa-check"></i><b>5.5</b> Сравнение средних</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#t-критерий-стьюдента-для-независимых-выборок"><i class="fa fa-check"></i><b>5.5.1</b> t-критерий Стьюдента для независимых выборок</a></li>
+<li class="chapter" data-level="5.5.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#t-критерий-стьюдента-для-зависимых-выборок"><i class="fa fa-check"></i><b>5.5.2</b> t-критерий Стьюдента для зависимых выборок</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#коэффициенты-корреляции"><i class="fa fa-check"></i><b>5.6</b> Коэффициенты корреляции</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#корреляция-пирсона"><i class="fa fa-check"></i><b>5.6.1</b> Корреляция Пирсона</a></li>
+<li class="chapter" data-level="5.6.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#ранговые-коэффициенты-спирман-и-кендалл"><i class="fa fa-check"></i><b>5.6.2</b> Ранговые коэффициенты: Спирман и Кендалл</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#бонус-визуализация-корреляционной-матрицы"><i class="fa fa-check"></i><b>5.7</b> Бонус: визуализация корреляционной матрицы</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Визуализация данных с <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#визуализация-это-зачем"><i class="fa fa-check"></i><b>6.1</b> Визуализация это зачем?</a></li>
+<li class="chapter" data-level="6.2" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#философия-a-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>6.2</b> Философия A Layered Grammar of Graphics</a></li>
+<li class="chapter" data-level="6.3" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#экшон"><i class="fa fa-check"></i><b>6.3</b> Экшон</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#пакеты"><i class="fa fa-check"></i><b>6.3.1</b> Пакеты</a></li>
+<li class="chapter" data-level="6.3.2" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#данные"><i class="fa fa-check"></i><b>6.3.2</b> Данные</a></li>
+<li class="chapter" data-level="6.3.3" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#строим-базовый-график"><i class="fa fa-check"></i><b>6.3.3</b> Строим базовый график</a></li>
+<li class="chapter" data-level="6.3.4" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#ищем-более-сложные-закономерности"><i class="fa fa-check"></i><b>6.3.4</b> Ищем более сложные закономерности</a></li>
+<li class="chapter" data-level="6.3.5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#важное-замечание-о-визуализации"><i class="fa fa-check"></i><b>6.3.5</b> Важное замечание о визуализации</a></li>
+<li class="chapter" data-level="6.3.6" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#инструменты-встроенной-статистической-обработки"><i class="fa fa-check"></i><b>6.3.6</b> Инструменты встроенной статистической обработки</a></li>
+<li class="chapter" data-level="6.3.7" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#настраиваем-график"><i class="fa fa-check"></i><b>6.3.7</b> Настраиваем график</a></li>
+<li class="chapter" data-level="6.3.8" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#сохранение-графиков"><i class="fa fa-check"></i><b>6.3.8</b> Сохранение графиков</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#файнал-босс"><i class="fa fa-check"></i><b>6.4</b> Файнал босс</a></li>
+<li class="chapter" data-level="6.5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#конклюжон"><i class="fa fa-check"></i><b>6.5</b> Конклюжон</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html"><i class="fa fa-check"></i><b>7</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#продолжаем-с-data.table-1"><i class="fa fa-check"></i><b>7.1</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#счёт-элементов-с-помощью-.n"><i class="fa fa-check"></i><b>7.1.1</b> Счёт элементов с помощью .N</a></li>
+<li class="chapter" data-level="7.1.2" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#несколько-группировок"><i class="fa fa-check"></i><b>7.1.2</b> Несколько группировок</a></li>
+<li class="chapter" data-level="7.1.3" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#несколько-выражений"><i class="fa fa-check"></i><b>7.1.3</b> Несколько выражений</a></li>
+<li class="chapter" data-level="7.1.4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#имена-колонок"><i class="fa fa-check"></i><b>7.1.4</b> Имена колонок</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#указание-имён-при-создании-колонок"><i class="fa fa-check"></i><b>7.2</b> Указание имён при создании колонок</a></li>
+<li class="chapter" data-level="7.3" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#вечер-в-хату-вектор-в-colnames"><i class="fa fa-check"></i><b>7.3</b> Вечер в хату, вектор в <code>colnames()</code></a></li>
+<li class="chapter" data-level="7.4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#setnames-из-библиотеки-data.table"><i class="fa fa-check"></i><b>7.4</b> <code>setnames()</code> из библиотеки <code>data.table</code></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#новый-дата.тейбл-или-колонка-в-существующем"><i class="fa fa-check"></i><b>7.4.1</b> Новый дата.тейбл или колонка в существующем?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html"><i class="fa fa-check"></i><b>8</b> Слияние и преобразование табличных данных</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#слияние-и-преобразование-табличных-данных-1"><i class="fa fa-check"></i><b>8.1</b> Слияние и преобразование табличных данных</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#соединение-двух-таблиц-в-одну-простой-случай."><i class="fa fa-check"></i><b>8.1.1</b> Соединение двух таблиц в одну: простой случай.</a></li>
+<li class="chapter" data-level="8.1.2" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#merge-и-четыре-разных-соединения"><i class="fa fa-check"></i><b>8.1.2</b> <code>merge()</code> и четыре разных соединения</a></li>
+<li class="chapter" data-level="8.1.3" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#inner-join"><i class="fa fa-check"></i><b>8.1.3</b> Inner join</a></li>
+<li class="chapter" data-level="8.1.4" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#outer-join"><i class="fa fa-check"></i><b>8.1.4</b> Outer join</a></li>
+<li class="chapter" data-level="8.1.5" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#left-join"><i class="fa fa-check"></i><b>8.1.5</b> Left join</a></li>
+<li class="chapter" data-level="8.1.6" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#right-join"><i class="fa fa-check"></i><b>8.1.6</b> Right join</a></li>
+<li class="chapter" data-level="8.1.7" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#широкие-или-длинные-данные"><i class="fa fa-check"></i><b>8.1.7</b> Широкие или длинные данные</a></li>
+<li class="chapter" data-level="8.1.8" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#из-широких-в-длинные-melt"><i class="fa fa-check"></i><b>8.1.8</b> Из широких в длинные: <code>melt()</code></a></li>
+<li class="chapter" data-level="8.1.9" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#качественные-вина"><i class="fa fa-check"></i><b>8.1.9</b> Качественные вина</a></li>
+<li class="chapter" data-level="8.1.10" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#из-длинных-в-широкие-dcast"><i class="fa fa-check"></i><b>8.1.10</b> Из длинных в широкие: <code>dcast()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html"><i class="fa fa-check"></i><b>9</b> ANOVA a.k.a. Дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#зачем-нужен-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.1</b> Зачем нужен дисперсионный анализ?</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#проблема-множественных-сравнений"><i class="fa fa-check"></i><b>9.1.1</b> Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="9.1.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#идея-дисперсионного-анализа"><i class="fa fa-check"></i><b>9.1.2</b> Идея дисперсионного анализа</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#однофакторный-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.2</b> Однофакторный дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#структура-изменчивости"><i class="fa fa-check"></i><b>9.2.1</b> Структура изменчивости</a></li>
+<li class="chapter" data-level="9.2.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#тестирование-значимости-фактора"><i class="fa fa-check"></i><b>9.2.2</b> Тестирование значимости фактора</a></li>
+<li class="chapter" data-level="9.2.3" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#данные-1"><i class="fa fa-check"></i><b>9.2.3</b> Данные</a></li>
+<li class="chapter" data-level="9.2.4" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#дисперсионный-анализ-в-r"><i class="fa fa-check"></i><b>9.2.4</b> Дисперсионный анализ в R</a></li>
+<li class="chapter" data-level="9.2.5" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#post-hoc-тесты"><i class="fa fa-check"></i><b>9.2.5</b> Post hoc тесты</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.3</b> Многофакторный дисперсионный анализ</a></li>
+<li class="chapter" data-level="9.4" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-без-взаимодействия-в-r"><i class="fa fa-check"></i><b>9.4</b> Многофакторный дисперсионный анализ без взаимодействия в R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-со-взаимодействием-в-r"><i class="fa fa-check"></i><b>9.4.1</b> Многофакторный дисперсионный анализ со взаимодействием в R</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#важность-аггрегации-данных"><i class="fa fa-check"></i><b>9.5</b> Важность аггрегации данных</a></li>
+<li class="chapter" data-level="9.6" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#итоги"><i class="fa fa-check"></i><b>9.6</b> Итоги</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">АнДан 2021: стартовая программа</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cтатистические-критерии-корреляции" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Cтатистические критерии, корреляции</h1>
+<style type="text/css">
+.spoiler {
+  visibility: hidden;
+  background: #ffffe0
+}
+
+.spoiler::before {
+  visibility: visible;
+  background: cyan;
+  content: "Спойлер! Наведите, чтобы увидеть ответ"
+}
+
+.spoiler:hover {
+  visibility: visible;
+}
+
+.spoiler:hover::before {
+  display: none;
+}
+</style>
+<div id="введение" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Введение</h2>
+<p>Дисклеймер: в этом файле под каждым заданием есть текстовые ответы (без кода), скрытые под синенькой плашкой “спойлер”. Она срабатывает при наведённом на неё курсоре:</p>
+<p><span class="spoiler">Если вы случайно проспойлерили себе ответ, не расстраивайтесь, вам всё ещё нужно написать код, который будет выдавать этот ответ :)</span></p>
+<p>В этом материале мы разберём некоторые часто используемые статистические критерии (тесты) - базовые инструменты для проверки статистических гипотез.</p>
+<p>Мы будем использовать датасет, который собрали вместе с вами в опросе перед школой.</p>
+<p>На всякий случай, ещё раз описание переменных:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>height</code></td>
+<td>рост в сантиметрах</td>
+</tr>
+<tr class="even">
+<td><code>eye_color</code></td>
+<td>цвет глаз</td>
+</tr>
+<tr class="odd">
+<td><code>eye_number</code></td>
+<td>количество глаз</td>
+</tr>
+<tr class="even">
+<td><code>beard</code></td>
+<td>борода: есть/нет</td>
+</tr>
+<tr class="odd">
+<td><code>soft_drink</code></td>
+<td>кола/пепси/нет спасибо</td>
+</tr>
+<tr class="even">
+<td><code>cats</code></td>
+<td>количество кошек</td>
+</tr>
+<tr class="odd">
+<td><code>gorgeous</code></td>
+<td>степень великолепности от 1 до 10</td>
+</tr>
+<tr class="even">
+<td><code>siblings</code></td>
+<td>число братьев и сестер</td>
+</tr>
+<tr class="odd">
+<td><code>hair_length</code></td>
+<td>длина волос (см)</td>
+</tr>
+<tr class="even">
+<td><code>shoe_size</code></td>
+<td>размер обуви</td>
+</tr>
+<tr class="odd">
+<td><code>guitar</code></td>
+<td>уровень игры на гитаре</td>
+</tr>
+<tr class="even">
+<td><code>hot_drink</code></td>
+<td>чай/кофе/потанцуем</td>
+</tr>
+<tr class="odd">
+<td><code>month</code></td>
+<td>месяц рождения</td>
+</tr>
+<tr class="even">
+<td><code>hogwarts</code></td>
+<td>факультет в хогвартсе</td>
+</tr>
+<tr class="odd">
+<td><code>dream</code></td>
+<td>кем мечтали стать в детстве</td>
+</tr>
+</tbody>
+</table>
+<p>Выбор теста зависит от задачи, от типа данных, которые у вас есть, а также иногда от размера выборки.</p>
+</div>
+<div id="goodness-of-fit-tests" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Goodness-of-fit tests</h2>
+<p>Первое, что мы обсудим - это критерии согласованности (goodness-of-fit): биномиальный и хи-квадрат. Они используются, когда у нас есть какая-то выборка и теоретическое предположение о параметрах распределения в генеральной совокупности, и показывают вероятность получить данную выборку из генеральной совокупности с такими параметрами.</p>
+<div id="биномиальный-критерий" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Биномиальный критерий</h3>
+<p>Биномиальный критерий используется для выборки из биномиального распределения. Это распределение числа успехов в серии испытаний Бернулли.</p>
+<p><img src="https://pics.me.me/ill-just-have-to-hope-when-i-flip-the-coin-2948007.png" /></p>
+<p>Самый простой пример – как обычно, подбрасывание монетки :) Мы заранее знаем про монетку, что она выпадает орлом в 50% случаев. Если из 10 подбрасываний 9 раз выпал орёл, мы можем подсчитать в точности, насколько вероятно было такое событие, и решить, кривая ли эта монетка.</p>
+<p>Возможно, вам знакома формула:</p>
+<p><span class="math display">\[P(k) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}\]</span></p>
+<p>Так это вот оно и есть (вероятность получить k орлов из n подбрасываний, при теоретическом предположении, что вероятность орла равна p)</p>
+<p>В R используется функция <code>binom.test(x,n,p)</code>, где x – количество успехов, n – количество испытаний, p – теоретическая вероятность.</p>
+<p>Давайте сразу попробуем с монеткой:</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="cтатистические-критерии-корреляции.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## 
+##  Exact binomial test
+## 
+## data:  9 and 10
+## number of successes = 9, number of trials = 10, p-value = 0.02148
+## alternative hypothesis: true probability of success is not equal to 0.5
+## 95 percent confidence interval:
+##  0.5549839 0.9974714
+## sample estimates:
+## probability of success 
+##                    0.9</code></pre>
+<p>Что показывает нам выдача:</p>
+<ul>
+<li>альтернативную гипотезу теста (истинная вероятность выпадения орла не равна 0.5)</li>
+<li>sample estimate – вероятность орла на нашей конкретной выборке (0.9)</li>
+<li>95%-ный доверительный интервал для выборочной вероятности (который не захватывает теоретическую вероятность 0.5, значит, скорее всего, монетка кривая)</li>
+<li>p-value (собственно, вероятность получить 9 орлов, если бы монетка было ровная).</li>
+</ul>
+<p>Считать ли вероятность 0.02 достаточно маленькой для признания монетки кривой – это наш личный выбор, в мире монеток всё возможно. Если обратиться к одному из конвенциональных значений p-value &lt; 0.05, то да, монетка кривая :)</p>
+<p>Теперь к реальным данным!</p>
+<p>Давайте посчитаем среди нас число людей с третьим глазом и их долю.</p>
+<p><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Frisovach.ru%2Fupload%2F2018%2F02%2Fgenerator%2Fsverhrazum_168869481_orig_.jpg&amp;f=1&amp;nofb=1" /></p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="cтатистические-критерии-корреляции.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="co"># сначала подгрузим данные</span></span>
+<span id="cb332-2"><a href="cтатистические-критерии-корреляции.html#cb332-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;about_us_eng.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="cтатистические-критерии-корреляции.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>eye_number <span class="sc">==</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="cтатистические-критерии-корреляции.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>eye_number <span class="sc">==</span> <span class="dv">3</span>)<span class="sc">/</span><span class="fu">nrow</span>(df)</span></code></pre></div>
+<pre><code>## [1] 0.08571429</code></pre>
+<ul>
+<li><code>nrow()</code> – это число строк в датасете – то есть количество наблюдений</li>
+</ul>
+<p>Итак, вероятность случайно выбранному человеку иметь третий глаз равна всего 0.086 (или 8.6%).</p>
+<div class="rmdtask">
+<p>
+ЗАДАЧКА
+</p>
+<p>
+Отфильтруйте в отдельный датасет всех людей, у который ровно одна кошка. Проверьте гипотезу, что среди них вероятность иметь третий глаз значимо не отличается от 0.086.
+</p>
+<p>
+Какова в точности вероятность третьего глаза у людей с одной кошкой? Отличается ли она от 0.086 на основе p-value?
+</p>
+</div>
+<p><span class="spoiler">Вероятность = 0.15, но разница с 0.086 не значима (p-value=0.3)</span></p>
+<p>Кстати: помимо x, n, p функция <code>binom.test()</code> принимает на вход параметры <code>alternative</code> и <code>conf.level</code>. Первый параметр – это право/лево/сторонняя альтернатива, а второй – уровень значимости. Такие параметры есть во всех или почти всех критериях, и их можно менять. По дефолту альтернатива обычно двусторонняя, уровень значимости: 0.95.</p>
+</div>
+<div id="критерий-хи-квадрат" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Критерий Хи-квадрат</h3>
+<p>Логика критерия Хи-квадрат в общем такая же, как у биномиального. Если продолжать простые примеры: биномиальный критерий – это про монетку, а Хи-квадрат – про игральный кубик, на котором все числа должны выпадать с вероятностью 1/6. Частота исходов, которые получаются при броске кубика, имеет мультиномиальное распределение, биномиальное – его частный случай.</p>
+<p>Критерий можно применить к любой категориальной переменной, которая принимает два и более значений: например, наши факультеты Хогвартса – и проверить, соответствует ли распределение участников по факультетам реальному распределению детей в Хогвартсе (на всех факультетах одинаковое количество человек).</p>
+<p>Единственная проблема: функция <code>chisq.test()</code>, которая для этого предназначена, принимает на вход не исходную переменную с ответами на вопрос. Ей нужно скормить вектор частот каждого факультета (например: <code>c(8,8,9,9)</code>, что означает, что в нашей выборке 8 гриффиндорцев, 8 слизеринцев и т.д.).</p>
+<p>Мы, конечно, можем посчитать эти числа руками и засунуть их в вектор, но, как вы уже возможно догадались, это не наш путь!</p>
+<p>Чтобы посчитать частоты, можно воспользоваться функцией <code>table()</code> – она делает табличку из всех значений данной переменной и считает количество этих значений.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="cтатистические-критерии-корреляции.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>hogwarts)</span></code></pre></div>
+<pre><code>## 
+## Gryffindor Hufflepuff  Ravenclaw  Slytherin 
+##          9          6         14          6</code></pre>
+<p>Уже можно заметить, что Рейвенкло – более популярный факультет, чем все остальные (чё, самые умные, да?)</p>
+<p>Кроме того, понадобится вектор теоретических вероятностей каждого исхода (в нашем случае вектор: 4 раза по 0.25, т.к. мы считаем, что все факультеты равновероятны)</p>
+<p>Тут есть, например, такой способ: буквально “повторить 0.25 4 раза” (<code>rep()</code> – это repeat)</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="cтатистические-критерии-корреляции.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fl">0.25</span>, <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 0.25 0.25 0.25 0.25</code></pre>
+<p>Ну и теперь попробуем всё это вставить в <code>chisq.test</code>.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="cтатистические-критерии-корреляции.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(df<span class="sc">$</span>hogwarts), <span class="at">p =</span> <span class="fu">rep</span>(<span class="fl">0.25</span>, <span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  table(df$hogwarts)
+## X-squared = 4.8857, df = 3, p-value = 0.1804</code></pre>
+<p>Внимание! Вставляя ожидаемые вероятности, нужно обязательно ставить перед ними <code>p=</code>, потому что по дефолту chisq.test – это двухвыборочный хи-квадрат, который ждет на вход вектор х и вектор у – две разные выборки по одной переменной.</p>
+<p>В выдаче, в общем, нет ничего, кроме p-value. Если оно больше 0.05, мы считаем, что да, вероятно наша выборка участников школы взята из генеральной совокупности, где все люди распределены по факультетам равномерно.</p>
+<p>Ну и для интересующихся формула, которая там используется:</p>
+<p><span class="math display">\[ \chi^2 = \sum \frac{(O-E)^2}{E} \]</span></p>
+<p>где O - наблюдаемое число студентов (например, в Гриффиндоре было 9), E - ожидаемое число студентов (размер выборки умножить на 0.25 = <span class="math inline">\(35 * 0.25 = 8.75\)</span>). Подсчитывается для 4 факультетов и суммируется по ним. Получившееся число имеет расперделение хи-квадрат с 3 степенями свободы (число факультетов - 1). p-value - это вероятность, что статистика критерия будет примет более экстремальные значения, чем получившееся: <span class="math inline">\(p(\chi^2 &gt;= 4.88)\)</span>. <a href="https://www.di-mgt.com.au/chisquare-calculator.html">Вот тут</a> можно поиграться и посмотреть как по значению статистики рассчитывается p-value.</p>
+<div class="rmdtask">
+<p>
+МИКРО-ЗАДАЧКА
+</p>
+<p>
+Проверьте, что все цвета глаз встречаются одинаково часто.
+</p>
+<p>
+Микро-подсказка: цветов, как и факультетов 4 (карие, голубые, зеленые, иное).
+</p>
+</div>
+<p><span class="spoiler">p-value = 0.01739 &lt; 0.05, то есть нулевую гипотезу можно отвергнуть. Правда, по самой выдаче теста мы не сможем узнать, в какую сторону (то есть какой именно цвет глаз преобладает, или какой наоборот встречается редко). Для этого нужно обращаться к таблице частот.</span></p>
+<div class="figure">
+<img src="https://gifki.info/uploads/posts/2017-02/1485962221_529-pozdravlyayu.gif" alt="" />
+<p class="caption">Поздравляем, вы теперь знаете, что такое критерии goodness-of-fit</p>
+</div>
+</div>
+</div>
+<div id="тестирование-взаимосвязи-между-двумя-категориальными-переменными" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Тестирование взаимосвязи между двумя категориальными переменными</h2>
+<p>В этом разделе разберём точный тест Фишера и ещё одну разновидность критерия Хи-квадрат.</p>
+<p>Нам понадобятся:</p>
+<div id="таблицы-сопряжённости" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> таблицы сопряжённости</h3>
+<p>Как их получить?</p>
+<p>Всё та же функция <code>table()</code>, но с двумя переменными.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="cтатистические-критерии-корреляции.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>eye_color, df<span class="sc">$</span>hogwarts)</span></code></pre></div>
+<pre><code>##        
+##         Gryffindor Hufflepuff Ravenclaw Slytherin
+##   blue           1          0         4         2
+##   brown          4          4         5         3
+##   green          2          1         5         1
+##   other          2          1         0         0</code></pre>
+<p>В чём смысл критериев? – В том чтобы проверить, что значения разбросаны по всем ячейкам равномерно. Альтернативная гипотеза: в каких-то ячейках числа экстремально большие или маленькие, и это можно интерпретировать как наличие взаимосвязи между нашими переменными.</p>
+<p>Так, например, людей с коричневыми глазами на разных факультетах примерно поровну, а вот люди с голубыми почти все попали в Рейвенкло.</p>
+<p>Здесь мы впервые сталкиваемся с ситуацией, когда число наблюдений имеет значение. Точный тест Фишера применяется, когда ожидаемое количество людей хотя бы в одной ячейке таблицы меньше пяти.</p>
+<p>Что вообще за ожидаемое количество? Ну, это количество людей в каждой ячейке, если бы переменные были независимы. Считаются эти числа по правилу перемножения вероятностей для независимых событий.</p>
+<p>По данным мы можем отдельно расчитать вероятность голубых глаз и вероятность Гриффиндора, а потом перемножить их и получить вероятность одновременно голубых глаз и Гриффиндора. Умножим на размер выборки – получим ожидаемое число людей с голубыми глазами в Гриффиндоре.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="cтатистические-критерии-корреляции.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>eye_color <span class="sc">==</span> <span class="st">&#39;blue&#39;</span>)<span class="sc">/</span><span class="fu">nrow</span>(df)</span></code></pre></div>
+<pre><code>## [1] 0.2</code></pre>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="cтатистические-критерии-корреляции.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>hogwarts <span class="sc">==</span> <span class="st">&#39;Gryffindor&#39;</span>)<span class="sc">/</span><span class="fu">nrow</span>(df)</span></code></pre></div>
+<pre><code>## [1] 0.2571429</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="cтатистические-критерии-корреляции.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>eye_color <span class="sc">==</span> <span class="st">&#39;blue&#39;</span>)<span class="sc">/</span><span class="fu">nrow</span>(df) <span class="sc">*</span></span>
+<span id="cb349-2"><a href="cтатистические-критерии-корреляции.html#cb349-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(df<span class="sc">$</span>hogwarts <span class="sc">==</span> <span class="st">&#39;Gryffindor&#39;</span>)<span class="sc">/</span><span class="fu">nrow</span>(df) <span class="sc">*</span></span>
+<span id="cb349-3"><a href="cтатистические-критерии-корреляции.html#cb349-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>(df)</span></code></pre></div>
+<pre><code>## [1] 1.8</code></pre>
+<p>Чтобы узнать ожидаемое количество людей во всех ячейках сразу, а не считать вот это вот 16 раз, можно воспользоваться такой конструкцией:</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="cтатистические-критерии-корреляции.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(df<span class="sc">$</span>eye_color, df<span class="sc">$</span>hogwarts))<span class="sc">$</span>expected</span></code></pre></div>
+<pre><code>##        
+##         Gryffindor Hufflepuff Ravenclaw Slytherin
+##   blue   1.8000000  1.2000000       2.8 1.2000000
+##   brown  4.1142857  2.7428571       6.4 2.7428571
+##   green  2.3142857  1.5428571       3.6 1.5428571
+##   other  0.7714286  0.5142857       1.2 0.5142857</code></pre>
+<p>Здесь мы просто провели тест хи-квадрат на сопряженность, но не ради результата, а чтобы вытащить из него ожидаемые (<code>expected</code>) значения для таблицы сопряженности.</p>
+<p>Да, к результатам тестов можно обращаться через знак доллара, как и к датафрейму, чтобы вместо стандартной выдачи получить конкретные числа, которые используются там внутри при расчетах.</p>
+</div>
+<div id="тест-фишера" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Тест Фишера</h3>
+<p>В общем-то, почти во всех ячейках числа меньше пяти, значит тут нам точно нужен критерий Фишера.</p>
+<p>Руками он считается <a href="https://www.statology.org/fishers-exact-test/">так</a>, а в R – вот так (просто засовываем в функцию таблицу сопряженности):</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="cтатистические-критерии-корреляции.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(<span class="fu">table</span>(df<span class="sc">$</span>eye_color, df<span class="sc">$</span>hogwarts))</span></code></pre></div>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  table(df$eye_color, df$hogwarts)
+## p-value = 0.5536
+## alternative hypothesis: two.sided</code></pre>
+<p>Интерпретация: p-value большое, значит нулевая гипотеза не отвергается <span class="math inline">\(\Rightarrow\)</span> между переменными нет взаимосвязи.</p>
+<p>Вместо категориальных переменных мы можем вставлять в таблицы сопряженности логические векторы.</p>
+<p>Давайте посмотрим на совместное распределение людей по выбору горячих напитков и размеру обуви до 39 vs. 40+.</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="cтатистические-критерии-корреляции.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>hot_drink, df<span class="sc">$</span>shoe_size <span class="sc">&gt;</span> <span class="dv">39</span>)</span></code></pre></div>
+<pre><code>##                 
+##                  FALSE TRUE
+##   coffee             4    8
+##   shall we dance     6    4
+##   tea                8    4</code></pre>
+<p>Тут, конечно, нужно держать в голове, что такое TRUE, а что FALSE, это не очень удобно, но уверена, мы справимся.</p>
+<p>Посмотрим на ожидаемые частоты для этой таблицы, если выбор горячего напитка не связан с размером обуви.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="cтатистические-критерии-корреляции.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(df<span class="sc">$</span>hot_drink, df<span class="sc">$</span>shoe_size <span class="sc">&gt;</span> <span class="dv">39</span>))<span class="sc">$</span>expected</span></code></pre></div>
+<pre><code>## Warning in chisq.test(table(df$hot_drink, df$shoe_size &gt; 39)): Chi-squared
+## approximation may be incorrect</code></pre>
+<pre><code>##                 
+##                     FALSE     TRUE
+##   coffee         6.352941 5.647059
+##   shall we dance 5.294118 4.705882
+##   tea            6.352941 5.647059</code></pre>
+<p>Обратите внимание: R выдал предупреждение, что аппроксимация тестом хи-квадрат может быть неверной. Это как раз потому что у нас тут есть одна ячейка, в которой ожидаемая частота получилась все-таки меньше пяти (в прошлый раз я просто скрыла это предупреждение).</p>
+<p>Давайте попробуем забить на это и посчитать на этой таблице оба наших критерия.</p>
+</div>
+<div id="добавляем-хи-квадрат" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Добавляем Хи-квадрат</h3>
+<p>Кстати, критерий Хи-квадрат в предыдущем случае назывался “Chi-squared test for given probabilities”, а здесь у нас будет “Pearson’s Chi-squared test”, и в англоязычных источниках иногда встречается просто название Pearson’s test (но чаще chi-squared)). Считается он по той же схеме, что и одновыборочный, <a href="https://medstatistic.ru/methods/methods4.html">вот пример</a></p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="cтатистические-критерии-корреляции.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(<span class="fu">table</span>(df<span class="sc">$</span>hot_drink, df<span class="sc">$</span>shoe_size <span class="sc">&gt;</span> <span class="dv">39</span>))</span></code></pre></div>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  table(df$hot_drink, df$shoe_size &gt; 39)
+## p-value = 0.3155
+## alternative hypothesis: two.sided</code></pre>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="cтатистические-критерии-корреляции.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(df<span class="sc">$</span>hot_drink, df<span class="sc">$</span>shoe_size <span class="sc">&gt;</span> <span class="dv">39</span>))</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  table(df$hot_drink, df$shoe_size &gt; 39)
+## X-squared = 2.9593, df = 2, p-value = 0.2277</code></pre>
+<p>Можно увидеть, что оба теста выдают большое p-value, и мы не ошиблись бы, выбрав любой из них и сделав вывод что размер обуви больше/меньше 40 не связан с выбором горячего напитка. Однако p-value в хи-квадрате всё же получилось меньше, и если бы ситуация была более спорной, выбрав критерий хи-квадрат, мы могли бы получить достаточно маленькое p-value и, скажем так, найти связь там где её нет – совершить т.н. ошибку первого рода.</p>
+<p><img src="https://marginalrevolution.com/wp-content/uploads/2014/05/Type-I-and-II-errors1-625x468.jpg" /></p>
+<p>Ну что ж, и наконец…</p>
+<div class="rmdtask">
+<p>
+ЗАДАЧИЩА
+</p>
+<p>
+Для удобства интерпретации создайте переменные
+</p>
+<ul>
+<li>
+<p>
+very_gorgeous, которая равна “very gorgeous”, если gorgeous равно 10, “not very” в остальных случаях
+</p>
+</li>
+<li>
+<p>
+cat_owner, которая равна “cat”, если cats != 0, “no cat” в остальных случаях
+</p>
+</li>
+</ul>
+<p>
+Подсказка: это можно сделать например так
+</p>
+<p>
+<code>df$very_gorgeous &lt;- ifelse(df$gorgeous == 10, “very gorgeous”, “not very”)</code>
+</p>
+<p>
+(внутри функции на первом месте условие; затем присваемое значение, если условие соблюдено; затем присваемое значение в остальных случаях)
+</p>
+<p>
+Но это далеко не единственный способ, и кажется, вы уже должны знать как минимум один иной; если да, можете вспомнить его.
+</p>
+<p>
+Посмотрите на таблицу сопряженности с ожидаемыми значениями и выберите подходящий тест.
+</p>
+<p>
+Сделайте вывод о взаимосвязи переменных. Затем сравните таблицы ожидаемых и реальных значений и предположите, как можно проинтерпретировать такой вывод.
+</p>
+</div>
+<p><span class="spoiler">Более правильно выбрать тест Фишера, т.к. есть ячейка с ожидаемым значением меньше пяти. Тест показывает очень маленькое p-value (0.009471), и гипотезу о независимости переменных можно уверенно отвергнуть в пользу альтернативы. В реальных данных, по сравнению с ожидаемыми, можно заметить больше людей, одновременно очень великолепных и имеющих кошку (а также не очень великолепных и не имеющих кошку). Возможно, люди с кошками выше оценивают свою великолепность, или, может быть, великолепные люди чаще заводят кошек :)</span></p>
+<div class="figure">
+<img src="https://gifki.info/uploads/posts/2017-01/1485271543_113-pozdravlyayu.gif" alt="" />
+<p class="caption">Поздравляем! Вы познакомились с критериями взаимосвязи между двумя категориальными переменными, в которых используются таблицы сопряженности</p>
+</div>
+</div>
+</div>
+<div id="критерии-для-порядковых-или-ненормально-распределённых-переменных" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Критерии для порядковых или ненормально распределённых переменных</h2>
+<p>В этом разделе мы разберём сравнение порядковых переменных, которые так же используются для количественных с ненормальным распределением. Для примера рассмотрим переменную великолепности, которая, скорее всего, и то, и другое.</p>
+<p>Про графики интересно и красиво будет на другой паре, но мы можем нарисовать простенькую гистограмму, чтобы узреть ненормальное распределение:</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="cтатистические-критерии-корреляции.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>gorgeous)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
+<p>Про связь великоплености и любви к кошкам мы уже знаем. Теперь допустим, мы хотим сравнить степень великолепности людей, которые никогда не видели гитару, и людей, которые что-то умеют на ней играть.</p>
+<p>В этом нам поможет ранговый критерий Манна-Уитни, a.k.a. Mann-Whitney U test a.k.a. Wilcoxon rank-sum test</p>
+<div id="тест-манна-уитни" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Тест Манна-Уитни</h3>
+<p>Критерием для выбора этого теста, помимо ненормальности или порядкового типа данных является также маленький размер выборки (конвенционально n&lt;30). В нашей выборке 35 наблюдений, но когда мы разделим её на гитаристов и не-гитаристов, в каждой подвыборке будет меньше 20 человек. <a href="https://www.statology.org/mann-whitney-u-test/">Здесь</a> формула и пример расчёта статистики этого теста.</p>
+<p>Ранговым этот критерий называется потому, что для его расчета значения в выборке расставляются по возрастанию, и потом им выставляются ранги (примерно как порядковые номера, но бывают дробными)</p>
+<p>В R тест рассчитывается с помощью функции wilcox.test(), в которую надо положить переменную интереса (великолепность) и переменную группировки (умение играть на гитаре; мы создадим её прямо внутри функции, но можно, конечно, сделать новую переменную)</p>
+<p>Между переменными ставится знак тильда (<code>~</code>), он означает, что мы задаём “формулу” взаимосвязи между нашими двумя переменными.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="cтатистические-критерии-корреляции.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(df<span class="sc">$</span>gorgeous <span class="sc">~</span> df<span class="sc">$</span>guitar <span class="sc">!=</span> <span class="st">&#39;What is a guitar? A giant ukulele?&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  df$gorgeous by df$guitar != &quot;What is a guitar? A giant ukulele?&quot;
+## W = 159, p-value = 0.5694
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>К этому моменту вы, думаю, уже на автомате можете сделать вывод из этой выдачи: p-value большое, нулевая гипотеза не отвергается, связи между переменными нет. Другими словами, распределение великолепности гитаристов не “сдвинуто” относительно распределения не-гитаристов.</p>
+</div>
+<div id="t-критерий-вилкоксона-для-зависимых-выборок" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> T-критерий Вилкоксона для зависимых выборок</h3>
+<p>a.k.a. Two-sample paired signed-rank test</p>
+<p>Что ещё за зависимые выборки? Это выборки парных наблюдений – чаще всего до/после. В них нам важно не то, какая “в среднем” есть разница между выборкой А и выборкой В, а то, какое изменение произошло с каждым наблюдением. Например, динамика анализов пациентов в результате действия лекарства, или результаты одних и тех же учеников в начале и в середине года.</p>
+<p>При этом здесь мы всё ещё работаем с ненормальными данными и/или маленькими выборками.</p>
+<p>В наших данных нет никаких парных измерений, но они упорядочены по времени прохождения. Давайте для простоты представим, что первая половина наблюдений это “до”, а вторая половина - “после”. Создадим для этого переменную time.</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="cтатистические-критерии-корреляции.html#cb367-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="st">&quot;before&quot;</span></span>
+<span id="cb367-2"><a href="cтатистические-критерии-корреляции.html#cb367-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>index <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">35</span>)</span>
+<span id="cb367-3"><a href="cтатистические-критерии-корреляции.html#cb367-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>time[df<span class="sc">$</span>index<span class="sc">&gt;</span><span class="dv">17</span>] <span class="ot">&lt;-</span> <span class="st">&quot;after&quot;</span></span></code></pre></div>
+<p>Здесь я создаю переменную индекса от 1 до 35, и наблюдениям с индексом больше 17 присваиваю значение “after”.</p>
+<p>Теперь давайте проверим гипотезу, что наши гипотетические люди, проходившие тест “два раза” успели за это время постричься или нарастить волосы (то есть, что между двумя измерениями произошло какое-то изменение длины волос). Используется всё тот же <code>wilcox.test</code>, но с параметром <code>paired = TRUE</code></p>
+<p>(Процедура расчёта критерия руками <a href="https://www.statology.org/wilcoxon-signed-rank-test/">здесь</a>)</p>
+<p>Можно использовать альтернативную запись: сначала отдельно указывать используемые данные (<code>data=df</code>), а потом прописывать формулу – чтобы не писать лишний раз доллары.</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="cтатистические-критерии-корреляции.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="at">data =</span> df, hair_length <span class="sc">~</span> time, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Error in wilcox.test.default(x = c(5L, 5L, 21L, 5L, 30L, 25L, 11L, 40L, : &#39;x&#39; and &#39;y&#39; must have the same length</code></pre>
+<p><img src="https://pbs.twimg.com/profile_banners/2484286914/1456333680/1500x500" /></p>
+<p>Ошибка…</p>
+<p>Дело в том, что тест-то у нас парный, а наблюдений в “до” и “после” разное количество. Мы присвоили значение “до” семнадцати наблюдениям, а “после” - восемнадцати. Давайте просто выкинем последнее))))</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="cтатистические-критерии-корреляции.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="at">data =</span> df[<span class="dv">1</span><span class="sc">:</span><span class="dv">34</span>,], hair_length <span class="sc">~</span> time, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  hair_length by time
+## V = 45.5, p-value = 0.2547
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>Итак, p-value большое; распределение длины волос не изменилось за время между “первым” и “вторым” измерениями.</p>
+<div class="figure">
+<img src="https://gifki.info/uploads/posts/2017-01/1485266682_77-pozdravlyayu-ot-vsey-dushi.gif" alt="" />
+<p class="caption">Поздравляю! Мы смогли разобраться, что делать для сравнения всяких там ненормальных выборок, и даже неподходящие данные не смогли нам помешать! (На самом деле не надо так…)</p>
+</div>
+</div>
+</div>
+<div id="сравнение-средних" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Сравнение средних</h2>
+<p>В этом разделе мы рассмотрим критерий, который используется для сравнения средних в нормально распределённых количественных данных – t-test. Порядковые переменные при нормальности распределения и достаточно большой выборке тоже можно :)</p>
+<p>Здесь всё будет в общем так же, как и с Вилкоксоном: независимые vs. парные выборки и снова проблемы с данными))))</p>
+<div id="t-критерий-стьюдента-для-независимых-выборок" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> t-критерий Стьюдента для независимых выборок</h3>
+<p>Подробно можно почитать <a href="https://www.statology.org/two-sample-t-test/">здесь</a>. А вкратце этот критерий сравнивает средние арифметические значения в двух выборках. Статистика теста имеет распределение Стьюдента – колокольчик, но чуть более приплюснутый, чем Гаусс.</p>
+<p>В статистику теста входит разность между двумя выборочными средними, а также учитывается дисперсия каждой выборки.</p>
+<p>В связи с этим возникает определённая развилка: статистика различается для выборок с одинаковыми и разными дисперсиями. Можно выбрать статистику, предполагающую разность или одинаковость дисперсий, исходя из теории (просто предположить, что обе выборки взяты из одной генеральной совокупности или из разных). Можно, с другой стороны, провести ещё и тест на равенство дисперсий.</p>
+<p>Допустим, мы хотим сравнить средний рост участников, которые любят колу, с ростом всех остальных. Мы знаем, что это две подвыборки из одной и той же большой выборки, но можем заодно и сравнить дисперсии. Схема записи такая же, как и в большинстве предыдущих тестов:</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="cтатистические-критерии-корреляции.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(df<span class="sc">$</span>height <span class="sc">~</span> df<span class="sc">$</span>soft_drink <span class="sc">==</span> <span class="st">&#39;coke&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  df$height by df$soft_drink == &quot;coke&quot;
+## F = 0.71214, num df = 15, denom df = 17, p-value = 0.5139
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.2615258 2.0031133
+## sample estimates:
+## ratio of variances 
+##          0.7121431</code></pre>
+<p>Интерпретация тоже: p-value велико <span class="math inline">\(\Rightarrow\)</span> дисперсии не различаются.</p>
+<p>Теперь к t-тесту!</p>
+<p>Синтаксис снова тот же. Но добавляем параметр <code>var.equal=TRUE</code>. По дефолту этот параметр включается со значением FALSE.</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="cтатистические-критерии-корреляции.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(df<span class="sc">$</span>height <span class="sc">~</span> df<span class="sc">$</span>soft_drink <span class="sc">==</span> <span class="st">&#39;coke&#39;</span>, <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  df$height by df$soft_drink == &quot;coke&quot;
+## t = -1.7149, df = 32, p-value = 0.09603
+## alternative hypothesis: true difference in means between group FALSE and group TRUE is not equal to 0
+## 95 percent confidence interval:
+##  -9.3739450  0.8045005
+## sample estimates:
+## mean in group FALSE  mean in group TRUE 
+##            168.9375            173.2222</code></pre>
+<p>Здесь в выдаче уже достаточно много информации. Во-первых, можно посмотреть на сами средние значения: любители колы в среднем примерно на 4 сантиметра выше))) Однако на наших данных эта разница незначима (p-value &gt; 0.05).</p>
+<p>Есть также доверительный интервал для разницы средних. Если многократно брать и сравнивать такие же, как у нас тут, подвыборки, разница средних в 95% случаев будет лежать в интервале от -9.3 до 0.8 сантиметров.</p>
+</div>
+<div id="t-критерий-стьюдента-для-зависимых-выборок" class="section level3" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> t-критерий Стьюдента для зависимых выборок</h3>
+<p>По аналогии с ранговыми критериями можно догадаться, что тут нам опять нужны парные наблюдения. Давайте не будем больше насиловать наши данные и возьмём небольшой пример <a href="https://github.com/Opensourcefordatascience/Data-sets/blob/master/blood_pressure.csv">из интернета</a>.</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="cтатистические-критерии-корреляции.html#cb376-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;https://github.com/Opensourcefordatascience/Data-sets/raw/master/blood_pressure.csv&#39;</span>)</span>
+<span id="cb376-2"><a href="cтатистические-критерии-корреляции.html#cb376-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(example_data)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    120 obs. of  5 variables:
+##  $ patient  : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ sex      : chr  &quot;Male&quot; &quot;Male&quot; &quot;Male&quot; &quot;Male&quot; ...
+##  $ agegrp   : chr  &quot;30-45&quot; &quot;30-45&quot; &quot;30-45&quot; &quot;30-45&quot; ...
+##  $ bp_before: int  143 163 153 153 146 150 148 153 153 158 ...
+##  $ bp_after : int  153 170 168 142 141 147 133 141 131 125 ...</code></pre>
+<p>Это просто какие-то непонятные пациенты, у которых измерено давление до и после какого-то воздействия (наверное, после лечения), для примера подойдёт)))</p>
+<p>Сам критерий, в отличие от предыдущего, считается по другому алгоритму. Для независимых выборок просто берутся два средних арифметических, а потом их разница сравнивается с нулём. В этом критерии для каждого пациента будет считаться разница между “до” и “после”, а уже потом эти разницы будут усредняться. Мотематика <a href="https://www.statology.org/paired-samples-t-test/">тут</a></p>
+<p><img src="https://www.futuro.cl/wp-content/uploads/2019/07/matematicas-web-590x340.jpg" /></p>
+<p>Если помните, в прошлый раз мы создали новую переменную “до/после”, а в этих данных измерения “до” и “после” – это две разные переменные. Мы гипотетически можем изменить формат данных на длинный и создать новую переменную, чтобы пользоваться известным нам синтаксисом. Но давайте просто включим данные в функцию по-другому: не через формулу с тильдой, а как две разных переменных x и y. Ну и не забываем параметр <code>paired=TRUE</code></p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="cтатистические-критерии-корреляции.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x=</span>example_data<span class="sc">$</span>bp_before, <span class="at">y=</span>example_data<span class="sc">$</span>bp_after, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  example_data$bp_before and example_data$bp_after
+## t = 3.3372, df = 119, p-value = 0.00113
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.070557 8.112776
+## sample estimates:
+## mean of the differences 
+##                5.091667</code></pre>
+<p>Видим, что p-value маленькое, то есть разница между двумя стадиями измерения статистически значима.</p>
+<p>Сама эта разница у нас получилась положительная. Чтобы правильно это интерпретировать, нужно помнить, что в этом тесте из значений x (то есть “до”) вычитаются значения y. А значит положительная разница означает, что давление “после” у пациентов в среднем стало ниже.</p>
+<p>А теперь плот-твист! Внимательный читатель мог заметить, что мы не проверили наши непонятные данные из интернета на нормальность, а стоило бы… Вот, например, распределение давления до тритмента.</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="cтатистические-критерии-корреляции.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(example_data<span class="sc">$</span>bp_before)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
+<p>Можно увидеть, что оно вообще-то не очень нормальное, и по-хорошему в этой ситуации стоило бы воспользоваться ранговым критерием.</p>
+<p><img src="https://cdn.idaprikol.ru/images/8269440abaeea55f228a4f62ab25f84a36ef884a7370fd12e094824ea3f56e5f_1.jpg" /></p>
+<p>Вернёмся снова к нашим данным. Мы уже израсходовали почти все количественные переменные, но всё-таки осталась одна на ЗАДАЧКУ</p>
+<div class="rmdtask">
+<p>
+ЗАДАЧКА
+</p>
+<p>
+Попробуем исследовать связь размера обуви с месяцем рождения.
+</p>
+<p>
+Проверьте, отличается ли размер обуви в подвыборке родившихся весной и летом от размера всех остальных (да, придется немного повозиться с фильтрацией..)
+</p>
+<p>
+Для этого вспомните последние 4 теста (на самом деле, конечно, два из них) и подумайте, какой из них подходит для этой задачи.
+</p>
+</div>
+<p><span class="spoiler">На что тут можно обратить внимание: во-первых переменная интереса – идельно количественная, и её “природное” распредление, вероятнее всего, нормальное. Однако если посмотреть на гистограммы распределений по подвыборкам, то в осени-зиме распределение может сойти за нормальное, а вот в весне-лете оно похоже то ли на равномерное, то ли на бимодальное. При этом дисперсии на подвыборках значимо не различаются. Поэтому итоговый выбор, на мой взгляд, лежит между Манном-Уитни и t-тестом с равными дисперсиями, и в целом можно использовать их оба, но более безопасный с точки зрения ошибки 1 рода – Манн-Уитни. т-тест показывает значимые различия (размер обуви у родившихся весной и летом больше), а статистика Манна-Уитни практически на границе значимости, чуть больше 0.05.</span></p>
+<div class="figure">
+<img src="https://gifki.info/uploads/posts/2017-01/1485261883_60-pozdravlyayu-ot-dushi.gif" alt="" />
+<p class="caption">Примите мои поздравления! Вы осилили t-тесты и ощутили тяготы выбора между разными критериями. Впереди последний раздел!</p>
+</div>
+</div>
+</div>
+<div id="коэффициенты-корреляции" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Коэффициенты корреляции</h2>
+<p>Коэффициенты корреляции используются для изучения взаимосвязи между количественными или порядковыми переменными. Они позволяют оценивать как направление, так и силу этой взаимосвязи.</p>
+<p>Основных коэффициентов три: Пирсона, Спирмена и Кендалла.</p>
+<p>Корреляция Пирсона – для количественных переменных, другие два критерия ранговые и подходят для порядковых.</p>
+<div id="корреляция-пирсона" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Корреляция Пирсона</h3>
+<p>Это мера линейной связи между двумя количественными переменными. Она принимает значения от -1 до 1, где единица означает идеальную положительную линейную связь, функциональную зависимость между переменными. Формула и пошаговый расчет с объяснением на картинках <a href="https://www.statology.org/pearson-correlation-coefficient/">здесь</a></p>
+<p>Обозначается этот критерий буквой R (иногда r)</p>
+<p>А ещё есть несколько ресурсов, где можно поиграть в игру “угадай корреляцию по картинке”, и это забавно. Например, <a href="http://guessthecorrelation.com/">вот</a></p>
+<p>Вообще, разные корреляции выглядят примерно так:
+<img src="https://dataz4s.com/wp-content/uploads/2020/04/01.r-correlation-coefficients.png" /></p>
+<p>Рассчитаем корреляцию Пирсона на примере роста и размера обуви. Для этого используется функция <code>cor()</code>, которая предназначена для всех трёх методов, а Пирсон в ней дефолтный. Есть нюанс: она ломается на пропущенных значениях, а чтобы игнорировать их, в ней есть аргумент <code>use = "complete.obs"</code></p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="cтатистические-критерии-корреляции.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>height, df<span class="sc">$</span>shoe_size, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.798224</code></pre>
+<p>Для корреляций есть конвенциональные значения силы, причем, классификации встречаются разные. Мы возьмём такую:</p>
+<ul>
+<li>00-.19 – очень слабая</li>
+<li>.20-.39 – слабая</li>
+<li>.40-.59 – средняя</li>
+<li>.60-.79 – сильная</li>
+<li>.80-1.0 – очень сильная</li>
+</ul>
+<p>Наша корреляция роста с размером обуви на границе между сильной и очень сильной, что, в общем, логично :)</p>
+<p>Можем ещё проверить значимость коэффициента корреляции. Для этой функции не нужно бороться с NA, оно само.</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="cтатистические-критерии-корреляции.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>height, df<span class="sc">$</span>shoe_size)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  df$height and df$shoe_size
+## t = 7.4962, df = 32, p-value = 1.557e-08
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.6301581 0.8948430
+## sample estimates:
+##      cor 
+## 0.798224</code></pre>
+<p>Нулевая гипотеза: коэффициент корреляции равен нулю. Для проверки используется знакомая т-статистика. p-value здесь у нас очень мало, корреляция значимая (неудивительно). В этой выдаче тоже приводится само значение коэффициента, так что функцией <code>cor()</code> вообще можно особо не пользоваться :)</p>
+<p>Можем также визуализировать это дело (не вдавайтесь в этот код, про ggplot расскажет лучше кто-то, кто не я)):</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="cтатистические-критерии-корреляции.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb385-2"><a href="cтатистические-критерии-корреляции.html#cb385-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb385-3"><a href="cтатистические-критерии-корреляции.html#cb385-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">y=</span>height,<span class="at">x=</span>shoe_size)) <span class="sc">+</span> </span>
+<span id="cb385-4"><a href="cтатистические-критерии-корреляции.html#cb385-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb385-5"><a href="cтатистические-критерии-корреляции.html#cb385-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
+<p>Ну и напоследок <a href="https://tylervigen.com/spurious-correlations">подборка</a> бредовых корреляций, чтобы никогда не забывать, что даже самые сильные и значимые корреляции бывают случайными :)</p>
+</div>
+<div id="ранговые-коэффициенты-спирман-и-кендалл" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Ранговые коэффициенты: Спирман и Кендалл</h3>
+<p>Эти два чувака нужны, когда хотя бы одна из переменных не количественная, а порядковая.</p>
+<p>Преимущество этих коэффициентов в том, что они схватывают и нелинейные взаимосвязи:</p>
+<p><img src="https://www.statstest.com/wp-content/uploads/2020/03/Kendalls-Tau-1.jpg" /></p>
+<p>Главное, чтобы возрастание/убывание были монотонными.</p>
+<p>Как выбирать между ними, честно говоря, мне не очень ясно. Я, пожалуй, не буду рекомендовать ничего конкретного, лучше при желании почитать внимательно и подробно. Единственное, насколько я понимаю, Кендалл лучше работает, когда в переменных много повторяющихся значений.</p>
+<p>Давайте посмотрим на корреляцию великолепности с количеством братьев и сестёр (обоими способами). Использовать будем известный нам <code>cor.test()</code>, только пропишем внутри него методы. Для начала Спирмана.</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="cтатистические-критерии-корреляции.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>gorgeous, df<span class="sc">$</span>siblings, <span class="at">method =</span> <span class="st">&#39;spearman&#39;</span>)</span></code></pre></div>
+<pre><code>## Warning in cor.test.default(df$gorgeous, df$siblings, method = &quot;spearman&quot;):
+## Cannot compute exact p-value with ties</code></pre>
+<pre><code>## 
+##  Spearman&#39;s rank correlation rho
+## 
+## data:  df$gorgeous and df$siblings
+## S = 6658.3, p-value = 0.7002
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##        rho 
+## 0.06746409</code></pre>
+<p>Тест выдал предупреждение, что p-value не может быть рассчитано точно из-за “ties” – это как раз те самые посторяющиеся значения, которых крайне много в переменной “siblings”, да и в переменной “gorgeous” тоже немало.</p>
+<p>Что касается интерпретации, сама корреляция крайне слабая и статистически не отличается от нуля (незначима).</p>
+<div class="rmdtask">
+<p>
+Совсем даже не задачка
+</p>
+<p>
+Самостоятельно прогоните на тех же переменных Кендалла (kendall), сравните выводы
+</p>
+</div>
+<p><span class="spoiler">Ну вот, оказывается Кендалл выдаёт то же самое предупреждение про ties… При этом коэффициент оказался ещё чуть меньше, а p-value почти такое же. Что тут еще сказать, не знаю :)</span></p>
+<p><img src="http://memesmix.net/media/created/pgfesh.jpg" /></p>
+</div>
+</div>
+<div id="бонус-визуализация-корреляционной-матрицы" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Бонус: визуализация корреляционной матрицы</h2>
+<p>Когда нужно (или просто почему-то очень хочется) одновременно посмотреть на корреляцию всего со всем, можно создать корреляционную матрицу и визуализировать её. Для этого удобно использовать пакет <code>corrplot</code>, хотя этот способ не единственный. Его нужно будет установить и подключить.</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="cтатистические-критерии-корреляции.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;corrplot&quot;)</span></span>
+<span id="cb389-2"><a href="cтатистические-критерии-корреляции.html#cb389-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div>
+<p>Чтобы всё работало, нужно отобрать только числовые переменные. У нас это рост, размер обуви, длина волос, число родственников, количество глаз и степень великолепности.</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="cтатистические-критерии-корреляции.html#cb390-1" aria-hidden="true" tabindex="-1"></a>df_cor <span class="ot">&lt;-</span> df[ , <span class="fu">c</span>(<span class="st">&quot;height&quot;</span>, <span class="st">&quot;shoe_size&quot;</span>,<span class="st">&quot;hair_length&quot;</span>,<span class="st">&quot;siblings&quot;</span>,<span class="st">&quot;eye_number&quot;</span>,<span class="st">&quot;gorgeous&quot;</span>)]  </span></code></pre></div>
+<p>Чтобы создать матрицу корреляций, нужно этот новый датасет засунуть в <code>cor</code> (помним про complete.obs)</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="cтатистические-критерии-корреляции.html#cb391-1" aria-hidden="true" tabindex="-1"></a>M<span class="ot">&lt;-</span><span class="fu">cor</span>(df_cor, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)</span>
+<span id="cb391-2"><a href="cтатистические-критерии-корреляции.html#cb391-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(M,<span class="dv">2</span>))</span></code></pre></div>
+<pre><code>##             height shoe_size hair_length siblings eye_number gorgeous
+## height        1.00      0.80       -0.43    -0.09      -0.11    -0.15
+## shoe_size     0.80      1.00       -0.53    -0.03      -0.06    -0.37
+## hair_length  -0.43     -0.53        1.00     0.15      -0.12     0.22
+## siblings     -0.09     -0.03        0.15     1.00       0.53     0.08
+## eye_number   -0.11     -0.06       -0.12     0.53       1.00    -0.05
+## gorgeous     -0.15     -0.37        0.22     0.08      -0.05     1.00</code></pre>
+<p>А эту матрицу, в свою очередь, можно уже засунуть в функцию для рисования картинок – <code>corrplot()</code>. У неё есть аргумент method, отвечающий за то, что отображается в ячейках – разноцветные кружочки/квадратики/числа и т.д. Вот, например, два варианта:</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="cтатистические-критерии-корреляции.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M, <span class="at">method=</span><span class="st">&quot;color&quot;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="cтатистические-критерии-корреляции.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M, <span class="at">method=</span><span class="st">&quot;number&quot;</span>)</span></code></pre></div>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-186-2.png" width="672" /></p>
+<p>Основная идея такая: сила связи отображается степенью прозрачности, направление – цветом. Справа, как вы видите, легенда.</p>
+<p>Есть <a href="https://www.geeksforgeeks.org/visualize-correlation-matrix-using-correlogram-in-r-programming/">масса способов</a> это дело кастомизировать: поменять цвета, фон, сделать картинку диагональной (убрать повторяющиеся ячейки), настроить шрифты, поменять местами переменные etc.</p>
+<p>При этом помним, что для создания матрицы корреляций мы использовали функцию <code>cor</code> с дефолтным методом – Пирсоном, и не для всех наших переменных это хорошо.</p>
+<p>Финал!</p>
+<div class="figure">
+<img src="https://gifki.info/uploads/posts/2017-01/1485248333_53-pozdravlyayu.gif" alt="" />
+<p class="caption">Поздравляю! И корреляции мы теперь тоже победили</p>
+</div>
+<p>Но есть еще кое-что:</p>
+<div class="rmdtask">
+<p>
+Задачка “сделай сам” (скорее всего, на дом))
+</p>
+<p>
+Подумайте, как исследовать взаимосвязь между такими парами переменных:
+</p>
+<ul>
+<li>
+великолепность и размер обуви
+</li>
+<li>
+число родственников и число глаз
+</li>
+<li>
+число котиков и детская мечта
+</li>
+<li>
+любимый горячий напиток и длина волос
+</li>
+</ul>
+<p>
+Помните, что не обязательно мириться с плохим распределением какой-то переменной – можно сделать его еще хуже! (В смысле, стоит подумать о том, чтобы какие-то переменные использовать в изменённом виде: группировать категории, дробить числовые переменные на группы и делать из них порядковые и т.д.)
+</p>
+</div>
+<p><span class="spoiler">Здесь могла быть ваша реклама</span></p>
+<p>Спасибо за вашу работу! Увидимся ещё!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="визуализация-данных-с-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/maria-srv/AnDan2021Start/edit/master/03_tests_corrs.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"self_contained": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

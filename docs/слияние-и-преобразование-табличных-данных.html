@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Слияние и преобразование табличных данных | АнДан 2021: стартовая программа</title>
+  <meta name="description" content="8 Слияние и преобразование табличных данных | АнДан 2021: стартовая программа" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Слияние и преобразование табличных данных | АнДан 2021: стартовая программа" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Слияние и преобразование табличных данных | АнДан 2021: стартовая программа" />
+  
+  
+  
+
+<meta name="author" content="А. Ангельгардт, М. Серветник, Ю. Мартысенко, А. Котликова" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="продолжаем-с-data-table.html"/>
+<link rel="next" href="anova-a-k-a-дисперсионный-анализ.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">2021 Андан стартовая</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> О курсе</a></li>
+<li class="chapter" data-level="2" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html"><i class="fa fa-check"></i><b>2</b> Знакомство с RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#знакомство-с-rstudio-1"><i class="fa fa-check"></i><b>2.1</b> Знакомство с RStudio</a></li>
+<li class="chapter" data-level="2.2" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#открываем-файл"><i class="fa fa-check"></i><b>2.2</b> Открываем файл</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="введение-в-r.html"><a href="введение-в-r.html"><i class="fa fa-check"></i><b>3</b> Введение в R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="введение-в-r.html"><a href="введение-в-r.html#общее"><i class="fa fa-check"></i><b>3.1</b> Общее</a></li>
+<li class="chapter" data-level="3.2" data-path="введение-в-r.html"><a href="введение-в-r.html#типы-данных"><i class="fa fa-check"></i><b>3.2</b> Типы данных</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="введение-в-r.html"><a href="введение-в-r.html#целое-число-integer"><i class="fa fa-check"></i><b>3.2.1</b> Целое число — integer</a></li>
+<li class="chapter" data-level="3.2.2" data-path="введение-в-r.html"><a href="введение-в-r.html#число-с-плавающей-запятой-double"><i class="fa fa-check"></i><b>3.2.2</b> Число с плавающей запятой — double</a></li>
+<li class="chapter" data-level="3.2.3" data-path="введение-в-r.html"><a href="введение-в-r.html#комплексные-числа-complex"><i class="fa fa-check"></i><b>3.2.3</b> Комплексные числа — complex</a></li>
+<li class="chapter" data-level="3.2.4" data-path="введение-в-r.html"><a href="введение-в-r.html#символьный-тип-данных-строки-character"><i class="fa fa-check"></i><b>3.2.4</b> Символьный тип данных (строки) — character</a></li>
+<li class="chapter" data-level="3.2.5" data-path="введение-в-r.html"><a href="введение-в-r.html#фактор-factor"><i class="fa fa-check"></i><b>3.2.5</b> Фактор — factor</a></li>
+<li class="chapter" data-level="3.2.6" data-path="введение-в-r.html"><a href="введение-в-r.html#упорядоченный-фактор-ordered-factor"><i class="fa fa-check"></i><b>3.2.6</b> Упорядоченный фактор — ordered factor</a></li>
+<li class="chapter" data-level="3.2.7" data-path="введение-в-r.html"><a href="введение-в-r.html#логические-boolean"><i class="fa fa-check"></i><b>3.2.7</b> Логические — boolean</a></li>
+<li class="chapter" data-level="3.2.8" data-path="введение-в-r.html"><a href="введение-в-r.html#даты."><i class="fa fa-check"></i><b>3.2.8</b> Даты.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="введение-в-r.html"><a href="введение-в-r.html#структуры-данных"><i class="fa fa-check"></i><b>3.3</b> Структуры данных</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="введение-в-r.html"><a href="введение-в-r.html#вектор"><i class="fa fa-check"></i><b>3.3.1</b> Вектор</a></li>
+<li class="chapter" data-level="3.3.2" data-path="введение-в-r.html"><a href="введение-в-r.html#матрицы"><i class="fa fa-check"></i><b>3.3.2</b> Матрицы</a></li>
+<li class="chapter" data-level="3.3.3" data-path="введение-в-r.html"><a href="введение-в-r.html#списки"><i class="fa fa-check"></i><b>3.3.3</b> Списки</a></li>
+<li class="chapter" data-level="3.3.4" data-path="введение-в-r.html"><a href="введение-в-r.html#дата-фреймы"><i class="fa fa-check"></i><b>3.3.4</b> Дата фреймы</a></li>
+<li class="chapter" data-level="3.3.5" data-path="введение-в-r.html"><a href="введение-в-r.html#другие"><i class="fa fa-check"></i><b>3.3.5</b> Другие</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="введение-в-r.html"><a href="введение-в-r.html#функции-и-простые-действия-с-данными"><i class="fa fa-check"></i><b>3.4</b> Функции и простые действия с данными</a></li>
+<li class="chapter" data-level="3.5" data-path="введение-в-r.html"><a href="введение-в-r.html#задания-для-тренировки"><i class="fa fa-check"></i><b>3.5</b> Задания для тренировки</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><i class="fa fa-check"></i><b>4</b> Фильтрация строк и столбцов в base R. Введение в data.table</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-строк-и-столбцов-в-base-r"><i class="fa fa-check"></i><b>4.1</b> Фильтрация строк и столбцов в base R</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-вектора-по-условию"><i class="fa fa-check"></i><b>4.1.1</b> Фильтрация вектора по условию</a></li>
+<li class="chapter" data-level="4.1.2" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-дата.фрейма-по-условию"><i class="fa fa-check"></i><b>4.1.2</b> Фильтрация дата.фрейма по условию</a></li>
+<li class="chapter" data-level="4.1.3" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-по-результату-функции"><i class="fa fa-check"></i><b>4.1.3</b> Фильтрация по результату функции</a></li>
+<li class="chapter" data-level="4.1.4" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#фильтрация-для-группировки"><i class="fa fa-check"></i><b>4.1.4</b> Фильтрация для группировки</a></li>
+<li class="chapter" data-level="4.1.5" data-path="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html"><a href="фильтрация-строк-и-столбцов-в-base-r-введение-в-data-table.html#введение-в-data.table"><i class="fa fa-check"></i><b>4.1.5</b> Введение в data.table</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html"><i class="fa fa-check"></i><b>5</b> Cтатистические критерии, корреляции</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#введение"><i class="fa fa-check"></i><b>5.1</b> Введение</a></li>
+<li class="chapter" data-level="5.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>5.2</b> Goodness-of-fit tests</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#биномиальный-критерий"><i class="fa fa-check"></i><b>5.2.1</b> Биномиальный критерий</a></li>
+<li class="chapter" data-level="5.2.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#критерий-хи-квадрат"><i class="fa fa-check"></i><b>5.2.2</b> Критерий Хи-квадрат</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#тестирование-взаимосвязи-между-двумя-категориальными-переменными"><i class="fa fa-check"></i><b>5.3</b> Тестирование взаимосвязи между двумя категориальными переменными</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#таблицы-сопряжённости"><i class="fa fa-check"></i><b>5.3.1</b> таблицы сопряжённости</a></li>
+<li class="chapter" data-level="5.3.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#тест-фишера"><i class="fa fa-check"></i><b>5.3.2</b> Тест Фишера</a></li>
+<li class="chapter" data-level="5.3.3" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#добавляем-хи-квадрат"><i class="fa fa-check"></i><b>5.3.3</b> Добавляем Хи-квадрат</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#критерии-для-порядковых-или-ненормально-распределённых-переменных"><i class="fa fa-check"></i><b>5.4</b> Критерии для порядковых или ненормально распределённых переменных</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#тест-манна-уитни"><i class="fa fa-check"></i><b>5.4.1</b> Тест Манна-Уитни</a></li>
+<li class="chapter" data-level="5.4.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#t-критерий-вилкоксона-для-зависимых-выборок"><i class="fa fa-check"></i><b>5.4.2</b> T-критерий Вилкоксона для зависимых выборок</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#сравнение-средних"><i class="fa fa-check"></i><b>5.5</b> Сравнение средних</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#t-критерий-стьюдента-для-независимых-выборок"><i class="fa fa-check"></i><b>5.5.1</b> t-критерий Стьюдента для независимых выборок</a></li>
+<li class="chapter" data-level="5.5.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#t-критерий-стьюдента-для-зависимых-выборок"><i class="fa fa-check"></i><b>5.5.2</b> t-критерий Стьюдента для зависимых выборок</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#коэффициенты-корреляции"><i class="fa fa-check"></i><b>5.6</b> Коэффициенты корреляции</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#корреляция-пирсона"><i class="fa fa-check"></i><b>5.6.1</b> Корреляция Пирсона</a></li>
+<li class="chapter" data-level="5.6.2" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#ранговые-коэффициенты-спирман-и-кендалл"><i class="fa fa-check"></i><b>5.6.2</b> Ранговые коэффициенты: Спирман и Кендалл</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="cтатистические-критерии-корреляции.html"><a href="cтатистические-критерии-корреляции.html#бонус-визуализация-корреляционной-матрицы"><i class="fa fa-check"></i><b>5.7</b> Бонус: визуализация корреляционной матрицы</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Визуализация данных с <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#визуализация-это-зачем"><i class="fa fa-check"></i><b>6.1</b> Визуализация это зачем?</a></li>
+<li class="chapter" data-level="6.2" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#философия-a-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>6.2</b> Философия A Layered Grammar of Graphics</a></li>
+<li class="chapter" data-level="6.3" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#экшон"><i class="fa fa-check"></i><b>6.3</b> Экшон</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#пакеты"><i class="fa fa-check"></i><b>6.3.1</b> Пакеты</a></li>
+<li class="chapter" data-level="6.3.2" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#данные"><i class="fa fa-check"></i><b>6.3.2</b> Данные</a></li>
+<li class="chapter" data-level="6.3.3" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#строим-базовый-график"><i class="fa fa-check"></i><b>6.3.3</b> Строим базовый график</a></li>
+<li class="chapter" data-level="6.3.4" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#ищем-более-сложные-закономерности"><i class="fa fa-check"></i><b>6.3.4</b> Ищем более сложные закономерности</a></li>
+<li class="chapter" data-level="6.3.5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#важное-замечание-о-визуализации"><i class="fa fa-check"></i><b>6.3.5</b> Важное замечание о визуализации</a></li>
+<li class="chapter" data-level="6.3.6" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#инструменты-встроенной-статистической-обработки"><i class="fa fa-check"></i><b>6.3.6</b> Инструменты встроенной статистической обработки</a></li>
+<li class="chapter" data-level="6.3.7" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#настраиваем-график"><i class="fa fa-check"></i><b>6.3.7</b> Настраиваем график</a></li>
+<li class="chapter" data-level="6.3.8" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#сохранение-графиков"><i class="fa fa-check"></i><b>6.3.8</b> Сохранение графиков</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#файнал-босс"><i class="fa fa-check"></i><b>6.4</b> Файнал босс</a></li>
+<li class="chapter" data-level="6.5" data-path="визуализация-данных-с-ggplot2.html"><a href="визуализация-данных-с-ggplot2.html#конклюжон"><i class="fa fa-check"></i><b>6.5</b> Конклюжон</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html"><i class="fa fa-check"></i><b>7</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#продолжаем-с-data.table-1"><i class="fa fa-check"></i><b>7.1</b> Продолжаем с data.table</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#счёт-элементов-с-помощью-.n"><i class="fa fa-check"></i><b>7.1.1</b> Счёт элементов с помощью .N</a></li>
+<li class="chapter" data-level="7.1.2" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#несколько-группировок"><i class="fa fa-check"></i><b>7.1.2</b> Несколько группировок</a></li>
+<li class="chapter" data-level="7.1.3" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#несколько-выражений"><i class="fa fa-check"></i><b>7.1.3</b> Несколько выражений</a></li>
+<li class="chapter" data-level="7.1.4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#имена-колонок"><i class="fa fa-check"></i><b>7.1.4</b> Имена колонок</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#указание-имён-при-создании-колонок"><i class="fa fa-check"></i><b>7.2</b> Указание имён при создании колонок</a></li>
+<li class="chapter" data-level="7.3" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#вечер-в-хату-вектор-в-colnames"><i class="fa fa-check"></i><b>7.3</b> Вечер в хату, вектор в <code>colnames()</code></a></li>
+<li class="chapter" data-level="7.4" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#setnames-из-библиотеки-data.table"><i class="fa fa-check"></i><b>7.4</b> <code>setnames()</code> из библиотеки <code>data.table</code></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="продолжаем-с-data-table.html"><a href="продолжаем-с-data-table.html#новый-дата.тейбл-или-колонка-в-существующем"><i class="fa fa-check"></i><b>7.4.1</b> Новый дата.тейбл или колонка в существующем?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html"><i class="fa fa-check"></i><b>8</b> Слияние и преобразование табличных данных</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#слияние-и-преобразование-табличных-данных-1"><i class="fa fa-check"></i><b>8.1</b> Слияние и преобразование табличных данных</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#соединение-двух-таблиц-в-одну-простой-случай."><i class="fa fa-check"></i><b>8.1.1</b> Соединение двух таблиц в одну: простой случай.</a></li>
+<li class="chapter" data-level="8.1.2" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#merge-и-четыре-разных-соединения"><i class="fa fa-check"></i><b>8.1.2</b> <code>merge()</code> и четыре разных соединения</a></li>
+<li class="chapter" data-level="8.1.3" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#inner-join"><i class="fa fa-check"></i><b>8.1.3</b> Inner join</a></li>
+<li class="chapter" data-level="8.1.4" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#outer-join"><i class="fa fa-check"></i><b>8.1.4</b> Outer join</a></li>
+<li class="chapter" data-level="8.1.5" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#left-join"><i class="fa fa-check"></i><b>8.1.5</b> Left join</a></li>
+<li class="chapter" data-level="8.1.6" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#right-join"><i class="fa fa-check"></i><b>8.1.6</b> Right join</a></li>
+<li class="chapter" data-level="8.1.7" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#широкие-или-длинные-данные"><i class="fa fa-check"></i><b>8.1.7</b> Широкие или длинные данные</a></li>
+<li class="chapter" data-level="8.1.8" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#из-широких-в-длинные-melt"><i class="fa fa-check"></i><b>8.1.8</b> Из широких в длинные: <code>melt()</code></a></li>
+<li class="chapter" data-level="8.1.9" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#качественные-вина"><i class="fa fa-check"></i><b>8.1.9</b> Качественные вина</a></li>
+<li class="chapter" data-level="8.1.10" data-path="слияние-и-преобразование-табличных-данных.html"><a href="слияние-и-преобразование-табличных-данных.html#из-длинных-в-широкие-dcast"><i class="fa fa-check"></i><b>8.1.10</b> Из длинных в широкие: <code>dcast()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html"><i class="fa fa-check"></i><b>9</b> ANOVA a.k.a. Дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#зачем-нужен-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.1</b> Зачем нужен дисперсионный анализ?</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#проблема-множественных-сравнений"><i class="fa fa-check"></i><b>9.1.1</b> Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="9.1.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#идея-дисперсионного-анализа"><i class="fa fa-check"></i><b>9.1.2</b> Идея дисперсионного анализа</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#однофакторный-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.2</b> Однофакторный дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#структура-изменчивости"><i class="fa fa-check"></i><b>9.2.1</b> Структура изменчивости</a></li>
+<li class="chapter" data-level="9.2.2" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#тестирование-значимости-фактора"><i class="fa fa-check"></i><b>9.2.2</b> Тестирование значимости фактора</a></li>
+<li class="chapter" data-level="9.2.3" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#данные-1"><i class="fa fa-check"></i><b>9.2.3</b> Данные</a></li>
+<li class="chapter" data-level="9.2.4" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#дисперсионный-анализ-в-r"><i class="fa fa-check"></i><b>9.2.4</b> Дисперсионный анализ в R</a></li>
+<li class="chapter" data-level="9.2.5" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#post-hoc-тесты"><i class="fa fa-check"></i><b>9.2.5</b> Post hoc тесты</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.3</b> Многофакторный дисперсионный анализ</a></li>
+<li class="chapter" data-level="9.4" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-без-взаимодействия-в-r"><i class="fa fa-check"></i><b>9.4</b> Многофакторный дисперсионный анализ без взаимодействия в R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#многофакторный-дисперсионный-анализ-со-взаимодействием-в-r"><i class="fa fa-check"></i><b>9.4.1</b> Многофакторный дисперсионный анализ со взаимодействием в R</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#важность-аггрегации-данных"><i class="fa fa-check"></i><b>9.5</b> Важность аггрегации данных</a></li>
+<li class="chapter" data-level="9.6" data-path="anova-a-k-a-дисперсионный-анализ.html"><a href="anova-a-k-a-дисперсионный-анализ.html#итоги"><i class="fa fa-check"></i><b>9.6</b> Итоги</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">АнДан 2021: стартовая программа</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="слияние-и-преобразование-табличных-данных" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Слияние и преобразование табличных данных</h1>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="слияние-и-преобразование-табличных-данных.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb483-2"><a href="слияние-и-преобразование-табличных-данных.html#cb483-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div id="слияние-и-преобразование-табличных-данных-1" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Слияние и преобразование табличных данных</h2>
+<p>Один из больших плюсов использования R - то, что с его помощью можно очень гибко менять формат ваших данных - соединять несколько таблиц воедино, считать для них какие-то специфические показатели и преобразовывать. Именно это мы научимся делать в этой главе.</p>
+<div id="соединение-двух-таблиц-в-одну-простой-случай." class="section level3" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Соединение двух таблиц в одну: простой случай.</h3>
+<p>Самый простой случай, в котором нам нужно соединить две таблицы в одну, выглядит так: у вас есть две таблицы (например, по одному от каждого человека, который прошёл ваш эксперимент), которые вы хотите соединить в одну. У обеих таблиц одинаковые имена колонок, и в итоге вы хотите получить одну таблицу, в которой будет столько же колонок, а строки из первоначальных таблиц “подклеены”. Это делается с помощью функции <code>rbind()</code>. <code>r</code> здесь это указание на склейку по строкам (rows).</p>
+<p>Давайте посмотрим:</p>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="слияние-и-преобразование-табличных-данных.html#cb484-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>))</span>
+<span id="cb484-2"><a href="слияние-и-преобразование-табличных-данных.html#cb484-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>))</span>
+<span id="cb484-3"><a href="слияние-и-преобразование-табличных-данных.html#cb484-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["a"],"name":[1],"type":["int"],"align":["right"]},{"label":["b"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"a"},{"1":"2","2":"b"},{"1":"3","2":"c"},{"1":"4","2":"d"},{"1":"5","2":"e"},{"1":"6","2":"f"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>И даже если порядок столбцов различается, всё сработает как надо - <code>rbind</code> объединит колонки с одинаковыми именами:</p>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="слияние-и-преобразование-табличных-данных.html#cb485-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>))</span>
+<span id="cb485-2"><a href="слияние-и-преобразование-табличных-данных.html#cb485-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>), <span class="at">a =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb485-3"><a href="слияние-и-преобразование-табличных-данных.html#cb485-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["a"],"name":[1],"type":["int"],"align":["right"]},{"label":["b"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"a"},{"1":"2","2":"b"},{"1":"3","2":"c"},{"1":"4","2":"d"},{"1":"5","2":"e"},{"1":"6","2":"f"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Кайф.</p>
+<p>Имейте в виду, что <code>rbind()</code> не знает, что делать, если в одной таблице колонок больше, чем в другой. Если вы запустите вот этот код у себя, он выдаст ошибку:</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="слияние-и-преобразование-табличных-данных.html#cb486-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>))</span>
+<span id="cb486-2"><a href="слияние-и-преобразование-табличных-данных.html#cb486-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>), <span class="at">a =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb486-3"><a href="слияние-и-преобразование-табличных-данных.html#cb486-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2)</span></code></pre></div>
+<p>Неожиданный результат может получиться, и если в колонках, которые надо соединить разные типы данные. Например, здесь в первой таблице числа в колонке <code>a</code>, а во второй - логические переменные в той же таблице <code>a</code>. В результате <code>rbind()</code> постарается привести данные из обеих колонок к одному типу данных. Как превратить 3 или 2 в логическую переменную, непонятно, а вот TRUE можно записать как 1 и FALSE как 0, так что в склеенной таблице в колонке <code>a</code> будут лежать числа даже там, где были тру и фолсы. Обращайте на это внимание, не дайте себя обмануть!</p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="слияние-и-преобразование-табличных-данных.html#cb487-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>))</span>
+<span id="cb487-2"><a href="слияние-и-преобразование-табличных-данных.html#cb487-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>), <span class="at">a =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>))</span>
+<span id="cb487-3"><a href="слияние-и-преобразование-табличных-данных.html#cb487-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2)</span></code></pre></div>
+<p>Точно так же, как по строкам, мы можем “склеить” таблицы по колонкам - с помощью функции <code>cbind()</code>, где <code>c</code> это column, колонка:</p>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="слияние-и-преобразование-табличных-данных.html#cb488-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>))</span>
+<span id="cb488-2"><a href="слияние-и-преобразование-табличных-данных.html#cb488-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">c =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">d =</span> <span class="fu">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>))</span>
+<span id="cb488-3"><a href="слияние-и-преобразование-табличных-данных.html#cb488-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["a"],"name":[1],"type":["int"],"align":["right"]},{"label":["b"],"name":[2],"type":["chr"],"align":["left"]},{"label":["c"],"name":[3],"type":["int"],"align":["right"]},{"label":["d"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"a","3":"4","4":"d"},{"1":"2","2":"b","3":"5","4":"e"},{"1":"3","2":"c","3":"6","4":"f"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Когда нам может пригодиться <code>cbind()</code>? Например, если у вас есть одна таблица, в которой записан возраст всех испытуемых, и вторая, в которой записаны их ответы на вопросы опросника, и вы хотите получить одну таблицу, в которой есть вся информация вместе. Но! Имейте в виду, что <code>cbind()</code> просто склеивает колонки по порядку, никак не проверяя, совпадают ли какие-нибудь значения в строчках.</p>
+<p>Давайте приведу пример, что это значит. В dt1 я сохраню возраста испытуемых (в колонку <code>age</code>) и их имена (в колонку <code>name</code>). А в dt2 - сколько каждый испытуемый решил задачек в моём эксперименте (в колонку <code>problems_solved</code>. Мария справилась лучше всех, ничего себе! Наверное, все Марии гениальны…) и снова их имена в колонку <code>names</code>. Обратите внимание: в дата.тейбле с возрастами Василий второй и Вольфганг третий, а в дата.тейбле с данными о решении задачек - наоборот. Что будет, если я соединю эти дата.тейблы в один с помощью <code>cbind()</code>?</p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="слияние-и-преобразование-табличных-данных.html#cb489-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">98</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>))</span>
+<span id="cb489-2"><a href="слияние-и-преобразование-табличных-данных.html#cb489-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">146</span>, <span class="dv">10</span>, <span class="dv">15</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>))</span>
+<span id="cb489-3"><a href="слияние-и-преобразование-табличных-данных.html#cb489-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["problems_solved"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"18","2":"Maria","3":"146","4":"Maria"},{"1":"20","2":"Vasiliy","3":"10","4":"Wolfgang"},{"1":"98","2":"Wolfgang","3":"15","4":"Vasiliy"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>А вот что: во второй строке будет лежать <em>возраст</em> Василия, но количество решённых задачек - <em>Вольфганга</em>. А ведь эти два человека явно живут совсем разные жизни! Кроме того, в получившемся дата.тейбле у нас две колонки с одинаковыми именами - тоже проблема. Можно придумать всякие окольные решения (например, сначала отсортировать обе таблицы по колонке имён, а уже потом соединить и удалить дублирующуюся колонку), но есть более простой путь - использовать функцию
+<code>merge()</code>.</p>
+</div>
+<div id="merge-и-четыре-разных-соединения" class="section level3" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> <code>merge()</code> и четыре разных соединения</h3>
+<p>Более умное соединение по столбцам можно выполнять с помощью функции <code>merge()</code>. Давайте для начала посмотрим, что она сделает с нашей проблемой Вольфганга и Василия:</p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="слияние-и-преобразование-табличных-данных.html#cb490-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">98</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>))</span>
+<span id="cb490-2"><a href="слияние-и-преобразование-табличных-данных.html#cb490-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">146</span>, <span class="dv">10</span>, <span class="dv">15</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>))</span>
+<span id="cb490-3"><a href="слияние-и-преобразование-табличных-данных.html#cb490-3" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["problems_solved"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maria","2":"18","3":"146"},{"1":"Vasiliy","2":"20","3":"15"},{"1":"Wolfgang","2":"98","3":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Воу! Круто, правда? :D <code>merge()</code> совершенно самостоятельно обнаружил, что у в обеих таблицах есть колонка с одинаковым названием - <code>name</code> - и использовал её в качестве <em>колонки ключей</em>, то есть указателя соответствия между таблицей один и таблицей два. Это происходит по умолчанию - <code>merge()</code> находит колонки с одинаковыми именами и соединяет по ним. Но можно задавать колонки ключей и вручную, с помощью аргумента <code>by</code>. Это может пригодиться, например, если в таблице несколько колонок с одинаковыми именами, но “ключом” должна быть только одна из них.</p>
+<p>Представьте, что наша троица (Мария, Василий и Вольфганг) проходили эксперимент два раза - они пришли в первый раз, сказали нам свой возраст, порешали задачки. Эти данные хранятся в <code>dt1</code>. Через день они пришли ещё раз и снова порешали задачки. Эти данные хранятся в <code>dt2</code>. То есть, в обеих таблицах есть колонка <code>problems_solved</code>, но использовать её как ключ мы совершенно не хотим - более того, мы хотим, чтобы в финальном дата.тейбле осталась и <code>problem_solved</code> из первой таблицы, и <code>problem_solved</code> из второй таблицы. Тут-то нам и пригодится <code>by</code>:</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="слияние-и-преобразование-табличных-данных.html#cb491-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">98</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>), <span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">11</span>, <span class="dv">9</span>))</span>
+<span id="cb491-2"><a href="слияние-и-преобразование-табличных-данных.html#cb491-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">146</span>, <span class="dv">10</span>, <span class="dv">15</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>))</span>
+<span id="cb491-3"><a href="слияние-и-преобразование-табличных-данных.html#cb491-3" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2, <span class="at">by =</span> <span class="st">&#39;name&#39;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["problems_solved.x"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["problems_solved.y"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maria","2":"18","3":"150","4":"146"},{"1":"Vasiliy","2":"20","3":"11","4":"15"},{"1":"Wolfgang","2":"98","3":"9","4":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Обратите внимание, что колонка <code>problems_solved</code> из <code>dt1</code> в соединённом дата.тейбле называется <code>problems_solved.x</code>, а <code>problems_solved</code> из <code>dt2</code> называется <code>problems_solved.y</code>. Здесь <code>x</code> это первая таблица, которую мы даём на вход функции <code>merge()</code>, а <code>y</code> - вторая. То есть, команда <code>merge(dt2, dt1)</code> поменяла бы названия колонок местами: <code>problems_solved</code> из <code>dt1</code> в соединённом дата.тейбле стала бы <code>problems_solved.y</code>, а <code>problems_solved</code> из <code>dt2</code> стала бы <code>problems_solved.x</code>.</p>
+<div class="rmdtask">
+<p>
+Вопрос на засыпку: проверьте, что будет, если в последнем примере не уточнять <code>by = “name”</code>. Почему?
+</p>
+</div>
+<p>Если вы хотите использовать в качестве ключа несколько колонок сразу, то можно просто передать <code>by</code> вектор их имён на вход: <code>by = c("name", "ID")</code>.</p>
+<p>Вообще лучше всегда эксплицитно уточнять, какую колонку (или какие колонки) надо использовать как ключ - better safe than sorry :)</p>
+<p>Кроме того, если одна и та же колонка в двух таблицах называется по-разному, это тоже не проблема. Тогда нужно использовать <code>by.x</code> и <code>by.y</code> вместо <code>by</code>. В <code>by.x</code> уточняем, как колонка-ключ называется в первом дата.тейбле, в <code>by.y</code> - как во втором. И никаких проблем.</p>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="слияние-и-преобразование-табличных-данных.html#cb492-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">98</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>), <span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">11</span>, <span class="dv">9</span>))</span>
+<span id="cb492-2"><a href="слияние-и-преобразование-табличных-данных.html#cb492-2" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">146</span>, <span class="dv">10</span>, <span class="dv">15</span>), <span class="at">imena =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>))</span>
+<span id="cb492-3"><a href="слияние-и-преобразование-табличных-данных.html#cb492-3" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2, <span class="at">by.x =</span> <span class="st">&#39;name&#39;</span>, <span class="at">by.y =</span> <span class="st">&#39;imena&#39;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["problems_solved.x"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["problems_solved.y"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maria","2":"18","3":"150","4":"146"},{"1":"Vasiliy","2":"20","3":"11","4":"15"},{"1":"Wolfgang","2":"98","3":"9","4":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>В примере, который мы рассматривали до сих пор, в обеих таблицах были одни и те же испытуемые, или, более глобально, одинаковое количество одних и тех же наблюдений. Это далеко не всегда так. Давайте рассмотрим новый пример: у нас всё ещё эксперимент с решением задач. В первый день мы записываем возраст испытуемых и сколько задач они решили. Это <code>dt1</code>. Во второй мы тоже записываем, сколько задач решил каждый испытуемый, но ещё спрашиваем их рост. Это <code>dt2</code>. Кроме того, часть испытуемых пришла только в первый день, часть - только во второй, и часть в оба дня. Давайте сделаем такие дата.тейблы:</p>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="слияние-и-преобразование-табличных-данных.html#cb493-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">98</span>, <span class="dv">40</span>, <span class="dv">19</span>), <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>, <span class="st">&#39;Dana&#39;</span>, <span class="st">&#39;Boris&#39;</span>), <span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">20</span>, <span class="dv">15</span>))</span>
+<span id="cb493-2"><a href="слияние-и-преобразование-табличных-данных.html#cb493-2" aria-hidden="true" tabindex="-1"></a>dt1</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["names"],"name":[2],"type":["chr"],"align":["left"]},{"label":["problems_solved"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"18","2":"Maria","3":"150"},{"1":"20","2":"Vasiliy","3":"11"},{"1":"98","2":"Wolfgang","3":"9"},{"1":"40","2":"Dana","3":"20"},{"1":"19","2":"Boris","3":"15"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="слияние-и-преобразование-табличных-данных.html#cb494-1" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">names =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>, <span class="st">&#39;Katerina&#39;</span>, <span class="st">&#39;Vladimir&#39;</span>), <span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">40</span>), <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">180</span>, <span class="dv">173</span>, <span class="dv">167</span>, <span class="dv">178</span>))</span>
+<span id="cb494-2"><a href="слияние-и-преобразование-табличных-данных.html#cb494-2" aria-hidden="true" tabindex="-1"></a>dt2</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["names"],"name":[1],"type":["chr"],"align":["left"]},{"label":["problems_solved"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["height"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maria","2":"150","3":"160"},{"1":"Vasiliy","2":"11","3":"180"},{"1":"Wolfgang","2":"9","3":"173"},{"1":"Katerina","2":"11","3":"167"},{"1":"Vladimir","2":"40","3":"178"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Что мы видим? Мария, Василий и Вольфганг пришли в оба дня. Дана и Борис - только в первый. А Катерина и Владимир - только во второй. Две таких таблицы можно соединить четырьмя разными способами. Я не могу найти для них никаких симпатичных названий на русском, так что буду использовать англоязычные названия.</p>
+</div>
+<div id="inner-join" class="section level3" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Inner join</h3>
+<div class="figure">
+<img src="images/inner_join.png" alt="" />
+<p class="caption">Inner join</p>
+</div>
+<p>Итак, первый способ соединить две таблицы из нашего примера это inner join (внутреннее слияние?..) - когда мы оставляем только те наблюдения, которые есть в обеих таблицах. То есть, на всех испытуемых, которые пришли только в один из дней, мы забиваем, нам необязательные не нужны, зато склеиваем воедино все данные о троице пришедших в оба дня. По умолчанию <code>merge()</code> делает именно inner join:</p>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="слияние-и-преобразование-табличных-данных.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(dt1, dt2, <span class="at">by =</span> <span class="st">&#39;names&#39;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["names"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["problems_solved.x"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["problems_solved.y"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["height"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maria","2":"18","3":"150","4":"150","5":"160"},{"1":"Vasiliy","2":"20","3":"11","4":"11","5":"180"},{"1":"Wolfgang","2":"98","3":"9","4":"9","5":"173"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="outer-join" class="section level3" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Outer join</h3>
+<p><img src="images/outer_join.png" alt="Outer join" />
+Outer join, наоборот, оставит в смёрдженной таблице только те наблюдения, которые уникальны или для первой, или для второй таблицы - то есть, в нашем примере, всех, кроме Марии, Василия и Вольфганга. Чтобы выполнить такое соединение в функции <code>merge()</code>, надо уточнить внутри функции <code>all = TRUE</code>, вот так:</p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="слияние-и-преобразование-табличных-данных.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(dt1, dt2, <span class="at">all =</span> <span class="cn">TRUE</span>, <span class="at">by =</span> <span class="st">&#39;names&#39;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["names"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["problems_solved.x"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["problems_solved.y"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["height"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Boris","2":"19","3":"15","4":"NA","5":"NA"},{"1":"Dana","2":"40","3":"20","4":"NA","5":"NA"},{"1":"Katerina","2":"NA","3":"NA","4":"11","5":"167"},{"1":"Maria","2":"18","3":"150","4":"150","5":"160"},{"1":"Vasiliy","2":"20","3":"11","4":"11","5":"180"},{"1":"Vladimir","2":"NA","3":"NA","4":"40","5":"178"},{"1":"Wolfgang","2":"98","3":"9","4":"9","5":"173"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Обратите внимание: во-первых, <code>problems_solved</code> из обеих таблиц помечены как <code>problems_solved.x</code> и <code>problems_solved.y</code>. Во-вторых, мы записывали возраст только в первый день, а рост только во второй. То есть, если испытуемый приходил только в первый день (как Дана и Борис), то про их рост мы ничего не знаем, и в этой колонке у них <code>NA</code>. То же самое с возрастом у Катерины и Владимира, которые приходили только во второй день.</p>
+</div>
+<div id="left-join" class="section level3" number="8.1.5">
+<h3><span class="header-section-number">8.1.5</span> Left join</h3>
+<div class="figure">
+<img src="images/left_join.png" alt="" />
+<p class="caption">Left join</p>
+</div>
+<p>Left join оставит только те наблюдения, которые есть в первой таблице, и добавит для них информацию из второй таблицы. Для этого надо уточнить в <code>merge()</code>, что <code>all.x = TRUE</code> - то есть, мы хотим все наблюдения из <code>x</code>, из первой таблицы:</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="слияние-и-преобразование-табличных-данных.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(dt1, dt2, <span class="at">all.x =</span> <span class="cn">TRUE</span>, <span class="at">by =</span> <span class="st">&#39;names&#39;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["names"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["problems_solved.x"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["problems_solved.y"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["height"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Boris","2":"19","3":"15","4":"NA","5":"NA"},{"1":"Dana","2":"40","3":"20","4":"NA","5":"NA"},{"1":"Maria","2":"18","3":"150","4":"150","5":"160"},{"1":"Vasiliy","2":"20","3":"11","4":"11","5":"180"},{"1":"Wolfgang","2":"98","3":"9","4":"9","5":"173"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="right-join" class="section level3" number="8.1.6">
+<h3><span class="header-section-number">8.1.6</span> Right join</h3>
+<div class="figure">
+<img src="images/right_join.png" alt="" />
+<p class="caption">Right join</p>
+</div>
+<p>Правый джоин - противоположность левого: он оставляет только наблюдения (= испытуемых) из второй таблицы, добавляя для них информацию из первой. Чтобы соединить так, надо в <code>merge()</code> уточнить, что <code>all.y = TRUE</code>:</p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="слияние-и-преобразование-табличных-данных.html#cb498-1" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">98</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>), <span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">11</span>, <span class="dv">9</span>))</span></code></pre></div>
+</div>
+<div id="широкие-или-длинные-данные" class="section level3" number="8.1.7">
+<h3><span class="header-section-number">8.1.7</span> Широкие или длинные данные</h3>
+<p>Ещё один тип преобразования, который нередко нужно совершать, это превращение данных из длинных в широкие или обратно. Что такое длинные или широкие данные?</p>
+<p>Мы сейчас всю дорогу работали с широкими данными, в которых каждая строка это наблюдение (например, один испытуемый), а каждая колонка это переменная (например, возраст).</p>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="слияние-и-преобразование-табличных-данных.html#cb499-1" aria-hidden="true" tabindex="-1"></a>wideDt <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">98</span>), <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Maria&#39;</span>, <span class="st">&#39;Vasiliy&#39;</span>, <span class="st">&#39;Wolfgang&#39;</span>), <span class="at">problems_solved =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">11</span>, <span class="dv">9</span>))</span>
+<span id="cb499-2"><a href="слияние-и-преобразование-табличных-данных.html#cb499-2" aria-hidden="true" tabindex="-1"></a>wideDt</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["problems_solved"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"18","2":"Maria","3":"150"},{"1":"20","2":"Vasiliy","3":"11"},{"1":"98","2":"Wolfgang","3":"9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>В длинном формате данных на каждое наблюдение приходится несколько строчек, потому что вместо того, чтобы хранить каждую переменную в отдельной колонке, мы делаем её отдельной строкой. То есть, если про Василия мы знаем его возраст и сколько задач он решил, то в одной строке мы запишем возраст, а в другой - количество решённых задач. Если мы ещё знаем, например, его рост, то и рост станет отдельной строкой. Для этого мы создадим две колонки: <code>variable</code> и <code>value</code>. В <code>value</code> мы будем хранить, собственно, значения (число лет, число решённых задач и т.п.), а в <code>variable</code> - уточнять, что за значение мы храним в этой строке. Давай разберём на примере:</p>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="слияние-и-преобразование-табличных-данных.html#cb500-1" aria-hidden="true" tabindex="-1"></a>longDt <span class="ot">&lt;-</span> <span class="fu">melt</span>(wideDt, <span class="at">id.vars =</span> <span class="st">&#39;name&#39;</span>, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;problems_solved&#39;</span>))</span>
+<span id="cb500-2"><a href="слияние-и-преобразование-табличных-данных.html#cb500-2" aria-hidden="true" tabindex="-1"></a>longDt</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["variable"],"name":[2],"type":["fct"],"align":["left"]},{"label":["value"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maria","2":"age","3":"18"},{"1":"Vasiliy","2":"age","3":"20"},{"1":"Wolfgang","2":"age","3":"98"},{"1":"Maria","2":"problems_solved","3":"150"},{"1":"Vasiliy","2":"problems_solved","3":"11"},{"1":"Wolfgang","2":"problems_solved","3":"9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div class="rmdtask">
+<p>
+Сравните wideDt и longDt. Осознайте, что в обоих содержится одна и та же информация. Примите это.
+</p>
+</div>
+<p>Для разных задач вам могут потребоваться как широкий, так и длинный формат данных, так что очень полезно уметь преобразовать один в другой.</p>
+</div>
+<div id="из-широких-в-длинные-melt" class="section level3" number="8.1.8">
+<h3><span class="header-section-number">8.1.8</span> Из широких в длинные: <code>melt()</code></h3>
+<p>Как вы могли заметить, в последнем куске кода я использовала функцию <code>melt()</code>, чтобы перевести данные из широкого формата в длинный. Для этого мне надо указать колонку-идентификатор (то есть ту, которая остаётся в широком формате.Таких колонок может быть несколько) и колонки с измерениями - то есть те, которые мы как раз хотим переформатировать. Колонка-идентификатор указывается в аргументе <code>id.vars</code> с помощью вектора имён колонок, а колонки с измерениями - так же, но в аргументе <code>measure.vars</code>.</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="слияние-и-преобразование-табличных-данных.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(wideDt, <span class="at">id.vars =</span> <span class="st">&#39;name&#39;</span>, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;problems_solved&#39;</span>))</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["variable"],"name":[2],"type":["fct"],"align":["left"]},{"label":["value"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maria","2":"age","3":"18"},{"1":"Vasiliy","2":"age","3":"20"},{"1":"Wolfgang","2":"age","3":"98"},{"1":"Maria","2":"problems_solved","3":"150"},{"1":"Vasiliy","2":"problems_solved","3":"11"},{"1":"Wolfgang","2":"problems_solved","3":"9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Если я выберу другую колонку в <code>id.vars</code>, то получу совсем другой результат:</p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="слияние-и-преобразование-табличных-данных.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(wideDt, <span class="at">id.vars =</span> <span class="st">&#39;age&#39;</span>, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">&#39;name&#39;</span>, <span class="st">&#39;problems_solved&#39;</span>))</span></code></pre></div>
+<pre><code>## Warning in melt.data.table(wideDt, id.vars = &quot;age&quot;, measure.vars = c(&quot;name&quot;, :
+## &#39;measure.vars&#39; [name, problems_solved] are not all of the same type. By order of
+## hierarchy, the molten data value column will be of type &#39;character&#39;. All measure
+## variables not of type &#39;character&#39; will be coerced too. Check DETAILS in ?
+## melt.data.table for more on coercion.</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["variable"],"name":[2],"type":["fct"],"align":["left"]},{"label":["value"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"18","2":"name","3":"Maria"},{"1":"20","2":"name","3":"Vasiliy"},{"1":"98","2":"name","3":"Wolfgang"},{"1":"18","2":"problems_solved","3":"150"},{"1":"20","2":"problems_solved","3":"11"},{"1":"98","2":"problems_solved","3":"9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Так как у нас нет испытуемых с одинаковым возрастом, то для каждого значения возраста мы, по сути, храним информацию об одном испытуемом. Давайте сначала сгруппируем людей по возрасту (старше среднего или младше среднего), а потом трансформируем данные в длинный формат по этой группировке:</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="слияние-и-преобразование-табличных-данных.html#cb504-1" aria-hidden="true" tabindex="-1"></a>wideDt[, age_above_mean <span class="sc">:</span><span class="er">=</span> age <span class="sc">&gt;</span> <span class="fu">mean</span>(age)]</span>
+<span id="cb504-2"><a href="слияние-и-преобразование-табличных-данных.html#cb504-2" aria-hidden="true" tabindex="-1"></a>wideDt</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["problems_solved"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["age_above_mean"],"name":[4],"type":["lgl"],"align":["right"]}],"data":[{"1":"18","2":"Maria","3":"150","4":"FALSE"},{"1":"20","2":"Vasiliy","3":"11","4":"FALSE"},{"1":"98","2":"Wolfgang","3":"9","4":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Теперь в колонке <code>age_above_mean</code> у нас лежит TRUE, если возраст выше среднего в таблице, и FALSE, если ниже. Давайте используем её как <code>id.vars</code>.</p>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="слияние-и-преобразование-табличных-данных.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(wideDt, <span class="at">id.vars =</span> <span class="st">&#39;age_above_mean&#39;</span>, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;name&#39;</span>, <span class="st">&#39;problems_solved&#39;</span>))</span></code></pre></div>
+<pre><code>## Warning in melt.data.table(wideDt, id.vars = &quot;age_above_mean&quot;, measure.vars
+## = c(&quot;age&quot;, : &#39;measure.vars&#39; [age, name, problems_solved] are not all of the
+## same type. By order of hierarchy, the molten data value column will be of type
+## &#39;character&#39;. All measure variables not of type &#39;character&#39; will be coerced too.
+## Check DETAILS in ?melt.data.table for more on coercion.</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age_above_mean"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["variable"],"name":[2],"type":["fct"],"align":["left"]},{"label":["value"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"age","3":"18"},{"1":"FALSE","2":"age","3":"20"},{"1":"TRUE","2":"age","3":"98"},{"1":"FALSE","2":"name","3":"Maria"},{"1":"FALSE","2":"name","3":"Vasiliy"},{"1":"TRUE","2":"name","3":"Wolfgang"},{"1":"FALSE","2":"problems_solved","3":"150"},{"1":"FALSE","2":"problems_solved","3":"11"},{"1":"TRUE","2":"problems_solved","3":"9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>В целом, если указать только <code>id.vars</code>, то <code>melt()</code> автоматически использует все оставшиеся колонки как <code>measure.vars</code>:</p>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="слияние-и-преобразование-табличных-данных.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(wideDt, <span class="at">id.vars =</span> <span class="st">&#39;age_above_mean&#39;</span>)</span></code></pre></div>
+<pre><code>## Warning in melt.data.table(wideDt, id.vars = &quot;age_above_mean&quot;):
+## &#39;measure.vars&#39; [age, name, problems_solved] are not all of the same type. By
+## order of hierarchy, the molten data value column will be of type &#39;character&#39;.
+## All measure variables not of type &#39;character&#39; will be coerced too. Check DETAILS
+## in ?melt.data.table for more on coercion.</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age_above_mean"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["variable"],"name":[2],"type":["fct"],"align":["left"]},{"label":["value"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"age","3":"18"},{"1":"FALSE","2":"age","3":"20"},{"1":"TRUE","2":"age","3":"98"},{"1":"FALSE","2":"name","3":"Maria"},{"1":"FALSE","2":"name","3":"Vasiliy"},{"1":"TRUE","2":"name","3":"Wolfgang"},{"1":"FALSE","2":"problems_solved","3":"150"},{"1":"FALSE","2":"problems_solved","3":"11"},{"1":"TRUE","2":"problems_solved","3":"9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>При этом мы можем выбрать только часть колонок как <code>measure.vars</code>, и тогда остальные в трансформированную длинную таблицу не войдут:</p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="слияние-и-преобразование-табличных-данных.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(wideDt, <span class="at">id.vars =</span> <span class="st">&#39;age_above_mean&#39;</span>, <span class="at">measure.vars =</span> <span class="st">&#39;problems_solved&#39;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age_above_mean"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["variable"],"name":[2],"type":["fct"],"align":["left"]},{"label":["value"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"FALSE","2":"problems_solved","3":"150"},{"1":"FALSE","2":"problems_solved","3":"11"},{"1":"TRUE","2":"problems_solved","3":"9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="качественные-вина" class="section level3" number="8.1.9">
+<h3><span class="header-section-number">8.1.9</span> Качественные вина</h3>
+<pre><code>## Warning in melt.data.table(wine, id.vars = &quot;quality_above_mean&quot;):
+## &#39;measure.vars&#39; [fixed acidity, volatile acidity, citric acid, residual
+## sugar, ...] are not all of the same type. By order of hierarchy, the molten
+## data value column will be of type &#39;double&#39;. All measure variables not of type
+## &#39;double&#39; will be coerced too. Check DETAILS in ?melt.data.table for more on
+## coercion.</code></pre>
+<p><img src="andan_2021_files/figure-html/unnamed-chunk-307-1.png" width="672" /></p>
+<div class="rmdtask">
+<p>
+Скачайте с Каггла <a href="https://raw.githubusercontent.com/maria-srv/AnDan2021Start/main/data/winequality-red.csv">датасет о красных винах</a>. Разделите вина на “лучше среднего” и “хуже среднего” по экспертной оценке качества (колонка <code>quality</code>) и постройте такой же график, как сверху. Для этого вам нужно будет перевести дата.тейбл в длинный формат.
+</p>
+<p>
+Подсказка: вам понадобится <code>geom_density()</code> и <code>facet_wrap()</code> с аргументом <code>scales = ‘free’)</code>.
+</p>
+</div>
+</div>
+<div id="из-длинных-в-широкие-dcast" class="section level3" number="8.1.10">
+<h3><span class="header-section-number">8.1.10</span> Из длинных в широкие: <code>dcast()</code></h3>
+<p>Конечно же, данные можно преобразовать и обратно из длинного формата в широкий. Это можно сделать с помощью функции <code>dcast()</code>, вот так:</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="слияние-и-преобразование-табличных-данных.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(longDt, name <span class="sc">~</span> variable, <span class="at">value.var =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["problems_solved"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maria","2":"18","3":"150"},{"1":"Vasiliy","2":"20","3":"11"},{"1":"Wolfgang","2":"98","3":"9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>То, как именно преобразовать данные, в <code>dcast()</code> указывается с помощью формулы, здесь <code>name ~ variable</code>. Формула это особый синтаксис, в котором, если попросту, можно прочитать тильду <code>~</code> как “в зависимости от”. Вы ещё столкнётесь с формулами в разделе про линейные регрессии. Конкретно в <code>dcast()</code> слева от тильды мы указываем колонку-идентификатор, а справа - колонку с будущими именами колонок в трансформированной широкой таблице. В аргументе <code>value.var</code> мы указываем колонку со значениями, которые нужно будет положить в свежесозданные колонки.</p>
+<p>Что, например, можно сделать с <code>dcast()</code>? Ну, например, сделать вот так:</p>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="слияние-и-преобразование-табличных-данных.html#cb512-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;about_us_eng.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="слияние-и-преобразование-табличных-данных.html#cb513-1" aria-hidden="true" tabindex="-1"></a>hogwartsByMonth <span class="ot">&lt;-</span> dt[, .N, by <span class="ot">=</span> .(hogwarts, month)]</span>
+<span id="cb513-2"><a href="слияние-и-преобразование-табличных-данных.html#cb513-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(hogwartsByMonth, hogwarts <span class="sc">~</span> month, <span class="at">value.var =</span> <span class="st">&quot;N&quot;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["hogwarts"],"name":[1],"type":["chr"],"align":["left"]},{"label":["April"],"name":[2],"type":["int"],"align":["right"]},{"label":["August"],"name":[3],"type":["int"],"align":["right"]},{"label":["December"],"name":[4],"type":["int"],"align":["right"]},{"label":["February"],"name":[5],"type":["int"],"align":["right"]},{"label":["I was never born"],"name":[6],"type":["int"],"align":["right"]},{"label":["January"],"name":[7],"type":["int"],"align":["right"]},{"label":["July"],"name":[8],"type":["int"],"align":["right"]},{"label":["June"],"name":[9],"type":["int"],"align":["right"]},{"label":["March"],"name":[10],"type":["int"],"align":["right"]},{"label":["May"],"name":[11],"type":["int"],"align":["right"]},{"label":["November"],"name":[12],"type":["int"],"align":["right"]},{"label":["October"],"name":[13],"type":["int"],"align":["right"]},{"label":["September"],"name":[14],"type":["int"],"align":["right"]}],"data":[{"1":"Gryffindor","2":"1","3":"NA","4":"NA","5":"2","6":"NA","7":"1","8":"NA","9":"1","10":"2","11":"NA","12":"NA","13":"1","14":"1"},{"1":"Hufflepuff","2":"NA","3":"1","4":"NA","5":"2","6":"1","7":"NA","8":"NA","9":"NA","10":"NA","11":"2","12":"NA","13":"NA","14":"NA"},{"1":"Ravenclaw","2":"1","3":"NA","4":"2","5":"NA","6":"1","7":"2","8":"NA","9":"1","10":"2","11":"2","12":"NA","13":"2","14":"1"},{"1":"Slytherin","2":"NA","3":"NA","4":"NA","5":"NA","6":"NA","7":"2","8":"1","9":"NA","10":"NA","11":"NA","12":"3","13":"NA","14":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Переменная, которую вы указываете до тильды, так и останется колонкой, а вот значения переменной, указанной после тильды, превратятся в имена новых колонок. Смотрите, что произойдёт, если я поменяю их местами:</p>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="слияние-и-преобразование-табличных-данных.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(hogwartsByMonth, month <span class="sc">~</span> hogwarts, <span class="at">value.var =</span> <span class="st">&quot;N&quot;</span>)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["month"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Gryffindor"],"name":[2],"type":["int"],"align":["right"]},{"label":["Hufflepuff"],"name":[3],"type":["int"],"align":["right"]},{"label":["Ravenclaw"],"name":[4],"type":["int"],"align":["right"]},{"label":["Slytherin"],"name":[5],"type":["int"],"align":["right"]}],"data":[{"1":"April","2":"1","3":"NA","4":"1","5":"NA"},{"1":"August","2":"NA","3":"1","4":"NA","5":"NA"},{"1":"December","2":"NA","3":"NA","4":"2","5":"NA"},{"1":"February","2":"2","3":"2","4":"NA","5":"NA"},{"1":"I was never born","2":"NA","3":"1","4":"1","5":"NA"},{"1":"January","2":"1","3":"NA","4":"2","5":"2"},{"1":"July","2":"NA","3":"NA","4":"NA","5":"1"},{"1":"June","2":"1","3":"NA","4":"1","5":"NA"},{"1":"March","2":"2","3":"NA","4":"2","5":"NA"},{"1":"May","2":"NA","3":"2","4":"2","5":"NA"},{"1":"November","2":"NA","3":"NA","4":"NA","5":"3"},{"1":"October","2":"1","3":"NA","4":"2","5":"NA"},{"1":"September","2":"1","3":"NA","4":"1","5":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div class="rmdtask">
+<p>
+Посчитайте среднюю длину волос в нашем <code>dt</code> в зависимости от того, что они любят, колу или пепси, и того, сколько у них кошек (ответ про “Это личное” уберите). Сделайте табличку, в которой количество кошек меняется по строкам, а любовь к газировке - по столбцам.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="продолжаем-с-data-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anova-a-k-a-дисперсионный-анализ.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/maria-srv/AnDan2021Start/edit/master/07_merge_melt_dcast.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"self_contained": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
