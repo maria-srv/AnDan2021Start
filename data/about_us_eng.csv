@@ -1,34 +1,34 @@
 height,eye_color,eye_number,beard,soft_drink,cats,gorgeous,siblings,hair_length,shoe_size,guitar,hot_drink,month,hogwarts,dream
 165,green,2,no,coke,this is too personal,10,1,25,38,What is a guitar? A giant ukulele?,tea,February,Hufflepuff,rock star
 180,brown,2,no,coke,1,10,2,7,43,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,June,Gryffindor,rock star
-161,blue,2,no,"no, thanks",0,7,1,20,38,I can play one song of Tsoy. The one with the four chords.,shall we dance,July,Slytherin,Rick from Rick and Morty
+161,blue,2,no,no thanks,0,7,1,20,38,I can play one song of Tsoy. The one with the four chords.,shall we dance,July,Slytherin,Rick from Rick and Morty
 164,brown,2,no,coke,0,10,0,20,38,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,November,Slytherin,astronaut
 180,blue,2,no,coke,1,6,1,10,42,What is a guitar? A giant ukulele?,NA,March,Ravenclaw,princess
-170,green,2,no,"no, thanks",1,10,3,20,39,What is a guitar? A giant ukulele?,coffee,January,Slytherin,NA
-170,brown,2,yes,pepsi,1,8,2,30,42,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,May,Ravenclaw,NA
+170,green,2,no,no thanks,1,10,3,20,39,What is a guitar? A giant ukulele?,coffee,January,Slytherin,other
+170,brown,2,yes,pepsi,1,8,2,30,42,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,May,Ravenclaw,other
 173,brown,2,no,coke,1,8,1,40,41,What is a guitar? A giant ukulele?,coffee,November,Slytherin,astronaut
 163,green,2,no,pepsi,0,7,2,30,38,I am a portable speaker with an expanded repertoire of Nashe radio,tea,January,Ravenclaw,princess
-168,green,3,no,"no, thanks",0,9,0,30,38,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,March,Gryffindor,rock star
-165,other,2,no,coke,1,5,0,50,39,What is a guitar? A giant ukulele?,shall we dance,April,Gryffindor,NA
+168,green,3,no,no thanks,0,9,0,30,38,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,March,Gryffindor,rock star
+165,other,2,no,coke,1,5,0,50,39,What is a guitar? A giant ukulele?,shall we dance,April,Gryffindor,other
 164,other,2,no,coke,1,4,2,25,37,NA,tea,January,Gryffindor,rock star
 166,green,3,no,coke,1,10,1,40,36,What is a guitar? A giant ukulele?,coffee,February,Gryffindor,ice cream seller
-NA,green,2,no,"no, thanks",0,8,0,7,45,What is a guitar? A giant ukulele?,tea,April,Ravenclaw,NA
+NA,green,2,no,no thanks,0,8,0,7,45,What is a guitar? A giant ukulele?,tea,April,Ravenclaw,other
 173,blue,2,no,coke,0,8,0,36,39,I am new Jimi Hendrix,coffee,November,Slytherin,rock star
-173,green,2,no,"no, thanks",1,10,1,25,36,What is a guitar? A giant ukulele?,tea,May,Ravenclaw,astronaut
+173,green,2,no,no thanks,1,10,1,25,36,What is a guitar? A giant ukulele?,tea,May,Ravenclaw,astronaut
 183,brown,2,no,coke,1,8,1,22,43,I can play one song of Tsoy. The one with the four chords.,coffee,August,Hufflepuff,princess
-170,brown,2,no,"no, thanks",this is too personal,7,1,5,40,What is a guitar? A giant ukulele?,shall we dance,May,Hufflepuff,NA
+170,brown,2,no,no thanks,this is too personal,7,1,5,40,What is a guitar? A giant ukulele?,shall we dance,May,Hufflepuff,other
 185,brown,2,no,coke,0,3,1,5,45,I can play one song of Tsoy. The one with the four chords.,coffee,May,Hufflepuff,astronaut
 169,brown,3,yes,pepsi,1,10,1,21,39,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,I was never born,Ravenclaw,princess
 185,brown,2,no,coke,0,6,0,5,45,I am a portable speaker with an expanded repertoire of Nashe radio,coffee,June,Ravenclaw,trolleybus or tram driver
-172,brown,2,no,"no, thanks",0,4,0,30,41,What is a guitar? A giant ukulele?,tea,February,Hufflepuff,NA
-158,brown,2,no,pepsi,0,7,1,25,38,What is a guitar? A giant ukulele?,tea,October,Gryffindor,NA
-185,brown,2,no,"no, thanks",0,3,0,11,43,I can play one song of Tsoy. The one with the four chords.,tea,March,Gryffindor,NA
-168,brown,2,no,"no, thanks",1,9,1,40,35,What is a guitar? A giant ukulele?,tea,February,Gryffindor,NA
+172,brown,2,no,no thanks,0,4,0,30,41,What is a guitar? A giant ukulele?,tea,February,Hufflepuff,other
+158,brown,2,no,pepsi,0,7,1,25,38,What is a guitar? A giant ukulele?,tea,October,Gryffindor,other
+185,brown,2,no,no thanks,0,3,0,11,43,I can play one song of Tsoy. The one with the four chords.,tea,March,Gryffindor,other
+168,brown,2,no,no thanks,1,9,1,40,35,What is a guitar? A giant ukulele?,tea,February,Gryffindor,other
 175,blue,2,no,pepsi,2,10,0,20,40,I am a portable speaker with an expanded repertoire of Nashe radio,coffee,October,Ravenclaw,princess
-162,brown,2,no,"no, thanks",0,4,0,10,40,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,January,Slytherin,astronaut
-182,other,2,no,coke,1,10,0,12,43,What is a guitar? A giant ukulele?,tea,I was never born,Hufflepuff,NA
-164,brown,4,no,"no, thanks",more than 2,10,3,50,38,What is a guitar? A giant ukulele?,shall we dance,March,Ravenclaw,trolleybus or tram driver
-167,green,104,no,coke,2,7,5,15,39,What is a guitar? A giant ukulele?,coffee,December,Ravenclaw,NA
+162,brown,2,no,no thanks,0,4,0,10,40,I am a portable speaker with an expanded repertoire of Nashe radio,shall we dance,January,Slytherin,astronaut
+182,other,2,no,coke,1,10,0,12,43,What is a guitar? A giant ukulele?,tea,I was never born,Hufflepuff,other
+164,brown,4,no,no thanks,more than 2,10,3,50,38,What is a guitar? A giant ukulele?,shall we dance,March,Ravenclaw,trolleybus or tram driver
+167,green,104,no,coke,2,7,5,15,39,What is a guitar? A giant ukulele?,coffee,December,Ravenclaw,other
 175,blue,2,no,pepsi,2,10,0,20,40,I am a portable speaker with an expanded repertoire of Nashe radio,coffee,October,Ravenclaw,princess
 167,brown,2,no,coke,0,9,1,25,38,I am a portable speaker with an expanded repertoire of Nashe radio,tea,September,Ravenclaw,rock star
 168,blue,2,no,coke,0,8,0,15,40.5,I am a portable speaker with an expanded repertoire of Nashe radio,coffee,January,Ravenclaw,Rick from Rick and Morty
