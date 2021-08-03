@@ -142,7 +142,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html"><i class="fa fa-check"></i><b>2</b> Знакомство с RStudio</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#знакомство-с-rstudio-1"><i class="fa fa-check"></i><b>2.1</b> Знакомство с RStudio</a></li>
-<li class="chapter" data-level="2.2" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#открываем-файл"><i class="fa fa-check"></i><b>2.2</b> Открываем файл</a></li>
+<li class="chapter" data-level="2.2" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#горячие-клавиши"><i class="fa fa-check"></i><b>2.2</b> Горячие клавиши</a></li>
+<li class="chapter" data-level="2.3" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#гайды-по-стилю-r"><i class="fa fa-check"></i><b>2.3</b> Гайды по стилю R</a></li>
+<li class="chapter" data-level="2.4" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#рабочая-папка"><i class="fa fa-check"></i><b>2.4</b> Рабочая папка</a></li>
+<li class="chapter" data-level="2.5" data-path="знакомство-с-rstudio.html"><a href="знакомство-с-rstudio.html#открываем-файл"><i class="fa fa-check"></i><b>2.5</b> Открываем файл</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="введение-в-r.html"><a href="введение-в-r.html"><i class="fa fa-check"></i><b>3</b> Введение в R</a>
 <ul>
@@ -150,13 +153,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="введение-в-r.html"><a href="введение-в-r.html#типы-данных"><i class="fa fa-check"></i><b>3.2</b> Типы данных</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="введение-в-r.html"><a href="введение-в-r.html#целое-число-integer"><i class="fa fa-check"></i><b>3.2.1</b> Целое число — integer</a></li>
-<li class="chapter" data-level="3.2.2" data-path="введение-в-r.html"><a href="введение-в-r.html#число-с-плавающей-запятой-double"><i class="fa fa-check"></i><b>3.2.2</b> Число с плавающей запятой — double</a></li>
+<li class="chapter" data-level="3.2.2" data-path="введение-в-r.html"><a href="введение-в-r.html#число-с-плавающей-точкой-double"><i class="fa fa-check"></i><b>3.2.2</b> Число с плавающей точкой — double</a></li>
 <li class="chapter" data-level="3.2.3" data-path="введение-в-r.html"><a href="введение-в-r.html#комплексные-числа-complex"><i class="fa fa-check"></i><b>3.2.3</b> Комплексные числа — complex</a></li>
 <li class="chapter" data-level="3.2.4" data-path="введение-в-r.html"><a href="введение-в-r.html#символьный-тип-данных-строки-character"><i class="fa fa-check"></i><b>3.2.4</b> Символьный тип данных (строки) — character</a></li>
 <li class="chapter" data-level="3.2.5" data-path="введение-в-r.html"><a href="введение-в-r.html#фактор-factor"><i class="fa fa-check"></i><b>3.2.5</b> Фактор — factor</a></li>
 <li class="chapter" data-level="3.2.6" data-path="введение-в-r.html"><a href="введение-в-r.html#упорядоченный-фактор-ordered-factor"><i class="fa fa-check"></i><b>3.2.6</b> Упорядоченный фактор — ordered factor</a></li>
 <li class="chapter" data-level="3.2.7" data-path="введение-в-r.html"><a href="введение-в-r.html#логические-boolean"><i class="fa fa-check"></i><b>3.2.7</b> Логические — boolean</a></li>
 <li class="chapter" data-level="3.2.8" data-path="введение-в-r.html"><a href="введение-в-r.html#даты."><i class="fa fa-check"></i><b>3.2.8</b> Даты.</a></li>
+<li class="chapter" data-level="3.2.9" data-path="введение-в-r.html"><a href="введение-в-r.html#пропущенные-значения-missing-values"><i class="fa fa-check"></i><b>3.2.9</b> Пропущенные значения — missing values</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="введение-в-r.html"><a href="введение-в-r.html#структуры-данных"><i class="fa fa-check"></i><b>3.3</b> Структуры данных</a>
 <ul>
@@ -312,46 +316,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Под ним - консоль. Туда можно писать команды. Здесь показывается исполняемый код, который не сохраняется.
 Терминал - доступ к терминалу (командной строке) из R Studio (нам сейчас это точно не понадобится=))</p>
 <p>Ну что, давайте пробовать?</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="знакомство-с-rstudio.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;это код, он исполняется&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="знакомство-с-rstudio.html#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;это код, он исполняется&quot;</span></span>
+<span id="cb2-2"><a href="знакомство-с-rstudio.html#cb2-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>## [1] &quot;это код, он исполняется&quot;</code></pre>
-<p>Введите этот скрипт. Как видите, он появился в консоли.
+<p>Введите этот скрипт и нажмите <code>Ctrl+Enter</code> или кнопку <code>Run</code>. Как видите, он появился в консоли.
 Теперь спуститесь в консоль и в строке ввода нажмите стрелку вверх. Как видите, этот код снова появился. Стрелками вверх-вниз можно вызывать недавние команды.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="знакомство-с-rstudio.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#это комментарий, он не исполняется ctrl+enter</span></span></code></pre></div>
-<p>А теперь введите этот скрипт. В консоли он появился, но строки вывода нет.Это значит, что он не был исполнен.
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="знакомство-с-rstudio.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#это комментарий, он не исполняется</span></span></code></pre></div>
+<p>А теперь введите этот скрипт и снова нажмите <code>Ctrl+Enter</code>. В консоли он появился, но строки вывода нет.Это значит, что он не был исполнен.
 Для оставления комментариев (неисполняемой части кода) ставьте в начале строки знак хэштэга <code>#</code>. Также можно закомментировать/раскомментировать часть кода, выделив её и нажав <code>Ctrl+Shift+C</code> для <code>Win</code> или <code>Command+Shift+C</code> для <code>macOS</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="знакомство-с-rstudio.html#cb5-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;это код, он исполняется&quot;</span>)</span>
-<span id="cb5-2"><a href="знакомство-с-rstudio.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="знакомство-с-rstudio.html#cb5-3" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+</div>
+<div id="горячие-клавиши" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Горячие клавиши</h2>
+<p><code>Ctrl+Enter</code>, что мы нажимали, является одной из горячих клавиш. Она позволяет запустить не весь код (как, например, делает кнопка <code>Run</code>), а только часть его: ту, что выделена или ту строку, на которой стоит курсор. Потренируемся. У вас в файле пока есть три строки:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="знакомство-с-rstudio.html#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;это код, он исполняется&quot;</span></span>
+<span id="cb5-2"><a href="знакомство-с-rstudio.html#cb5-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>## [1] &quot;это код, он исполняется&quot;</code></pre>
-<p>А теперь присвойте переменной <code>a</code> значение и выведите результат на экран.
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="знакомство-с-rstudio.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#это комментарий, он не исполняется</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Выделите последние две строки и нажмите <code>Ctrl+Enter</code>. У вас в выводе должна появиться фраза: <code>это код, он исполняется</code>, а в консоли - последние две строки.</li>
+<li>А теперь поставьте курсор на последнюю строку. Вывода у вас не должно появиться, а в консоли появится последняя строка.
+Вывод в консоли пишется черным цветом, исполняемые команды - синим.</li>
+</ol>
+<p>Остальные горячие клавиши можно посмотреть во вкладке <code>Help &gt; Keyboard Shortcuts Help</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="знакомство-с-rstudio.html#cb8-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="st">&quot;это код, он исполняется&quot;</span></span>
+<span id="cb8-2"><a href="знакомство-с-rstudio.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="знакомство-с-rstudio.html#cb8-3" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>## [1] &quot;это код, он исполняется&quot;</code></pre>
+<p>В этом коде мы присвоили переменной <code>a</code> значение и вывели результат на экран.
 Оператор присваивания в R это <code>&lt;-</code> (допускается использование знака равно <code>=</code>).
-В R можно и обратный оператор присваивания <code>-&gt;</code> использовать, но это считается плохим тоном, так как плохо считывается визуально.
+В R можно использовать и обратный оператор присваивания <code>-&gt;</code>, но это считается плохим тоном, так как плохо считывается визуально.
 С обратным оператором этот же код выглядел бы так:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="знакомство-с-rstudio.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;это код, он исполняется&quot;</span>)<span class="ot">-&gt;</span>a</span>
-<span id="cb7-2"><a href="знакомство-с-rstudio.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="знакомство-с-rstudio.html#cb7-3" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="знакомство-с-rstudio.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;это код, он исполняется&quot;</span><span class="ot">-&gt;</span>a</span>
+<span id="cb10-2"><a href="знакомство-с-rstudio.html#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="знакомство-с-rstudio.html#cb10-3" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>## [1] &quot;это код, он исполняется&quot;</code></pre>
+</div>
+<div id="гайды-по-стилю-r" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Гайды по стилю R</h2>
 <p>Переменные должны обязательно начинаться с буквы (чтобы не было проблем, используйте латинские буквы) и не содержать в себе специальных символов. Есть <a href="http://adv-r.had.co.nz/Style.html">различные</a> <a href="https://google.github.io/styleguide/Rguide.html">гайды</a> по неймингу переменных, функций и объектов в R. Можете на досуге ознакомиться.</p>
-<p>Выполнить выделенную часть кода помогут <code>Ctrl+Enter</code>. Остальные горячие клавиши можно посмотреть во вкладке <code>Help &gt; Keyboard Shortcuts Help</code>.</p>
+</div>
+<div id="рабочая-папка" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Рабочая папка</h2>
 <p>Мы работаем с файлами в определенной рабочей папке (директории). R видит то, что в этой папке, и к файлам в ней можно обращаться по имени без указания адреса. Понять, в какой папке мы находимся (и, соотсветственно, путь до данного файла, в котором мы пишем), можно с помощью команды:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="знакомство-с-rstudio.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="знакомство-с-rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;C:/Users/serve/Desktop/&quot;</code></pre>
 <p>Если мы хотим перейти в другую папку, мы можем сделать это во вкладке <code>Sessions &gt; Set working directory</code>. Ну или с помощью кода =) Здесь вы можете прописать адрес, который вам нужен:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="знакомство-с-rstudio.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/serve/Desktop/andan2021/&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="знакомство-с-rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/serve/Desktop/andan2021/&quot;</span>)</span></code></pre></div>
 </div>
-<div id="открываем-файл" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Открываем файл</h2>
+<div id="открываем-файл" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Открываем файл</h2>
 <p>Итак! Подготовка закончена. Давайте откроем наш первый документ.
 Лучше всего вначале открыть файл в текстовом редакторе и понять, какие там разделители. Рекомендуем Notepad++
 Пишем команду. Если выделить мышкой слова <code>read.table</code> и нажать <code>F1</code>, то справа внизу во вкладке Help появится окно помощи со справкой по этой команде. Также справку можно вызвать с помощью команд: <code>?read.table</code> или <code>help(read.table)</code>. В некоторых случаях нужно заключать искомое слово в кавычки. Экспериментируйте =)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="знакомство-с-rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;about_us_eng.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="знакомство-с-rstudio.html#cb15-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;about_us_eng.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec, : line 1 did not have 20 elements</code></pre>
 <p>Опа, ошибка. Ошибку всегда можно погуглить или поискать решение на stackoverflow, но в данном случае расширение файла дает нам подсказку: проблема в разделителях. TSV - tab separated values, CSV - comma separated values. У нас CSV-файл.
 Нам надо правильно выставить сепаратор: <code>,</code>. В tsv формате разделителем будет табуляция <code>\t</code>. <code>\</code> - это знак экранирования. О нем я расскажу попозже.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="знакомство-с-rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;about_us_eng.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="знакомство-с-rstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;about_us_eng.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>) </span></code></pre></div>
 <p>Посмотрите в окошко справа вверху: видите, появилось: <code>data 36 obs. of 15 variables</code>? Кликнем туда и посмотрим, что у нас загрузилось.
 Это табличка с нашими данными, но вроде всё ещё не совсем то, что надо. Давайте укажем, что первая строка является именами переменных.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="знакомство-с-rstudio.html#cb15-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;about_us_eng.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="знакомство-с-rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;about_us_eng.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>) </span></code></pre></div>
 <p>Тут можно окинуть широким взглядом всю таблицу. Очень удобно. Посмотрите, кстати, что появилось в консоли: <code>View(data)</code>. Этой командой можно пользоваться для визуального просмотра данных. Удобно, когда у вас много табличек.</p>
 <p>В команде выше вы видите основы синтаксиса R.
 — <code>data</code> —- объект, в который запишется то, что после
@@ -361,10 +385,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 — <code>TRUE</code> без кавычек означает <code>TRUE</code> —- значение типа logic, булева переменная (Boolean)
 — <code>TRUE</code> в кавычках (<code>"TRUE"</code>) было бы просто словом TRUE, значением типа character</p>
 <p>Давайте обратим наш взор на окошко вверху справа. Это окно глобального окружения. Все таблицы, переменные, функции и пр. RStudio запоминает и перечисляет там. В глобальном окружении также присутствуют некоторые уже заданные и написанные данные, переменные и функции. Например, число пи:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="знакомство-с-rstudio.html#cb16-1" aria-hidden="true" tabindex="-1"></a>pi</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="знакомство-с-rstudio.html#cb19-1" aria-hidden="true" tabindex="-1"></a>pi</span></code></pre></div>
 <pre><code>## [1] 3.141593</code></pre>
 <p>Или вектор алфавита</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="знакомство-с-rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a>letters</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="знакомство-с-rstudio.html#cb21-1" aria-hidden="true" tabindex="-1"></a>letters</span></code></pre></div>
 <pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
 ## [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
 <p>Перейдем к знакомству непосредственно с R.</p>
